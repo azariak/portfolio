@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import './index.css';
 
 const PersonalPortfolio = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -38,246 +39,6 @@ const PersonalPortfolio = () => {
   
   shuffleArray(suggestedQuestions);
 
-  const theme = isDarkMode ? {
-    background: '#1a1a1a',
-    cardBg: '#2a2a2a',
-    text: '#ffffff',
-    textSecondary: '#a0a0a0',
-    border: '#404040',
-    button: '#4a4a4a',
-    buttonHover: '#5a5a5a',
-    input: '#333333',
-    chatBg: '#252525',
-    pillBg: '#333333',
-    pillHover: '#404040',
-    scrollButton: 'rgba(42, 42, 42, 0.9)',
-    scrollbarThumb: '#404040',
-    scrollbarTrack: '#2a2a2a'
-  } : {
-    background: '#f8f4eb',
-    cardBg: '#ffffff',
-    text: '#2c2c2c',
-    textSecondary: '#666666',
-    border: '#e8e1d4',
-    button: '#826f5d',
-    buttonHover: '#6d5c4d',
-    input: '#ffffff',
-    chatBg: '#f0f0f0',
-    pillBg: '#e8e1d4',
-    pillHover: '#d8d1c4',
-    scrollButton: 'rgba(255, 255, 255, 0.9)',
-    scrollbarThumb: '#c0c0c0',
-    scrollbarTrack: '#f0f0f0'
-  };
-
-  const styles = {
-    container: {
-      height: '100vh',
-      width: '100vw',
-      padding: '1rem',
-      backgroundColor: theme.background,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      boxSizing: 'border-box',
-      margin: 0,
-      position: 'relative',
-      overflow: 'hidden',
-    },
-    content: {
-      width: '100%',
-      maxWidth: '800px',
-      height: '650px',
-      margin: '0 auto',
-      display: 'flex',
-      flexDirection: 'column',
-      backgroundColor: theme.cardBg,
-      borderRadius: '1rem',
-      boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
-      overflow: 'hidden',
-    },
-    themeToggle: {
-      position: 'fixed',
-      right: '1rem',
-      top: '1rem',
-      width: '2.5rem',
-      height: '2.5rem',
-      borderRadius: '0.5rem',
-      backgroundColor: theme.button,
-      border: 'none',
-      color: '#ffffff',
-      cursor: 'pointer',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      transition: 'background-color 0.2s',
-      fontSize: '1.2rem',
-      zIndex: 10,
-    },
-    header: {
-      padding: '1rem',
-      borderBottom: `1px solid ${theme.border}`,
-      textAlign: 'center',
-      backgroundColor: theme.cardBg,
-    },
-    headerTitle: {
-      color: theme.text,
-      fontSize: '1.5rem',
-      fontWeight: 'bold',
-      margin: 0,
-    },
-    chatContainer: {
-      flex: 1,
-      overflowY: 'auto',
-      padding: '1rem',
-      backgroundColor: theme.chatBg,
-      scrollBehavior: 'smooth',
-      scrollbarWidth: 'thin',
-      '&::-webkit-scrollbar': {
-        width: '8px',
-      },
-      '&::-webkit-scrollbar-track': {
-        background: theme.scrollbarTrack,
-        borderRadius: '4px',
-      },
-      '&::-webkit-scrollbar-thumb': {
-        background: theme.scrollbarThumb,
-        borderRadius: '4px',
-      },
-    },
-    messageList: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '1rem',
-    },
-    message: {
-      maxWidth: '80%',
-      padding: '0.75rem',
-      borderRadius: '0.75rem',
-      fontSize: '0.875rem',
-      wordBreak: 'break-word',
-    },
-    assistantMessage: {
-      backgroundColor: theme.button,
-      color: '#ffffff',
-      alignSelf: 'flex-start',
-    },
-    userMessage: {
-      backgroundColor: theme.border,
-      color: theme.text,
-      alignSelf: 'flex-end',
-    },
-    suggestedQuestionsContainer: {
-      position: 'relative',
-      padding: '0.5rem 1rem',
-      borderTop: `1px solid ${theme.border}`,
-      backgroundColor: theme.cardBg,
-    },
-    suggestedQuestions: {
-      display: 'flex',
-      gap: '0.5rem',
-      overflowX: 'auto',
-      scrollBehavior: 'smooth',
-      msOverflowStyle: 'none',
-      scrollbarWidth: 'none',
-      padding: '0.5rem',
-      '&::-webkit-scrollbar': {
-        display: 'none',
-      },
-    },
-    scrollButton: {
-      position: 'absolute',
-      top: '50%',
-      transform: 'translateY(-50%)',
-      width: '2rem',
-      height: '2rem',
-      borderRadius: '50%',
-      backgroundColor: theme.scrollButton,
-      border: 'none',
-      cursor: 'pointer',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: theme.text,
-      zIndex: 2,
-      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-      transition: 'opacity 0.2s',
-    },
-    scrollButtonLeft: {
-      left: 0,
-    },
-    scrollButtonRight: {
-      right: 0,
-    },
-    questionPill: {
-      backgroundColor: theme.pillBg,
-      color: theme.text,
-      padding: '0.5rem 1rem',
-      borderRadius: '999px',
-      fontSize: '0.875rem',
-      border: 'none',
-      cursor: 'pointer',
-      whiteSpace: 'nowrap',
-      transition: 'background-color 0.2s',
-      '&:hover': {
-        backgroundColor: theme.pillHover,
-      },
-    },
-    inputArea: {
-      display: 'flex',
-      padding: '1rem',
-      borderTop: `1px solid ${theme.border}`,
-      backgroundColor: theme.cardBg,
-      gap: '0.5rem',
-    },
-    input: {
-      flex: 1,
-      padding: '0.75rem',
-      borderRadius: '0.375rem',
-      border: `1px solid ${theme.border}`,
-      backgroundColor: theme.input,
-      color: theme.text,
-      fontSize: '0.875rem',
-      '&:focus': {
-        outline: 'none',
-        borderColor: theme.button,
-      },
-    },
-    sendButton: {
-      padding: '0.75rem 1.25rem',
-      borderRadius: '0.375rem',
-      backgroundColor: theme.button,
-      color: '#ffffff',
-      border: 'none',
-      cursor: 'pointer',
-      transition: 'background-color 0.2s',
-      fontSize: '0.875rem',
-      '&:hover': {
-        backgroundColor: theme.buttonHover,
-      },
-    },
-    footer: {
-      position: 'fixed',
-      bottom: '0.5rem',
-      left: '0',
-      right: '0',
-      textAlign: 'center',
-      fontSize: 'clamp(0.75rem, 1.8vw, 0.875rem)',
-      color: theme.textSecondary,
-      pointerEvents: 'none',
-      zIndex: 10,
-    },
-    link: {
-      color: theme.button,
-      textDecoration: 'none',
-      fontWeight: 'bold',
-      pointerEvents: 'auto',
-      '&:hover': {
-        textDecoration: 'underline',
-      },
-    },
-  };
-
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
@@ -305,8 +66,7 @@ const PersonalPortfolio = () => {
     if (questionsRef.current) {
       const questionElements = questionsRef.current.children;
       if (questionElements.length > 0) {
-        // Get the width of a single question pill plus its margin
-        const questionWidth = questionElements[0].offsetWidth + 8; // 8px for the gap
+        const questionWidth = questionElements[0].offsetWidth + 8;
         questionsRef.current.scrollBy({
           left: direction === 'left' ? -questionWidth : questionWidth,
           behavior: 'smooth'
@@ -330,29 +90,26 @@ const PersonalPortfolio = () => {
   };
 
   return (
-    <div style={styles.container}>
+    <div className={`container ${isDarkMode ? 'dark' : 'light'}`}>
       <button 
-        style={styles.themeToggle}
+        className="theme-toggle"
         onClick={() => setIsDarkMode(!isDarkMode)}
         aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
       >
         {isDarkMode ? '☀️' : '🌙'}
       </button>
 
-      <div style={styles.content}>
-        <header style={styles.header}>
-          <h1 style={styles.headerTitle}>Ask About Me 👋</h1>
+      <div className="content">
+        <header className="header">
+          <h1 className="header-title">Ask About Me 👋</h1>
         </header>
 
-        <main style={styles.chatContainer}>
-          <div style={styles.messageList}>
+        <main className="chat-container">
+          <div className="message-list">
             {messages.map((msg, index) => (
               <div
                 key={index}
-                style={{
-                  ...styles.message,
-                  ...(msg.role === 'assistant' ? styles.assistantMessage : styles.userMessage)
-                }}
+                className={`message ${msg.role === 'assistant' ? 'assistant-message' : 'user-message'}`}
               >
                 {msg.content}
               </div>
@@ -361,21 +118,21 @@ const PersonalPortfolio = () => {
           </div>
         </main>
 
-        <div style={styles.suggestedQuestionsContainer}>
+        <div className="suggested-questions-container">
           {showLeftScroll && (
             <button
-              style={{...styles.scrollButton, ...styles.scrollButtonLeft}}
+              className="scroll-button scroll-button-left"
               onClick={() => scroll('left')}
               aria-label="Scroll left"
             >
               ◀
             </button>
           )}
-          <div ref={questionsRef} style={styles.suggestedQuestions}>
+          <div ref={questionsRef} className="suggested-questions">
             {suggestedQuestions.map((question, index) => (
               <button
                 key={index}
-                style={styles.questionPill}
+                className="question-pill"
                 onClick={() => handleQuestionClick(question)}
               >
                 {question}
@@ -384,7 +141,7 @@ const PersonalPortfolio = () => {
           </div>
           {showRightScroll && (
             <button
-              style={{...styles.scrollButton, ...styles.scrollButtonRight}}
+              className="scroll-button scroll-button-right"
               onClick={() => scroll('right')}
               aria-label="Scroll right"
             >
@@ -393,17 +150,17 @@ const PersonalPortfolio = () => {
           )}
         </div>
 
-        <footer style={styles.inputArea}>
+        <footer className="input-area">
           <input
             type="text"
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
-            style={styles.input}
+            className="input"
             placeholder="Ask me anything..."
             onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
           />
           <button 
-            style={styles.sendButton}
+            className="send-button"
             onClick={() => sendMessage()}
             aria-label="Send message"
           >
@@ -412,14 +169,16 @@ const PersonalPortfolio = () => {
         </footer>
       </div>
 
-      <div style={styles.footer}>
+      <div className="footer">
         Designed by{' '}
         <a
           href="https://github.com/azariak"
           target="_blank"
           rel="noopener noreferrer"
-          style={styles.link}
+          className="link"
         >
+
+          {/* Do NOT replace this with your name. */}
           Azaria Kelman.
         </a>
       </div>
