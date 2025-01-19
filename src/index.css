@@ -4,9 +4,12 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  --standard-transition: background-color 0.2s;
+  --standard-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  --standard-font: 0.875rem;
 }
 
-/* Theme Variables */
 .light {
   --background: #f8f4eb;
   --card-bg: #ffffff;
@@ -72,27 +75,8 @@ body {
   flex-direction: column;
   background-color: var(--card-bg);
   border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: var(--standard-shadow);
   overflow: hidden;
-}
-
-.theme-toggle {
-  position: fixed;
-  right: 1rem;
-  top: 1rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 0.5rem;
-  background-color: var(--button);
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s;
-  font-size: 1.2rem;
-  z-index: 10;
 }
 
 .header {
@@ -142,7 +126,7 @@ body {
   max-width: 80%;
   padding: 0.75rem;
   border-radius: 0.75rem;
-  font-size: 0.875rem;
+  font-size: var(--standard-font);
   word-break: break-word;
 }
 
@@ -211,11 +195,11 @@ body {
   color: var(--text);
   padding: 0.5rem 1rem;
   border-radius: 999px;
-  font-size: 0.875rem;
+  font-size: var(--standard-font);
   border: none;
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 0.2s;
+  transition: var(--standard-transition);
 }
 
 .question-pill:hover {
@@ -237,7 +221,7 @@ body {
   border: 1px solid var(--border);
   background-color: var(--input);
   color: var(--text);
-  font-size: 0.875rem;
+  font-size: var(--standard-font);
 }
 
 .input:focus {
@@ -252,8 +236,8 @@ body {
   color: #ffffff;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s;
-  font-size: 0.875rem;
+  transition: var(--standard-transition);
+  font-size: var(--standard-font);
 }
 
 .send-button:hover {
@@ -281,4 +265,128 @@ body {
 
 .link:hover {
   text-decoration: underline;
+}
+
+/* Header Controls */
+.header-controls {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.control-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--button);
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--standard-transition);
+  font-size: 1.2rem;
+}
+
+.control-button:hover {
+  background-color: var(--button-hover);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: var(--standard-shadow);
+}
+
+.modal-close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.modal-title {
+  color: var(--text);
+  margin: 0 0 1.5rem 0;
+  font-size: 1.5rem;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: var(--text);
+  font-size: var(--standard-font);
+}
+
+.modal-input {
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border);
+  background-color: var(--input);
+  color: var(--text);
+  font-size: var(--standard-font);
+}
+
+.modal-input:focus {
+  outline: none;
+  border-color: var(--button);
+}
+
+.modal-hint {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.modal-submit {
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.375rem;
+  background-color: var(--button);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: var(--standard-transition);
+  font-size: var(--standard-font);
+  width: 100%;
+}
+
+.modal-submit:hover {
+  background-color: var(--button-hover);
 }

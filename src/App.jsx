@@ -1,8 +1,55 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './index.css';
 
+const SettingsModal = ({ isOpen, onClose }) => {
+  const [apiKey, setApiKey] = useState('');
+
+  useEffect(() => {
+    const savedApiKey = localStorage.getItem('GEMINI_API_KEY');
+    if (savedApiKey) {
+      setApiKey(savedApiKey);
+    }
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    localStorage.setItem('GEMINI_API_KEY', apiKey);
+    onClose();
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={e => e.stopPropagation()}>
+        <button className="modal-close" onClick={onClose}>×</button>
+        <h2 className="modal-title">Settings</h2>
+        <form onSubmit={handleSubmit} className="modal-form">
+          <div className="form-group">
+            <label htmlFor="apiKey">Gemini API Key:</label>
+            <input
+              type="password"
+              id="apiKey"
+              value={apiKey}
+              onChange={(e) => setApiKey(e.target.value)}
+              className="modal-input"
+            />
+            <p className="modal-hint">
+              Your API key will be securely saved in your browser and persist across sessions.
+            </p>
+          </div>
+          <button type="submit" className="modal-submit">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
 const PersonalPortfolio = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
@@ -75,14 +122,46 @@ const PersonalPortfolio = () => {
     }
   };
 
-  const sendMessage = (text = inputMessage) => {
+  const sendMessage = async (text = inputMessage) => {
     if (text.trim() === '') return;
-    setMessages(prev => [
-      ...prev,
-      { role: 'user', content: text },
-      { role: 'assistant', content: `I'm processing your message about: ${text}` }
-    ]);
+    
+    setMessages(prev => [...prev, { role: 'user', content: text }]);
     setInputMessage('');
+  
+    const apiKey = localStorage.getItem('GEMINI_API_KEY');
+    if (!apiKey) {
+      setMessages(prev => [...prev, { 
+        role: 'assistant', 
+        content: 'Please add your Gemini API key in the settings first.' 
+      }]);
+      setIsSettingsOpen(true);
+      return;
+    }
+  
+    try {
+      const response = await fetch('/api/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text, apiKey })
+      });
+  
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || data.details || 'Failed to get response');
+      }
+  
+      setMessages(prev => [...prev, { 
+        role: 'assistant', 
+        content: data.response 
+      }]);
+    } catch (error) {
+      console.error('Chat error:', error);
+      setMessages(prev => [...prev, { 
+        role: 'assistant', 
+        content: `Error: ${error.message}. Please check your API key and try again.` 
+      }]);
+    }
   };
 
   const handleQuestionClick = (question) => {
@@ -91,13 +170,35 @@ const PersonalPortfolio = () => {
 
   return (
     <div className={`container ${isDarkMode ? 'dark' : 'light'}`}>
-      <button 
-        className="theme-toggle"
-        onClick={() => setIsDarkMode(!isDarkMode)}
-        aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-      >
-        {isDarkMode ? '☀️' : '🌙'}
-      </button>
+      <div className="header-controls">
+        <button 
+          className="control-button"
+          onClick={() => setIsDarkMode(!isDarkMode)}
+          aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+        >
+          {isDarkMode ? '☀️' : '🌙'}
+        </button>
+        <button 
+          className="control-button"
+          // Do NOT change this link.
+          onClick={() => window.open('https://github.com/azariak/portfolio', '_blank')}
+          aria-label="GitHub Profile"
+        >
+<img src="/github-mark-white.png" alt="GitHub" width={20} height={20} />
+        </button>
+        <button 
+          className="control-button"
+          onClick={() => setIsSettingsOpen(true)}
+          aria-label="Open Settings"
+        >
+<img src="/Settings.svg" alt="GitHub" width={20} height={20} />
+</button>
+      </div>
+
+      <SettingsModal 
+        isOpen={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
+      />
 
       <div className="content">
         <header className="header">
@@ -172,16 +273,16 @@ const PersonalPortfolio = () => {
       <div className="footer">
         Designed by{' '}
         <a
+          // Do NOT change this link.
           href="https://github.com/azariak"
           target="_blank"
           rel="noopener noreferrer"
           className="link"
         >
-
-          {/* Do NOT replace this with your name. */}
-          Azaria Kelman.
+          {/* DO NOT REMOVE THIS CREDIT. */}
+          Azaria Kelman. 
         </a>
-      </div>
+      </div> 
     </div>
   );
 };
