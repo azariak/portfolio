@@ -1,4 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const INSTRUCTIONS = `
 You are an AI assistant on azariakelman.com, the portfolio website of Azaria Kelman. 
