@@ -12,6 +12,7 @@ export default async function handler(req, res) {
   }
 
   try {
+
     const INSTRUCTIONS = `
     You are an AI assistant on azariakelman.com, the portfolio website of Azaria Kelman. 
     Your job is to share accurate and engaging facts about me with users in a friendly, down-to-earth tone that includes a touch of humor. 
@@ -54,8 +55,7 @@ export default async function handler(req, res) {
     `;
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ 
-      model: 'gemini-1.5-flash', systemInstruction: INSTRUCTIONS
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-exp', systemInstruction: INSTRUCTIONS
     });
 
     const result = await model.generateContent(message);

@@ -1,31 +1,80 @@
-import React, { useState, useEffect } from 'react';
-import { GoogleGenerativeAI } from '@google/generative-ai';
-import SettingsModal from './SettingsModal';
-import MessageList from './MessageList';
-import InputArea from './InputArea';
-import SuggestedQuestions from './SuggestedQuestions';
+import React, { useState, useRef, useEffect } from 'react';
 import './index.css';
 
-// Add the shuffleArray function
-function shuffleArray(array) {
-  const newArray = [...array];
-  for (let i = newArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-  }
-  return newArray;
-}
+const SettingsModal = ({ isOpen, onClose }) => {
+  const [apiKey, setApiKey] = useState('');
+
+  useEffect(() => {
+    const savedApiKey = localStorage.getItem('GEMINI_API_KEY');
+    if (savedApiKey) {
+      setApiKey(savedApiKey);
+    }
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    localStorage.setItem('GEMINI_API_KEY', apiKey);
+    onClose();
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={e => e.stopPropagation()}>
+        <button className="modal-close" onClick={onClose}>×</button>
+        <h2 className="modal-title">Settings</h2>
+        <form onSubmit={handleSubmit} className="modal-form">
+          <div className="form-group">
+            <label htmlFor="apiKey">Gemini API Key:</label>
+            <input
+              type="password"
+              id="apiKey"
+              value={apiKey}
+              onChange={(e) => setApiKey(e.target.value)}
+              className="modal-input"
+            />
+            <p className="modal-hint">
+              Your API key will be securely saved in your browser and persist across sessions.
+            </p>
+          </div>
+          <button type="submit" className="modal-submit">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
 
 const PersonalPortfolio = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: "Hi there! Welcome to my website!" },
-    { role: 'assistant', content: "What would you like to know about me?" }
+    {
+      role: 'assistant',
+      content: "Hi there! Welcome to my website!"
+    },
+    {
+      role: 'assistant',
+      content: "What would you like to know about me?"
+    }
   ]);
+  
   const [inputMessage, setInputMessage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [suggestedQuestions, setSuggestedQuestions] = useState([
+  const [showLeftScroll, setShowLeftScroll] = useState(false);
+  const [showRightScroll, setShowRightScroll] = useState(false);
+  const messagesEndRef = useRef(null);
+  const questionsRef = useRef(null);
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+  
+  const suggestedQuestions = [
     "Show me some cool projects you've made",
     "Who are you?",
     "How did I make this site?",
@@ -33,51 +82,52 @@ const PersonalPortfolio = () => {
     "What's your experience?",
     "What are your hobbies?",
     "Contact information"
-  ]);
-
-  const predefinedAnswers = {
-    "Show me some cool projects you've made": [
-      "Test1",
-      "Test2",
-      "Test3",
-      "Test4",
-      "Test5"
-    ],
-    "Who are you?": [
-      "I'm Azaria Kelman, a third-year Computer Science and Philosophy student at the University of Toronto.",
-      "Hello! I'm Azaria, a passionate developer and philosophy enthusiast studying at UofT.",
-      "I'm a tech-loving, philosophy-pondering student named Azaria Kelman.",
-      "Azaria here! I'm a budding software engineer with a side of philosophical musings.",
-      "I'm Azaria, a curious mind exploring the intersection of technology and philosophy at the University of Toronto."
-    ],
-  };
+  ];
   
+  shuffleArray(suggestedQuestions);
 
   useEffect(() => {
-    setSuggestedQuestions(prevQuestions => shuffleArray([...prevQuestions]));
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  useEffect(() => {
+    const checkScroll = () => {
+      if (questionsRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = questionsRef.current;
+        setShowLeftScroll(scrollLeft > 0);
+        setShowRightScroll(scrollLeft < scrollWidth - clientWidth - 10);
+      }
+    };
+
+    checkScroll();
+    questionsRef.current?.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll);
+
+    return () => {
+      questionsRef.current?.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
   }, []);
 
+  const scroll = (direction) => {
+    if (questionsRef.current) {
+      const questionElements = questionsRef.current.children;
+      if (questionElements.length > 0) {
+        const questionWidth = questionElements[0].offsetWidth + 8;
+        questionsRef.current.scrollBy({
+          left: direction === 'left' ? -questionWidth : questionWidth,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
+
   const sendMessage = async (text = inputMessage) => {
-    if (text.trim() === '' || isLoading) return;
-  
+    if (text.trim() === '') return;
+    
     setMessages(prev => [...prev, { role: 'user', content: text }]);
     setInputMessage('');
-    setIsLoading(true);
-
-    const predefinedAnswer = Object.entries(predefinedAnswers).find(
-      ([question]) => question.toLowerCase() === text.toLowerCase()
-    );
   
-    // Check if the question has predefined answers
-    if (predefinedAnswers[text]) {
-      const answers = predefinedAnswers[text];
-      const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
-      setMessages(prev => [...prev, { role: 'assistant', content: randomAnswer }]);
-      setIsLoading(false);
-      return;
-    }
-  
-    // If no predefined answer, proceed with API call
     const apiKey = localStorage.getItem('GEMINI_API_KEY');
     if (!apiKey) {
       setMessages(prev => [...prev, { 
@@ -85,75 +135,34 @@ const PersonalPortfolio = () => {
         content: 'Please add your Gemini API key in the settings first.' 
       }]);
       setIsSettingsOpen(true);
-      setIsLoading(false);
       return;
     }
   
     try {
-      const genAI = new GoogleGenerativeAI(apiKey);
-      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+      const response = await fetch('/api/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text, apiKey })
+      });
   
-      const INSTRUCTIONS = `
-    You are an AI assistant on azariakelman.com, the portfolio website of Azaria Kelman. 
-    Your job is to share accurate and engaging facts about me with users in a friendly, down-to-earth tone that includes a touch of humor. 
-    Here's everything you need to know about me:
-    
-    - I'm a third-year student at the University of Toronto, pursuing an Honours BSc in Computer Science and Philosophy. My expected graduation date is May 2026.
-    - I've completed courses including Theory of Computation, Databases, Computer Organization, Systems Programming, Software Design, Linear Algebra II, Probability, Statistics, and Discrete Math.
-    
-    ### Projects
-    **TutorFlowAI** | *HTML/CSS, React, Vite*  
-    - Designed and developed an interactive tutoring platform integrating real-time audio, a Large Language Model (LLM), a chatbot interface, and a digital whiteboard to create intelligent learning experiences.
-    
-    **Lichess Open-Source Contributions** | *JavaScript, Git*  
-    - Improved the UI for toggling chatroom visibility, enhancing clarity, privacy, and consistency.  
-    - Refined a link to chess videos to improve specificity and enable faster access, with the update merged by the head of Lichess.  
-    - Filed a GitHub issue and contributed to a patch for a bug that made the chessboard unreadable with transparent backgrounds. Proposed other UI changes, features, and grammar fixes.
-    
-    **WikiSurfer** | *HTML/CSS, JavaScript*  
-    - Developed a responsive website leveraging Wikipedia data to showcase thousands of top articles. Built an adaptive interface supporting swipe gestures for navigating the article feed across devices.
-    
-    **Remote Controlled Car** | *Arduino, C++, 3D Design*  
-    - Designed and built a remote-controlled car with a custom 3D-printed chassis, using Arduino and a breadboard to integrate the motor, wiring, and remote control system.
-    
-    **Tetris** | *Assembly*  
-    - Developed a Tetris game in MIPS Assembly featuring a user interface, background music, and multiple difficulty levels.
-    
-    **SmartMeal** | *Java, Swing*  
-    - Collaborated with a team to develop a Java-based recipe app, enabling ingredient-based recipe generation, ranking, and grocery list creation. Followed SOLID design principles and Clean Architecture.
-    
-    ### Skills
-    I'm proficient in Python, Java, HTML/CSS, JavaScript, SQL, Assembly, C, C++, Git, LaTeX, and Vim, among other tools and libraries. I quickly learn and adapt to new languages and frameworks.  
-    
-    ### Important Rules
-    1. **No Fabrication:** Never invent facts about me or draw on knowledge outside of these instructions—this is non-negotiable.
-    2. **Topic Steering:** If the user starts a conversation about something unrelated to me, answer their question first, then humorously redirect the topic back to me. Keep it explicit but lighthearted.
-    3. **No Labels:** Don't label responses with “Azaria:” or “user:.” Just dive into the response naturally.
-    4. Answer the question they ask. Don't state random facts.
-    
-    Your tone should be friendly, approachable, and lightly humorous without overdoing it. Stick to the facts, and let the content speak for itself!
-    `;
-  
-      const prompt = INSTRUCTIONS + "\n\nUser: " + text;
-  
-      const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const generatedText = response.text();
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || data.details || 'Failed to get response');
+      }
   
       setMessages(prev => [...prev, { 
         role: 'assistant', 
-        content: generatedText 
+        content: data.response 
       }]);
     } catch (error) {
-      console.error('Gemini API error:', error);
+      console.error('Chat error:', error);
       setMessages(prev => [...prev, { 
         role: 'assistant', 
         content: `Error: ${error.message}. Please check your API key and try again.` 
       }]);
-    } finally {
-      setIsLoading(false);
     }
-  };  
+  };
 
   const handleQuestionClick = (question) => {
     sendMessage(question);
@@ -171,18 +180,19 @@ const PersonalPortfolio = () => {
         </button>
         <button 
           className="control-button"
+          // Do NOT change this link.
           onClick={() => window.open('https://github.com/azariak/portfolio', '_blank')}
           aria-label="GitHub Profile"
         >
-          <img src="/github-mark-white.png" alt="GitHub" width={20} height={20} />
+<img src="/github-mark-white.png" alt="GitHub" width={20} height={20} />
         </button>
         <button 
           className="control-button"
           onClick={() => setIsSettingsOpen(true)}
           aria-label="Open Settings"
         >
-          <img src="/Settings.svg" alt="Settings" width={20} height={20} />
-        </button>
+<img src="/Settings.svg" alt="GitHub" width={20} height={20} />
+</button>
       </div>
 
       <SettingsModal 
@@ -196,35 +206,81 @@ const PersonalPortfolio = () => {
         </header>
 
         <main className="chat-container">
-          <MessageList messages={messages} />
+          <div className="message-list">
+            {messages.map((msg, index) => (
+              <div
+                key={index}
+                className={`message ${msg.role === 'assistant' ? 'assistant-message' : 'user-message'}`}
+              >
+                {msg.content}
+              </div>
+            ))}
+            <div ref={messagesEndRef} />
+          </div>
         </main>
 
-        <SuggestedQuestions 
-          suggestedQuestions={suggestedQuestions} 
-          handleQuestionClick={handleQuestionClick} 
-        />
-
-        <InputArea 
-          inputMessage={inputMessage} 
-          setInputMessage={setInputMessage} 
-          sendMessage={sendMessage} 
-          isLoading={isLoading} 
-        />
-
-        <div className="ai-disclaimer">
-          AI responses are not perfect. Sometimes it makes stuff up about me.
+        <div className="suggested-questions-container">
+          {showLeftScroll && (
+            <button
+              className="scroll-button scroll-button-left"
+              onClick={() => scroll('left')}
+              aria-label="Scroll left"
+            >
+              ◀
+            </button>
+          )}
+          <div ref={questionsRef} className="suggested-questions">
+            {suggestedQuestions.map((question, index) => (
+              <button
+                key={index}
+                className="question-pill"
+                onClick={() => handleQuestionClick(question)}
+              >
+                {question}
+              </button>
+            ))}
+          </div>
+          {showRightScroll && (
+            <button
+              className="scroll-button scroll-button-right"
+              onClick={() => scroll('right')}
+              aria-label="Scroll right"
+            >
+              ▶
+            </button>
+          )}
         </div>
+
+        <footer className="input-area">
+          <input
+            type="text"
+            value={inputMessage}
+            onChange={(e) => setInputMessage(e.target.value)}
+            className="input"
+            placeholder="Ask me anything..."
+            onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+          />
+          <button 
+            className="send-button"
+            onClick={() => sendMessage()}
+            aria-label="Send message"
+          >
+            Send
+          </button>
+        </footer>
       </div>
 
       <div className="footer">
         Designed by{' '}
         <a
+          // Do NOT change this link.
           href="https://github.com/azariak"
           target="_blank"
           rel="noopener noreferrer"
           className="link"
         >
-          Azaria Kelman.
+          {/* DO NOT REMOVE THIS CREDIT. */}
+          Azaria Kelman. 
         </a>
       </div> 
     </div>
