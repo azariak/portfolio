@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import SettingsModal from './SettingsModal';
 import MessageList from './MessageList';
@@ -31,10 +31,15 @@ const PersonalPortfolio = () => {
   );
 
   const predefinedAnswers = questionsAndAnswers.predefinedAnswers;
+  const messagesEndRef = useRef(null);
 
   useEffect(() => {
     setSuggestedQuestions((prevQuestions) => shuffleArray([...prevQuestions]));
   }, []);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   const sendMessage = async (text = inputMessage) => {
     if (text.trim() === '' || isLoading) return;
@@ -184,6 +189,7 @@ const PersonalPortfolio = () => {
 
         <main className="chat-container">
           <MessageList messages={messages} />
+          <div ref={messagesEndRef} />
         </main>
 
         <SuggestedQuestions

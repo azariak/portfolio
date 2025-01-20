@@ -9,20 +9,59 @@
       "Contact information"
     ],
     "predefinedAnswers": {
-      "Show me some cool projects you've made": [
-        "Test1",
-        "Test2",
-        "Test3",
-        "Test4",
-        "Test5"
-      ],
-      "Who are you?": [
-        "I'm Azaria Kelman, a third-year Computer Science and Philosophy student at the University of Toronto.",
-        "Hello! I'm Azaria, a passionate developer and philosophy enthusiast studying at UofT.",
-        "I'm a tech-loving, philosophy-pondering student named Azaria Kelman.",
-        "Azaria here! I'm a budding software engineer with a side of philosophical musings.",
-        "I'm Azaria, a curious mind exploring the intersection of technology and philosophy at the University of Toronto."
-      ]
+    "Show me some cool projects you've made": [
+    "Absolutely! Azaria built TutorFlowAI, an AI-powered tutoring platform with real-time audio, a chatbot, and a digital whiteboard for smarter learning. He also contributed to Lichess, improving its UI and fixing bugs to make the chess experience smoother. Oh, and don’t forget WikiSurfer, a responsive website for exploring top Wikipedia articles with swipe gestures—perfect for curious minds!",
+
+    "Sure! Azaria worked on TutorFlowAI, combining AI and interactive tools to create a next-level tutoring experience. He also built a Remote Controlled Car with a custom 3D-printed chassis and Arduino integration. And then there’s Tetris in Assembly, where he coded a fully functional game with music and difficulty levels—because why not make assembly fun?",
+
+    "Of course! Azaria’s WikiSurfer project is a responsive site that makes exploring Wikipedia articles a breeze. He also contributed to Lichess, improving its UI and fixing bugs to enhance the chess platform. And let’s not forget SmartMeal, a Java-based recipe app that generates recipes based on ingredients and even creates grocery lists!",
+
+    "Let me tell you! Azaria created TutorFlowAI, an AI-driven tutoring platform with a chatbot and digital whiteboard. He also built a Remote Controlled Car using Arduino and 3D printing, and contributed to Lichess, where he improved the UI and fixed bugs to make chess even better. Oh, and there’s WikiSurfer, a site for exploring Wikipedia articles with ease!",
+
+    "Definitely! Azaria’s Tetris in Assembly is a fully functional game coded in MIPS Assembly, complete with music and difficulty levels. He also worked on SmartMeal, a recipe app that generates meal ideas and grocery lists. And then there’s TutorFlowAI, an AI-powered tutoring platform that combines real-time audio, a chatbot, and a digital whiteboard for smarter learning."
+    ],
+    "Who are you?": [
+    "I'm here to help you get to know Azaria Kelman, a University of Toronto student studying Computer Science and Philosophy. Think of me as the friendly guide to his projects, skills, and academic journey—no pressure, just good vibes.",
+    "I’m here to introduce you to Azaria Kelman, a Computer Science and Philosophy student at the University of Toronto. Consider me your laid-back tour guide to his work, skills, and studies—no stress, just a good time.",
+
+    "I’m the friendly AI guide for Azaria Kelman’s portfolio. Azaria’s a student who’s into coding, philosophy, and building cool projects like TutorFlowAI and this portfolio. I’m just here to make it easy (and maybe a little fun) to learn about him.",
+    "I’m your go-to AI for exploring Azaria Kelman’s portfolio. He’s a University of Toronto student who loves coding, thinking, and creating projects like TutorFlowAI. My job? To make learning about him simple and enjoyable.",
+
+    "I’m kind of like Azaria Kelman’s digital sidekick. He’s a student at the University of Toronto studying Computer Science and Philosophy, and I’m here to share his projects, skills, and whatever else you’d like to know about him—no fluff, just the good stuff.",
+    "Think of me as Azaria Kelman’s virtual assistant. He’s a Computer Science and Philosophy student at the University of Toronto, and I’m here to give you the inside scoop on his work, skills, and academic journey—straightforward and fluff-free.",
+
+    "I’m kind of like the friendly narrator for Azaria Kelman’s portfolio. He’s a student who’s passionate about coding, learning, and building things that make life a little smarter. I’m here to share his story in a way that’s easy to follow and maybe even a little fun.",
+    "I’m the voice behind Azaria Kelman’s portfolio, here to tell you all about his passion for coding, reading, and creating smarter solutions. My goal? To make his story easy to understand and maybe even a little entertaining.",
+
+    "I’m like the backstage crew for Azaria Kelman’s portfolio—quietly making sure you get all the info you need about his projects, skills, and studies. He’s a University of Toronto student with a knack for coding and big ideas, and I’m just here to keep things running smoothly.",
+    "I’m the behind-the-scenes helper for Azaria Kelman’s portfolio. He’s a University of Toronto student with a talent for coding and creative thinking, and I’m here to make sure you get all the details without any hassle."
+    ],
+    "Contact information.": [
+    "Absolutely! Azaria is always happy to connect. You can find him on GitHub at https://github.com/azariak. Feel free to reach out there—he's always excited to chat about projects, collaborations, or just geek out about code!",
+
+    "Of course! Azaria loves hearing from fellow tech enthusiasts. The best way to get in touch is through his GitHub profile: https://github.com/azariak. Don't hesitate to drop him a line—he's always up for a good conversation about coding, philosophy, or anything in between!",
+
+    "Sure thing! Azaria is super approachable and enjoys connecting with new people. You can find him on GitHub at https://github.com/azariak. Whether you have questions, ideas, or just want to say hi, he'd be thrilled to hear from you!",
+
+    "You bet! Azaria is always open to new connections and conversations. The easiest way to reach out is through his GitHub: https://github.com/azariak. He's genuinely excited to engage with others in the tech community, so don't be shy!",
+
+    "Absolutely! Azaria is quite friendly and always eager to network. You can find his projects and contact info on GitHub: https://github.com/azariak. He's more than happy to chat about coding, potential collaborations, or even debate about something!",
+
+    "Of course! Azaria is very approachable and loves connecting with like-minded individuals. Check out his GitHub at https://github.com/azariak—it's the best place to reach him. Whether it's about his projects, potential opportunities, or just to geek out about tech, he's all ears!"
+    ],
+    "How did I make this site?": [
+    "Great question! I built this site using React with Vite for a fast and efficient development process. For version control, I relied on Git and used Visual Studio Code as my IDE. To add some AI magic, I used Gemini and occasionally got a little help from Claude 3.5 Sonnet. It’s a mix of modern web development tools and a touch of AI collaboration!",
+
+    "This site came together with a combination of React and Vite, which made the development process smooth and snappy. I used Git for version control and Visual Studio Code as my trusty IDE. For the AI-powered features, I leaned on Gemini and occasionally consulted Claude 3.5 Sonnet. It’s a blend of solid coding tools and a little AI assistance.",
+
+    "I built this site using React with Vite to keep things fast and lightweight. For version control, I used Git, and my go-to IDE was Visual Studio Code. To make things even cooler, I integrated Gemini for AI functionality and occasionally got some input from Claude 3.5 Sonnet. It’s a great example of combining traditional coding with AI tools.",
+
+    "This site was crafted with React and Vite, which made the development process both efficient and enjoyable. I used Git for version control and Visual Studio Code as my IDE of choice. To add some AI-powered features, I worked with Gemini and occasionally got a nudge in the right direction from Claude 3.5 Sonnet. It’s a fun mix of modern tools and AI collaboration!",
+
+    "I put this site together using React and Vite, which gave it a fast and responsive foundation. For version control, I relied on Git, and I used Visual Studio Code as my IDE. To enhance the site with AI features, I used Gemini and occasionally got some help from Claude 3.5 Sonnet. It’s a nice balance of coding and AI teamwork!",
+
+    "This site was built with React and Vite, which made the development process smooth and efficient. I used Git for version control and Visual Studio Code as my IDE. For the AI-powered elements, I worked with Gemini and occasionally got a little help from Claude 3.5 Sonnet. It’s a great example of how coding and AI can work hand in hand!"
+    ]
     }
   }
   
