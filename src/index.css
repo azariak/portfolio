@@ -390,3 +390,27 @@ body {
 .modal-submit:hover {
   background-color: var(--button-hover);
 }
+.send-button {
+  /* ... (existing styles) */
+  transition: opacity 0.3s ease;
+}
+
+.send-button.loading {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.ai-disclaimer {
+  font-size: 0.65em;
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 3px 0;
+  opacity: 0.8;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin-top: 0px;
+}
