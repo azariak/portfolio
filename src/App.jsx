@@ -42,6 +42,15 @@ const PersonalPortfolio = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
+  const generateResponse = async (text, apiKey) => {
+    const genAI = new GoogleGenerativeAI(apiKey);
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const prompt = systemInstructions + "\n\nUser: " + text;
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    return response.text();
+  };
+
   const sendMessage = async (text = inputMessage) => {
     if (text.trim() === '' || isLoading) return;
 
@@ -54,7 +63,7 @@ const PersonalPortfolio = () => {
 
     // Check if the question has predefined answers
     if (predefinedAnswers[text]) {
-      await simulateThinking(); // Add delay for predefined answers
+      await simulateThinking();
       const answers = predefinedAnswers[text];
       const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
       setMessages((prev) => [
@@ -65,49 +74,53 @@ const PersonalPortfolio = () => {
       return;
     }
 
-    // If no predefined answer, proceed with API call
-    const apiKey = localStorage.getItem('GEMINI_API_KEY');
-    if (!apiKey) {
-      await simulateThinking(); // Add delay for API key missing message
+    try {
+      let response;
+
+      // Try with local API key first
+      const localApiKey = localStorage.getItem('GEMINI_API_KEY');
+      if (localApiKey) {
+        try {
+          response = await generateResponse(text, localApiKey);
+        } catch (error) {
+          if (error.message.includes('Invalid API key')) {
+            localStorage.removeItem('GEMINI_API_KEY');
+          }
+          throw error; // Re-throw to be caught by the outer catch block
+        }
+      }
+
+      // If no local key or local key failed, try server API
+      if (!response) {
+        const serverResponse = await fetch('/api/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt: text }),
+        });
+
+        if (!serverResponse.ok) {
+          throw new Error('Server API failed');
+        }
+
+        const data = await serverResponse.json();
+        response = data.response;
+      }
+
+      setMessages((prev) => [
+        ...prev,
+        { role: 'assistant', content: response },
+      ]);
+    } catch (error) {
+      console.error('API error:', error);
+      await simulateThinking();
       setMessages((prev) => [
         ...prev,
         {
           role: 'assistant',
-          content: 'Please add your Gemini API key in the settings first.',
+          content: 'An error occurred. Please check your API key in the settings or try again later.',
         },
       ]);
       setIsSettingsOpen(true);
-      setIsLoading(false);
-      return;
-    }
-
-    try {
-      const genAI = new GoogleGenerativeAI(apiKey);
-      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-
-      const prompt = systemInstructions + "\n\nUser: " + text;
-
-      const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const generatedText = response.text();
-
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: 'assistant',
-          content: generatedText,
-        },
-      ]);
-    } catch (error) {
-      await simulateThinking(); // Add delay for error message
-      console.error('Gemini API error:', error);
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: 'assistant',
-          content: `Error: ${error.message}. Please check your API key and try again.`,
-        },
-      ]);
     } finally {
       setIsLoading(false);
     }
