@@ -48,8 +48,12 @@ const PersonalPortfolio = () => {
     setInputMessage('');
     setIsLoading(true);
 
+    // Function to simulate thinking delay
+    const simulateThinking = () => new Promise(resolve => setTimeout(resolve, 900));
+
     // Check if the question has predefined answers
     if (predefinedAnswers[text]) {
+      await simulateThinking(); // Add delay for predefined answers
       const answers = predefinedAnswers[text];
       const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
       setMessages((prev) => [
@@ -63,6 +67,7 @@ const PersonalPortfolio = () => {
     // If no predefined answer, proceed with API call
     const apiKey = localStorage.getItem('GEMINI_API_KEY');
     if (!apiKey) {
+      await simulateThinking(); // Add delay for API key missing message
       setMessages((prev) => [
         ...prev,
         {
@@ -134,6 +139,7 @@ const PersonalPortfolio = () => {
         },
       ]);
     } catch (error) {
+      await simulateThinking(); // Add delay for error message
       console.error('Gemini API error:', error);
       setMessages((prev) => [
         ...prev,

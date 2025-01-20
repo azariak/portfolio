@@ -4,8 +4,6 @@
       "Who are you?",
       "How did I make this site?",
       "What technologies do you use?",
-      "What's your experience?",
-      "What are your hobbies?",
       "Contact information"
     ],
     "predefinedAnswers": {
@@ -36,18 +34,18 @@
     "I’m like the backstage crew for Azaria Kelman’s portfolio—quietly making sure you get all the info you need about his projects, skills, and studies. He’s a University of Toronto student with a knack for coding and big ideas, and I’m just here to keep things running smoothly.",
     "I’m the behind-the-scenes helper for Azaria Kelman’s portfolio. He’s a University of Toronto student with a talent for coding and creative thinking, and I’m here to make sure you get all the details without any hassle."
     ],
-    "Contact information.": [
-    "Absolutely! Azaria is always happy to connect. You can find him on GitHub at https://github.com/azariak. Feel free to reach out there—he's always excited to chat about projects, collaborations, or just geek out about code!",
+    "Contact information": [
+    "Absolutely! Azaria is always happy to connect. You can reach him via email at azaria.kelman@mail.utoronto.ca or check out his GitHub at https://github.com/azariak. Whether it’s about projects, collaborations, or just geeking out about code, he’d love to hear from you!",
 
-    "Of course! Azaria loves hearing from fellow tech enthusiasts. The best way to get in touch is through his GitHub profile: https://github.com/azariak. Don't hesitate to drop him a line—he's always up for a good conversation about coding, philosophy, or anything in between!",
+    "Of course! Azaria loves hearing from fellow tech enthusiasts. Feel free to email him at azaria.kelman@mail.utoronto.ca or visit his GitHub at https://github.com/azariak. Don’t hesitate to reach out—he’s always up for a good conversation about coding, philosophy, or anything in between!",
 
-    "Sure thing! Azaria is super approachable and enjoys connecting with new people. You can find him on GitHub at https://github.com/azariak. Whether you have questions, ideas, or just want to say hi, he'd be thrilled to hear from you!",
+    "Sure thing! Azaria is super approachable and enjoys connecting with new people. You can email him at azaria.kelman@mail.utoronto.ca or check out his GitHub at https://github.com/azariak. Whether you have questions, ideas, or just want to say hi, he’d be thrilled to hear from you!",
 
-    "You bet! Azaria is always open to new connections and conversations. The easiest way to reach out is through his GitHub: https://github.com/azariak. He's genuinely excited to engage with others in the tech community, so don't be shy!",
+    "You bet! Azaria is always open to new connections and conversations. The easiest way to reach him is by email at azaria.kelman@mail.utoronto.ca, but don’t forget to check out his GitHub at https://github.com/azariak. He’s genuinely excited to engage with others in the tech community, so don’t be shy!",
 
-    "Absolutely! Azaria is quite friendly and always eager to network. You can find his projects and contact info on GitHub: https://github.com/azariak. He's more than happy to chat about coding, potential collaborations, or even debate about something!",
+    "Absolutely! Azaria is quite friendly and always eager to network. You can email him at azaria.kelman@mail.utoronto.ca or explore his projects on GitHub at https://github.com/azariak. He’s more than happy to chat about coding, potential collaborations, or even debate about something fun!",
 
-    "Of course! Azaria is very approachable and loves connecting with like-minded individuals. Check out his GitHub at https://github.com/azariak—it's the best place to reach him. Whether it's about his projects, potential opportunities, or just to geek out about tech, he's all ears!"
+    "Of course! Azaria is very approachable and loves connecting with like-minded individuals. Drop him an email at azaria.kelman@mail.utoronto.ca or check out his GitHub at https://github.com/azariak. Whether it’s about his projects, potential opportunities, or just to geek out about tech, he’s all ears!"
     ],
     "How did I make this site?": [
     "Great question! I built this site using React with Vite for a fast and efficient development process. For version control, I relied on Git and used Visual Studio Code as my IDE. To add some AI magic, I used Gemini and occasionally got a little help from Claude 3.5 Sonnet. It’s a mix of modern web development tools and a touch of AI collaboration!",
@@ -61,6 +59,19 @@
     "I put this site together using React and Vite, which gave it a fast and responsive foundation. For version control, I relied on Git, and I used Visual Studio Code as my IDE. To enhance the site with AI features, I used Gemini and occasionally got some help from Claude 3.5 Sonnet. It’s a nice balance of coding and AI teamwork!",
 
     "This site was built with React and Vite, which made the development process smooth and efficient. I used Git for version control and Visual Studio Code as my IDE. For the AI-powered elements, I worked with Gemini and occasionally got a little help from Claude 3.5 Sonnet. It’s a great example of how coding and AI can work hand in hand!"
+    ],
+    "What technologies do you use?": [
+    "I’m a coding chameleon! I’m most comfortable with Python, Java, JavaScript, HTML/CSS, Git, and LaTeX, but I also speak SQL, Assembly, C, C++, and Vim fluently. If you throw a new language or framework my way, I’m the eager beaver who’ll dive in and master it too!",
+
+    "I work with a wide range of technologies, starting with Python, Java, JavaScript, HTML/CSS, Git, and LaTeX. I’m also fluent in SQL, Assembly, C, C++, and Vim. If there’s a new tool or framework to learn, I’m always up for the challenge—it’s part of the fun!",
+
+    "When it comes to tech, I’m pretty versatile. I’m most at home with Python, Java, JavaScript, HTML/CSS, Git, and LaTeX. I’ve also got solid experience with SQL, Assembly, C, C++, and Vim. If there’s something new to learn, I’m always ready to jump in and figure it out!",
+
+    "I use a variety of technologies to get the job done. My favorites include Python, Java, JavaScript, HTML/CSS, Git, and LaTeX, but I’m also skilled in SQL, Assembly, C, C++, and Vim. If there’s a new language or framework to explore, I’m all in—it’s what keeps things exciting!",
+
+    "I’m comfortable with a broad range of technologies. I’m most confident with Python, Java, JavaScript, HTML/CSS, Git, and LaTeX. I’m also fluent in SQL, Assembly, C, C++, and Vim. If there’s something new to learn, I’m always eager to dive in and master it!",
+
+    "I’ve got a pretty diverse tech stack. I’m most confident with Python, Java, JavaScript, HTML/CSS, Git, and LaTeX, but I also know my way around SQL, Assembly, C, C++, and Vim. If there’s a new tool or framework to pick up, I’m always game to dive in and make it my own!"
     ]
     }
   }
