@@ -1,0 +1,28 @@
+{
+    "suggestedQuestions": [
+      "Show me some cool projects you've made",
+      "Who are you?",
+      "How did I make this site?",
+      "What technologies do you use?",
+      "What's your experience?",
+      "What are your hobbies?",
+      "Contact information"
+    ],
+    "predefinedAnswers": {
+      "Show me some cool projects you've made": [
+        "Test1",
+        "Test2",
+        "Test3",
+        "Test4",
+        "Test5"
+      ],
+      "Who are you?": [
+        "I'm Azaria Kelman, a third-year Computer Science and Philosophy student at the University of Toronto.",
+        "Hello! I'm Azaria, a passionate developer and philosophy enthusiast studying at UofT.",
+        "I'm a tech-loving, philosophy-pondering student named Azaria Kelman.",
+        "Azaria here! I'm a budding software engineer with a side of philosophical musings.",
+        "I'm Azaria, a curious mind exploring the intersection of technology and philosophy at the University of Toronto."
+      ]
+    }
+  }
+  
