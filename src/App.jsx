@@ -7,7 +7,6 @@ import SuggestedQuestions from './SuggestedQuestions';
 import './index.css';
 import questionsAndAnswers from './data/questionsAndAnswers.json';
 
-// Add the shuffleArray function
 function shuffleArray(array) {
   const newArray = [...array];
   for (let i = newArray.length - 1; i > 0; i--) {
@@ -58,10 +57,8 @@ const PersonalPortfolio = () => {
     setInputMessage('');
     setIsLoading(true);
 
-    // Function to simulate thinking delay
     const simulateThinking = () => new Promise(resolve => setTimeout(resolve, 900));
 
-    // Check if the question has predefined answers
     if (predefinedAnswers[text]) {
       await simulateThinking();
       const answers = predefinedAnswers[text];
@@ -83,27 +80,36 @@ const PersonalPortfolio = () => {
         try {
           response = await generateResponse(text, localApiKey);
         } catch (error) {
+          console.error('Local API key error:', error);
           if (error.message.includes('Invalid API key')) {
             localStorage.removeItem('GEMINI_API_KEY');
           }
-          throw error; // Re-throw to be caught by the outer catch block
         }
       }
 
-      // If no local key or local key failed, try server API
+      // If local key failed, try server API
       if (!response) {
-        const serverResponse = await fetch('/api/generate', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ prompt: text }),
-        });
+        try {
+          const serverResponse = await fetch('/api/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ prompt: text }),
+          });
 
-        if (!serverResponse.ok) {
-          throw new Error('Server API failed');
+          if (!serverResponse.ok) {
+            throw new Error('Server API failed');
+          }
+
+          const data = await serverResponse.json();
+          response = data.response;
+        } catch (error) {
+          console.error('Server API error:', error);
         }
+      }
 
-        const data = await serverResponse.json();
-        response = data.response;
+      // If both local and server failed, prompt user
+      if (!response) {
+        throw new Error('Both local and server APIs failed');
       }
 
       setMessages((prev) => [
