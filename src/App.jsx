@@ -146,13 +146,13 @@ const PersonalPortfolio = () => {
         >
           {isDarkMode ? '☀️' : '🌙'}
         </button>
-        <button
+        {/* <button
           className="control-button"
           onClick={() => window.open('https://github.com/azariak/portfolio', '_blank')}
           aria-label="GitHub Profile"
         >
           <img src="/github-mark-white.png" alt="GitHub" width={20} height={20} />
-        </button>
+        </button> */}
         <button
           className="control-button"
           onClick={() => setIsSettingsOpen(true)}
