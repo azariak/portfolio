@@ -43,9 +43,19 @@ const PersonalPortfolio = () => {
 
   const generateResponse = async (text, apiKey) => {
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-    const prompt = systemInstructions + "\n\nUser: " + text;
-    const result = await model.generateContent(prompt);
+    const model = genAI.getGenerativeModel({ 
+      model: "gemini-2.0-flash-exp",
+      systemInstruction: systemInstructions 
+    });
+    
+    const chat = model.startChat({
+      history: [],
+      generationConfig: {
+        maxOutputTokens: 1000,
+      },
+    });
+
+    const result = await chat.sendMessage(text);
     const response = await result.response;
     return response.text();
   };
@@ -93,7 +103,10 @@ const PersonalPortfolio = () => {
           const serverResponse = await fetch('/api/generate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt: text }),
+            body: JSON.stringify({ 
+              prompt: text,
+              systemInstructions: systemInstructions
+            }),
           });
 
           if (!serverResponse.ok) {
@@ -146,13 +159,6 @@ const PersonalPortfolio = () => {
         >
           {isDarkMode ? '☀️' : '🌙'}
         </button>
-        {/* <button
-          className="control-button"
-          onClick={() => window.open('https://github.com/azariak/portfolio', '_blank')}
-          aria-label="GitHub Profile"
-        >
-          <img src="/github-mark-white.png" alt="GitHub" width={20} height={20} />
-        </button> */}
         <button
           className="control-button"
           onClick={() => setIsSettingsOpen(true)}

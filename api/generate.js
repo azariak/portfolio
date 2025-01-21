@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { prompt } = req.body; // Changed to match client-side 'prompt'
+  const { prompt } = req.body;
   const apiKey = process.env.GEMINI_API_KEY;
 
   if (!prompt) {
@@ -23,10 +23,12 @@ export default async function handler(req, res) {
   }
 
   try {
-    const systemInstructions = questionsAndAnswers.systemInstructions;
-
+    const instructions = questionsAndAnswers.systemInstructions
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp"});
+    const model = genAI.getGenerativeModel({ 
+      model: "gemini-2.0-flash-exp",
+      systemInstruction: instructions 
+    });
 
     const chat = model.startChat({
       history: [],
