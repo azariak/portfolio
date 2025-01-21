@@ -2,7 +2,7 @@
     "suggestedQuestions": [
       "Show me some cool projects you've made",
       "Who are you?",
-      "How did I make this site?",
+      "How did you make this site?",
       "What technologies do you use?",
       "Contact information"
     ],
@@ -47,7 +47,7 @@
 
     "Of course! Azaria is very approachable and loves connecting with like-minded individuals. Drop him an email at azaria.kelman@mail.utoronto.ca or check out his GitHub at https://github.com/azariak. Whether it's about his projects, potential opportunities, or just to geek out about tech, he's all ears!"
     ],
-    "How did I make this site?": [
+    "How did you make this site?": [
     "Great question! I built this site using React with Vite for a fast and efficient development process. For version control, I relied on Git and used Visual Studio Code as my IDE. To add some AI magic, I used Gemini and occasionally got a little help from Claude 3.5 Sonnet. It's a mix of modern web development tools and a touch of AI collaboration!",
 
     "This site came together with a combination of React and Vite, which made the development process smooth and snappy. I used Git for version control and Visual Studio Code as my trusty IDE. For the AI-powered features, I leaned on Gemini and occasionally consulted Claude 3.5 Sonnet. It's a blend of solid coding tools and a little AI assistance.",
