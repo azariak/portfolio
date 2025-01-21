@@ -62,13 +62,13 @@ const PersonalPortfolio = () => {
 
   const sendMessage = async (text = inputMessage) => {
     if (text.trim() === '' || isLoading) return;
-
+  
     setMessages((prev) => [...prev, { role: 'user', content: text }]);
     setInputMessage('');
     setIsLoading(true);
-
+  
     const simulateThinking = () => new Promise(resolve => setTimeout(resolve, 900));
-
+  
     if (predefinedAnswers[text]) {
       await simulateThinking();
       const answers = predefinedAnswers[text];
@@ -80,25 +80,13 @@ const PersonalPortfolio = () => {
       setIsLoading(false);
       return;
     }
-
+  
     try {
       let response;
-
-      // Try with local API key first
       const localApiKey = localStorage.getItem('GEMINI_API_KEY');
-      if (localApiKey) {
-        try {
-          response = await generateResponse(text, localApiKey);
-        } catch (error) {
-          console.error('Local API key error:', error);
-          if (error.message.includes('Invalid API key')) {
-            localStorage.removeItem('GEMINI_API_KEY');
-          }
-        }
-      }
-
-      // If local key failed, try server API
-      if (!response) {
+  
+      // If no local API key, try server API first
+      if (!localApiKey) {
         try {
           const serverResponse = await fetch('/api/generate', {
             method: 'POST',
@@ -108,23 +96,53 @@ const PersonalPortfolio = () => {
               systemInstructions: systemInstructions
             }),
           });
-
+  
           if (!serverResponse.ok) {
             throw new Error('Server API failed');
           }
-
+  
           const data = await serverResponse.json();
           response = data.response;
         } catch (error) {
           console.error('Server API error:', error);
         }
+      } else {
+        // Try with local API key if available
+        try {
+          response = await generateResponse(text, localApiKey);
+        } catch (error) {
+          console.error('Local API key error:', error);
+          if (error.message.includes('Invalid API key')) {
+            localStorage.removeItem('GEMINI_API_KEY');
+            // Try server API as fallback
+            try {
+              const serverResponse = await fetch('/api/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                  prompt: text,
+                  systemInstructions: systemInstructions
+                }),
+              });
+  
+              if (!serverResponse.ok) {
+                throw new Error('Server API failed');
+              }
+  
+              const data = await serverResponse.json();
+              response = data.response;
+            } catch (fallbackError) {
+              console.error('Server API fallback error:', fallbackError);
+            }
+          }
+        }
       }
-
+  
       // If both local and server failed, prompt user
       if (!response) {
-        throw new Error('Both local and server APIs failed');
+        throw new Error('Failed to generate response');
       }
-
+  
       setMessages((prev) => [
         ...prev,
         { role: 'assistant', content: response },
@@ -136,14 +154,13 @@ const PersonalPortfolio = () => {
         ...prev,
         {
           role: 'assistant',
-          content: 'An error occurred. Please check your API key in the settings or try again later.',
+          content: 'An error occurred. Please try again later.',
         },
       ]);
-      setIsSettingsOpen(true);
     } finally {
       setIsLoading(false);
     }
-  };
+  };  
 
   const handleQuestionClick = (question) => {
     sendMessage(question);
