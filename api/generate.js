@@ -1,6 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import dotenv from "dotenv";
-import questionsAndAnswers from './data/questionsAndAnswers.json';
 
 dotenv.config();
 
@@ -9,11 +8,15 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { prompt } = req.body;
+  const { prompt, systemInstructions } = req.body; // Get systemInstructions from request
   const apiKey = process.env.GEMINI_API_KEY;
 
   if (!prompt) {
     return res.status(400).json({ error: "Prompt is required" });
+  }
+
+  if (!systemInstructions) {
+    return res.status(400).json({ error: "System instructions are required" });
   }
 
   if (!apiKey) {
@@ -23,11 +26,10 @@ export default async function handler(req, res) {
   }
 
   try {
-    const instructions = questionsAndAnswers.systemInstructions
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({ 
       model: "gemini-2.0-flash-exp",
-      systemInstruction: instructions 
+      systemInstruction: systemInstructions 
     });
 
     const chat = model.startChat({
