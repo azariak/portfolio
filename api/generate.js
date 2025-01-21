@@ -8,11 +8,11 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { text } = req.body; // Get the text which contains the instructions
+  const { prompt } = req.body; // Changed to match client-side 'prompt'
   const apiKey = process.env.GEMINI_API_KEY;
 
-  if (!text) {
-    return res.status(400).json({ error: "Text is required" });
+  if (!prompt) {
+    return res.status(400).json({ error: "Prompt is required" });
   }
 
   if (!apiKey) {
@@ -32,7 +32,7 @@ export default async function handler(req, res) {
       },
     });
 
-    const result = await chat.sendMessage(text);
+    const result = await chat.sendMessage(prompt);
     const response = await result.response;
     const responseText = response.text();
 
