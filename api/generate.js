@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     const systemInstructions = questionsAndAnswers.systemInstructions;
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp", systemInstruction: systemInstructions});
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp"});
 
     const chat = model.startChat({
       history: [],
