@@ -5,7 +5,8 @@
 - Install dependencies: `npm install`
 - Run the project: `npm run dev`
 - Input your Gemini API Key in settings
-- Configure to yourself by updated the `questionsAndAnswers.json` file and updating the title & favicon in `index.html`
+- Configure to yourself by updating the `questionsAndAnswers.json` file and updating the title & favicon in `index.html`
+    - Please do not remove the footer or Github link giving me credit for creating this website.
 
 TODO:
 - Work with and without API key
