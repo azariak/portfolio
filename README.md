@@ -5,11 +5,9 @@
 - Install dependencies: `npm install`
 - Run the project: `npm run dev`
 - Input your Gemini API Key in settings
-- Configure to yourself by updating the `questionsAndAnswers.json` file and updating the title & favicon in `index.html`
+- Configure to yourself by updating the `questionsAndAnswers.json` file and updating the header in `index.html`
     - Please do not remove the footer or Github link giving me credit for creating this website.
 
 TODO:
-- Work with and without API key
-- Refact app.jsx into many subdirectories and files
-- Make a configuration file of Name, instructions, favicon... so anyone can recycle the code for their own portfolio site. 
+- Refact app.jsx into many subdirectories and files - readd github link (settings icon?) and open-source
 - Consider footer modal (lean against)
