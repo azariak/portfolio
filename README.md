@@ -11,3 +11,4 @@
 TODO:
 - Refact app.jsx into many subdirectories and files - readd github link (settings icon?) and open-source
 - Consider footer modal (lean against)
+- Use LLMUI to render markdown
