@@ -2,7 +2,7 @@
 
 Here is the source code for [azariak.com](https://www.azariak.com/). 
 
-You are welcome to fork this for your own website, with attribution.
+You are welcome to fork this for your own portfolio, with attribution.
 
 ## Installation and configuration instructions 
 1. Clone the repository: `git clone https://github.com/azariak/portfolio.git`
@@ -13,7 +13,6 @@ You are welcome to fork this for your own website, with attribution.
     - Please do not remove the footer or Github link giving me credit for creating this website.
 
 TODO:
-- Refact app.jsx into many subdirectories and files
-- Consider footer modal (lean against)
-- Improve default answers
 - Fix mobile rendering
+- Refact app.jsx into many subdirectories and files
+- Improve default answers
