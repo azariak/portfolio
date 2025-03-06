@@ -14,5 +14,5 @@ You are welcome to fork this for your own portfolio.
 
 TODO:
 - Fix mobile rendering
-- Refact app.jsx into many subdirectories and files
+- Refactor app.jsx into many subdirectories and files
 - Improve default answers
