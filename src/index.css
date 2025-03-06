@@ -79,6 +79,59 @@ body {
   overflow: hidden;
 }
 
+/* Add responsive styles for mobile */
+@media (max-width: 768px) {
+  .container {
+    padding: 0.5rem;
+    padding-top: 5rem; /* Add top spacing before "Ask About Me" section */
+    padding-bottom: 3rem; /* Add bottom spacing for footer */
+  }
+  
+  .content {
+    height: calc(100vh - 5rem); /* Adjust height to account for top and bottom spacing */
+    max-height: 650px;
+  }
+  
+  /* Improve message display on small screens */
+  .message {
+    max-width: 85%; /* Slightly wider messages on mobile */
+    padding: 0.7rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Adjust header for mobile */
+  .header {
+    padding: 0.75rem;
+  }
+  
+  .header-title {
+    font-size: 1.3rem;
+  }
+  
+  /* Optimize input area for mobile */
+  .input-area {
+    padding: 0.75rem;
+  }
+  
+  .input {
+    padding: 0.7rem;
+  }
+  
+  .send-button {
+    padding: 0.7rem 1rem;
+  }
+  
+  /* Adjust suggested questions for better mobile experience */
+  .suggested-questions-container {
+    padding: 0.4rem 1rem;
+  }
+  
+  .question-pill {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
 .header {
   padding: 1rem;
   border-bottom: 1px solid var(--border);
@@ -256,6 +309,15 @@ body {
   z-index: 10;
 }
 
+/* Ensure footer is visible and has proper spacing on mobile */
+@media (max-width: 768px) {
+  .ai-disclaimer {
+    font-size: 0.5em;
+    padding: 2px 0;
+    margin-bottom: 4px;
+  }
+}
+
 .link {
   color: var(--button);
   text-decoration: none;
@@ -390,6 +452,7 @@ body {
 .modal-submit:hover {
   background-color: var(--button-hover);
 }
+
 .send-button {
   /* ... (existing styles) */
   transition: opacity 0.3s ease;
@@ -404,6 +467,7 @@ body {
   opacity: 0.6;
   cursor: not-allowed;
 }
+
 .ai-disclaimer {
   font-size: 0.65em;
   color: var(--text-secondary);

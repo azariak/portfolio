@@ -13,6 +13,5 @@ You are welcome to fork this for your own portfolio.
     - Please do not remove the footer giving me credit for creating this website.
 
 TODO:
-- Fix mobile rendering
 - Refactor app.jsx into many subdirectories and files
 - Improve default answers
