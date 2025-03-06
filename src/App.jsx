@@ -171,6 +171,13 @@ const PersonalPortfolio = () => {
       <div className="header-controls">
         <button
           className="control-button"
+          onClick={() => window.open('https://github.com/azariak/portfolio', '_blank')}
+          aria-label="Open GitHub"
+        >
+          <img src="/github-mark-white.png" alt="GitHub" width={20} height={20} />
+        </button>
+        <button
+          className="control-button"
           onClick={() => setIsDarkMode(!isDarkMode)}
           aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
         >
