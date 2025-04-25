@@ -41,122 +41,163 @@ const PersonalPortfolio = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const generateResponse = async (text, apiKey) => {
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ 
-      model: "gemini-2.0-flash-exp",
-      systemInstruction: systemInstructions 
-    });
-    
-    const chat = model.startChat({
-      history: [],
-      generationConfig: {
-        maxOutputTokens: 1000,
-      },
-    });
-
-    const result = await chat.sendMessage(text);
-    const response = await result.response;
-    return response.text();
-  };
-
   const sendMessage = async (text = inputMessage) => {
     if (text.trim() === '' || isLoading) return;
-  
-    setMessages((prev) => [...prev, { role: 'user', content: text }]);
+
+    const userMessage = { role: 'user', content: text };
+    const assistantPlaceholder = { role: 'assistant', content: '' };
+
+    // Add user message and placeholder for assistant response
+    setMessages((prev) => [...prev, userMessage, assistantPlaceholder]);
     setInputMessage('');
     setIsLoading(true);
-  
-    const simulateThinking = () => new Promise(resolve => setTimeout(resolve, 900));
-  
+
+    const simulateThinking = () => new Promise(resolve => setTimeout(resolve, 250));
+
+    // Handle predefined answers
     if (predefinedAnswers[text]) {
-      await simulateThinking();
+      // Keep the initial thinking delay, but stream the answer afterwards
+      await simulateThinking(); 
       const answers = predefinedAnswers[text];
       const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
-      setMessages((prev) => [
-        ...prev,
-        { role: 'assistant', content: randomAnswer },
-      ]);
-      setIsLoading(false);
-      return;
+      
+      // Simulate streaming for predefined answers
+      let currentStreamedLength = 0;
+      const streamInterval = setInterval(() => {
+        if (currentStreamedLength < randomAnswer.length) {
+          currentStreamedLength++;
+          setMessages((prev) => prev.map((msg, index) => 
+            index === prev.length - 1 
+              ? { ...msg, content: randomAnswer.substring(0, currentStreamedLength) } 
+              : msg
+          ));
+        } else {
+          clearInterval(streamInterval);
+          setIsLoading(false); // Set loading false only when streaming is complete
+        }
+      }, .00001); // Adjust delay (in ms) for faster/slower streaming
+
+      return; // Return early as we handled the predefined answer
     }
-  
+
+    // Helper function to update the last message (assistant's response)
+    const updateLastMessage = (chunk) => {
+      setMessages((prev) => prev.map((msg, index) => 
+        index === prev.length - 1 ? { ...msg, content: msg.content + chunk } : msg
+      ));
+    };
+
+    // Helper function to handle API errors
+    const handleApiError = async (errorMessage) => {
+      console.error('API error:', errorMessage);
+      await simulateThinking(); // Keep thinking simulation for errors
+      setMessages((prev) => prev.map((msg, index) => 
+        index === prev.length - 1 
+          ? { ...msg, content: 'An error occurred. Please try again later.' } 
+          : msg
+      ));
+      setIsLoading(false);
+    };
+
     try {
-      let response;
       const localApiKey = localStorage.getItem('GEMINI_API_KEY');
-  
-      // If no local API key, try server API first
+      let streamEnded = false;
+
       if (!localApiKey) {
+        // --- Server API Streaming --- 
         try {
-          const serverResponse = await fetch('/api/generate', {
+          const response = await fetch('/api/generate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-              prompt: text,
-              systemInstructions: systemInstructions
-            }),
+            body: JSON.stringify({ prompt: text, systemInstructions }),
           });
-  
-          if (!serverResponse.ok) {
-            throw new Error('Server API failed');
+
+          if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`Server API failed: ${response.status} ${errorData.error || ''}`);
           }
-  
-          const data = await serverResponse.json();
-          response = data.response;
-        } catch (error) {
-          console.error('Server API error:', error);
-        }
-      } else {
-        // Try with local API key if available
-        try {
-          response = await generateResponse(text, localApiKey);
-        } catch (error) {
-          console.error('Local API key error:', error);
-          if (error.message.includes('Invalid API key')) {
-            localStorage.removeItem('GEMINI_API_KEY');
-            // Try server API as fallback
-            try {
-              const serverResponse = await fetch('/api/generate', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                  prompt: text,
-                  systemInstructions: systemInstructions
-                }),
-              });
-  
-              if (!serverResponse.ok) {
-                throw new Error('Server API failed');
+          if (!response.body) {
+            throw new Error('Response body is null');
+          }
+
+          const reader = response.body.pipeThrough(new TextDecoderStream()).getReader();
+          
+          while (true) {
+            const { value, done } = await reader.read();
+            if (done) {
+              streamEnded = true;
+              break;
+            }
+            // Process SSE data format: data: {...}\n\n
+            const lines = value.split('\n');
+            for (const line of lines) {
+              if (line.startsWith('data:')) {
+                try {
+                  const json = JSON.parse(line.substring(5).trim());
+                  if (json.chunk) {
+                    updateLastMessage(json.chunk);
+                  } else if (json.error) {
+                     throw new Error(`Server SSE error: ${json.details || json.error}`);
+                  }
+                } catch (e) {
+                  console.error("Error parsing SSE line:", line, e);
+                }
+              } else if (line.startsWith('event: error')) {
+                 // Handle explicit error events if the backend sends them
+                 // The data line following this should contain the error details
               }
-  
-              const data = await serverResponse.json();
-              response = data.response;
-            } catch (fallbackError) {
-              console.error('Server API fallback error:', fallbackError);
             }
           }
+        } catch (error) {
+          console.error('Server API stream error:', error);
+          // If server fails, don't immediately try local (unless specifically requested)
+          // Just show error
+          await handleApiError(error.message || 'Failed to fetch streaming response');
+          return; // Stop execution
+        }
+      } else {
+        // --- Local API Key Streaming --- 
+        try {
+          const genAI = new GoogleGenerativeAI(localApiKey);
+          const model = genAI.getGenerativeModel({ 
+            model: "gemini-2.0-flash-exp",
+            systemInstruction: systemInstructions 
+          });
+
+          const stream = await model.generateContentStream({
+            contents: [{ role: "user", parts: [{ text }] }],
+            generationConfig: { maxOutputTokens: 1000 },
+          });
+
+          for await (const chunk of stream.stream) {
+            const chunkText = chunk.text();
+            if (chunkText) {
+              updateLastMessage(chunkText);
+            }
+          }
+          streamEnded = true;
+        } catch (error) {
+          console.error('Local API key stream error:', error);
+          if (error.message && error.message.includes('API key not valid')) {
+            localStorage.removeItem('GEMINI_API_KEY');
+            // Optionally: You could trigger the server API call here as a fallback
+            // For now, just show the error
+            await handleApiError('Local API key is invalid. Please check settings or remove it.');
+          } else {
+            await handleApiError(error.message || 'Failed to generate response with local key');
+          }
+          return; // Stop execution
         }
       }
-  
-      // If both local and server failed, prompt user
-      if (!response) {
-        throw new Error('Failed to generate response');
+
+      // If we reach here and the stream hasn't ended (e.g., unexpected break), treat as error
+      if (!streamEnded) {
+         await handleApiError('Stream ended unexpectedly.');
       }
-  
-      setMessages((prev) => [
-        ...prev,
-        { role: 'assistant', content: response },
-      ]);
+
     } catch (error) {
-      console.error('API error:', error);
-      await simulateThinking();
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: 'assistant',
-          content: 'An error occurred. Please try again later.',
-        },
-      ]);
+      // Catch-all for unexpected errors during setup or pre-API call logic
+      await handleApiError(error.message || 'An unexpected error occurred.');
     } finally {
       setIsLoading(false);
     }
