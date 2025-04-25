@@ -14,4 +14,5 @@ You are welcome to fork this for your own portfolio.
 
 TODO:
 - Refactor app.jsx
-- Improve answers in questionsAndAnswers.json
+- Improve answers in questionsAndAnswers.json including adding more links to projects section
+- Add input streaming from Gemini API
