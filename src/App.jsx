@@ -52,7 +52,7 @@ const PersonalPortfolio = () => {
     setInputMessage('');
     setIsLoading(true);
 
-    const simulateThinking = () => new Promise(resolve => setTimeout(resolve, 250));
+    const simulateThinking = () => new Promise(resolve => setTimeout(resolve, 200));
 
     // Handle predefined answers
     if (predefinedAnswers[text]) {
@@ -61,21 +61,29 @@ const PersonalPortfolio = () => {
       const answers = predefinedAnswers[text];
       const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
       
-      // Simulate streaming for predefined answers
+      // Simulate streaming for predefined answers by batching characters
       let currentStreamedLength = 0;
+      const batchSize = 15; // Number of characters to add per interval
+      const intervalDelay = 2; // Milliseconds between batches
+
       const streamInterval = setInterval(() => {
-        if (currentStreamedLength < randomAnswer.length) {
-          currentStreamedLength++;
-          setMessages((prev) => prev.map((msg, index) => 
-            index === prev.length - 1 
-              ? { ...msg, content: randomAnswer.substring(0, currentStreamedLength) } 
+        const nextChunkEnd = Math.min(currentStreamedLength + batchSize, randomAnswer.length);
+        const chunkToAdd = randomAnswer.substring(currentStreamedLength, nextChunkEnd);
+
+        if (chunkToAdd.length > 0) {
+          setMessages((prev) => prev.map((msg, index) =>
+            index === prev.length - 1
+              ? { ...msg, content: msg.content + chunkToAdd } // Append the chunk
               : msg
           ));
-        } else {
+          currentStreamedLength = nextChunkEnd;
+        }
+
+        if (currentStreamedLength >= randomAnswer.length) {
           clearInterval(streamInterval);
           setIsLoading(false); // Set loading false only when streaming is complete
         }
-      }, .00001); // Adjust delay (in ms) for faster/slower streaming
+      }, intervalDelay); // Use a small delay for batching
 
       return; // Return early as we handled the predefined answer
     }
