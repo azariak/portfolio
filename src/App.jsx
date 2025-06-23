@@ -33,6 +33,16 @@ const PersonalPortfolio = () => {
   const systemInstructions = questionsAndAnswers.systemInstructions;
   const messagesEndRef = useRef(null);
 
+  const resetChat = () => {
+    setMessages([
+      { role: 'assistant', content: "Hi there! Welcome to my website!" },
+      { role: 'assistant', content: "What would you like to know about me?" },
+    ]);
+    setInputMessage('');
+    setIsLoading(false);
+    setSuggestedQuestions(shuffleArray(questionsAndAnswers.suggestedQuestions));
+  };
+
   useEffect(() => {
     setSuggestedQuestions((prevQuestions) => shuffleArray([...prevQuestions]));
   }, []);
@@ -248,7 +258,17 @@ const PersonalPortfolio = () => {
 
       <div className="content">
         <header className="header">
-          <h1 className="header-title">Ask About Me 👋</h1>
+          <div className="header-content">
+            <h1 className="header-title">Ask About Me 👋</h1>
+            <button
+              className="reset-button"
+              onClick={resetChat}
+              aria-label="Reset chat"
+              title="Reset chat"
+            >
+              ↻
+            </button>
+          </div>
         </header>
 
         <main className="chat-container">
