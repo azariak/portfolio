@@ -12,6 +12,12 @@ You are welcome to fork this for your own portfolio.
 5. Configure to your own information by updating the `questionsAndAnswers.json` file and updating the header in `index.html`
     - Please do not remove the footer giving me credit for designing this website.
 
+## Features
+- AI-powered chat interface for asking about me
+- Suggested questions to demonstrate how to use it
+- Markdown formatting, streaming support for text responses
+- Help menu, dark/light theme, resize/reset container, settings API key (deprecated)
+
 TODO:
 - Refactor app.jsx
 - Improve answers in questionsAndAnswers.json including adding more links to projects section

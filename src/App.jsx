@@ -29,9 +29,62 @@ const PersonalPortfolio = () => {
     questionsAndAnswers.suggestedQuestions
   );
 
+  // Resize functionality state
+  const [containerDimensions, setContainerDimensions] = useState({
+    width: 830,
+    height: 675
+  });
+  const [isResizing, setIsResizing] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
   const predefinedAnswers = questionsAndAnswers.predefinedAnswers;
   const systemInstructions = questionsAndAnswers.systemInstructions;
   const messagesEndRef = useRef(null);
+
+  // Desktop detection
+  useEffect(() => {
+    const checkIsDesktop = () => {
+      const hasHover = window.matchMedia('(hover: hover)').matches;
+      const isLargeScreen = window.innerWidth > 768;
+      setIsDesktop(hasHover && isLargeScreen);
+    };
+    
+    checkIsDesktop();
+    window.addEventListener('resize', checkIsDesktop);
+    return () => window.removeEventListener('resize', checkIsDesktop);
+  }, []);
+
+  // Resize functionality
+  const handleResizeStart = (e) => {
+    if (!isDesktop) return;
+    e.preventDefault();
+    setIsResizing(true);
+    
+    const startX = e.clientX;
+    const startY = e.clientY;
+    const startWidth = containerDimensions.width;
+    const startHeight = containerDimensions.height;
+
+    const handleMouseMove = (e) => {
+      const newWidth = Math.max(400, Math.min(1200, startWidth + (e.clientX - startX)));
+      const newHeight = Math.max(500, Math.min(800, startHeight + (e.clientY - startY)));
+      
+      setContainerDimensions({ width: newWidth, height: newHeight });
+    };
+
+    const handleMouseUp = () => {
+      setIsResizing(false);
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+  };
+
+  const resetContainerSize = () => {
+    setContainerDimensions({ width: 830, height: 675 });
+  };
 
   const resetChat = () => {
     setMessages([
@@ -226,7 +279,7 @@ const PersonalPortfolio = () => {
   };
 
   return (
-    <div className={`container ${isDarkMode ? 'dark' : 'light'}`}>
+    <div className={`container ${isDarkMode ? 'dark' : 'light'} ${isResizing ? 'resizing' : ''}`}>
       <div className="header-controls">
         <button
           className="control-button"
@@ -263,7 +316,14 @@ const PersonalPortfolio = () => {
         onClose={() => setIsSettingsOpen(false)}
       />
 
-      <div className="content">
+      <div 
+        className="content" 
+        style={{
+          width: `${containerDimensions.width}px`,
+          height: `${containerDimensions.height}px`,
+          maxWidth: 'none'
+        }}
+      >
         <header className="header">
           <div className="header-content">
             <h1 className="header-title">Ask About Me 👋</h1>
@@ -298,6 +358,40 @@ const PersonalPortfolio = () => {
         <div className="ai-disclaimer">
           AI responses are not perfect. Sometimes it makes stuff up about me.
         </div>
+        
+        {/* Resize controls - only show on desktop */}
+        {isDesktop && (
+          <div className="resize-controls">
+            {(containerDimensions.width !== 830 || containerDimensions.height !== 675) && (
+              <button
+                className="size-reset-button"
+                onClick={resetContainerSize}
+                aria-label="Reset container size"
+                title="Reset to default size"
+              >
+                ↻
+              </button>
+            )}
+            <div 
+              className={`resize-handle ${isResizing ? 'resizing' : ''}`}
+              onMouseDown={handleResizeStart}
+              aria-label="Resize container"
+              title="Drag to resize"
+            >
+              <div className="resize-dots">
+                <div className="resize-dot"></div>
+                <div className="resize-dot"></div>
+                <div className="resize-dot"></div>
+                <div className="resize-dot"></div>
+                <div className="resize-dot"></div>
+                <div className="resize-dot"></div>
+                <div className="resize-dot"></div>
+                <div className="resize-dot resize-dot-visible"></div>
+                <div className="resize-dot resize-dot-visible"></div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="footer">
