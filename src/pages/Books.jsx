@@ -1,12 +1,12 @@
 import React from 'react';
 import Card from '../components/Card';
 import booksData from '../data/books.json';
-import './ThingsIRead.css';
+import './Books.css';
 
 const Books = () => {
   return (
     <div className="books-page">
-      <h1>Books</h1>
+      <h1>Things I Read</h1>
       <div className="card-grid">
         {booksData.map((book, index) => (
           <Card

@@ -17,7 +17,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/things-i-read" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <NavLink to="/books" className={({ isActive }) => (isActive ? 'active' : '')}>
               Things I Read
             </NavLink>
           </li>
@@ -31,7 +31,7 @@ const Sidebar = () => {
           rel="noopener noreferrer"
           className="link"
         >
-          Azaria Kelman.
+          Azaria Kelman
         </a>
       </div>
     </div>

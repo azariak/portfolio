@@ -5,7 +5,7 @@ import HamburgerMenu from './components/HamburgerMenu';
 import HeaderControls from './components/HeaderControls';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
-import ThingsIRead from './pages/ThingsIRead';
+import Books from './pages/Books';
 import './index.css';
 
 const App = () => {
@@ -29,7 +29,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home isDarkMode={isDarkMode} />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/things-i-read" element={<ThingsIRead />} />
+          <Route path="/books" element={<Books />} />
         </Routes>
         </main>
     </div>
