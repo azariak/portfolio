@@ -30,6 +30,11 @@ const HamburgerMenu = () => {
               </NavLink>
             </li>
             <li>
+              <NavLink to="/software" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>
+                Software
+              </NavLink>
+            </li>
+            <li>
               <NavLink to="/books" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>
                 Things I Read
               </NavLink>

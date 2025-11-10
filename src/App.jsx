@@ -6,6 +6,7 @@ import HeaderControls from './components/HeaderControls';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Books from './pages/Books';
+import Software from './pages/Software';
 import './index.css';
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/" element={<Home isDarkMode={isDarkMode} />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/books" element={<Books />} />
+          <Route path="/software" element={<Software />} />
         </Routes>
         </main>
     </div>

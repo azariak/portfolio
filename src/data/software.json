@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Obsidian",
+    "description": "A powerful knowledge base that works on top of a local folder of MD files.",
+    "link": "https://obsidian.md/"
+  },
+  {
+    "title": "Lichess",
+    "description": "The open-source chess server.",
+    "link": "https://lichess.org/"
+  },
+  {
+    "title": "Anki",
+    "description": "A spaced repetition flashcard program that makes remembering things a bit easier.",
+    "link": "https://apps.ankiweb.net/"
+  },
+  {
+    "title": "Sublime Text",
+    "description": "A text editor for code, markup, and prose.",
+    "link": "https://www.sublimetext.com/"
+  },
+  {
+    "title": "Bitwarden",
+    "description": "An open-source password manager that keeps your information safe.",
+    "link": "https://bitwarden.com/"
+  },
+  {
+    "title": "Cursor",
+    "description": "An AI-first code editor.",
+    "link": "https://cursor.sh/"
+  }
+]

@@ -17,6 +17,11 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
+            <NavLink to="/software" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Software
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/books" className={({ isActive }) => (isActive ? 'active' : '')}>
               Things I Read
             </NavLink>
