@@ -61,3 +61,13 @@
   color: var(--button-hover);
   text-decoration: underline;
 }
+
+button.card-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  text-align: inherit;
+  font: inherit;
+}

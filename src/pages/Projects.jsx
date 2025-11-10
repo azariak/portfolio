@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '../components/Card';
+import Popup from '../components/Popup';
 import projectsData from '../data/projects.json';
 import './Projects.css';
 
 const Projects = () => {
+  const [popupUrl, setPopupUrl] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const openPopup = (url) => {
+    setPopupUrl(url);
+  };
+
+  const closePopup = () => {
+    setPopupUrl(null);
+  };
+
   return (
     <div className="projects-page">
       <h1>Projects</h1>
@@ -14,9 +37,12 @@ const Projects = () => {
             title={project.title}
             description={project.description}
             link={project.link}
+            onLearnMoreClick={openPopup}
+            isMobile={isMobile}
           />
         ))}
       </div>
+      {popupUrl && <Popup url={popupUrl} onClose={closePopup} />}
     </div>
   );
 };

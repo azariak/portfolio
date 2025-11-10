@@ -1,7 +1,7 @@
 import React from 'react';
 import './Card.css';
 
-const Card = ({ title, description, link, image, bookWiki, authorWiki }) => {
+const Card = ({ title, description, link, image, bookWiki, authorWiki, onLearnMoreClick, isMobile }) => {
   const cardTitle = bookWiki ? (
     <a href={bookWiki} target="_blank" rel="noopener noreferrer" className="card-link">
       {title}
@@ -9,6 +9,8 @@ const Card = ({ title, description, link, image, bookWiki, authorWiki }) => {
   ) : (
     title
   );
+
+  const projectsWithPopup = ['TutorFlowAI', 'WikiSurfer', 'ChartAhead'];
 
   const cardDescription = authorWiki ? (
     <a href={authorWiki} target="_blank" rel="noopener noreferrer" className="card-link">
@@ -25,14 +27,23 @@ const Card = ({ title, description, link, image, bookWiki, authorWiki }) => {
         <h3 className="card-title">{cardTitle}</h3>
         <p className="card-description">{cardDescription}</p>
         {link && (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="card-link learn-more"
-          >
-            Learn More
-          </a>
+            projectsWithPopup.includes(title) && !isMobile ? (
+                <button
+                onClick={() => onLearnMoreClick(link)}
+                className="card-link learn-more"
+                >
+                Learn More
+                </button>
+            ) : (
+                <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card-link learn-more"
+                >
+                    Learn More
+                </a>
+            )
         )}
       </div>
     </div>
