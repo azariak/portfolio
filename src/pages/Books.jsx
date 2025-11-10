@@ -14,6 +14,8 @@ const Books = () => {
             title={book.title}
             description={book.author}
             image={book.image}
+            bookWiki={book.bookWiki}
+            authorWiki={book.authorWiki}
           />
         ))}
       </div>

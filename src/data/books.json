@@ -3,54 +3,72 @@
     "title": "The Remains of the Day",
     "author": "Kazuo Ishiguro",
     "description": "A novel about a butler in post-war England who reflects on his life of service, missed opportunities, and the nature of dignity.",
-    "image": "https://m.media-amazon.com/images/I/71FYHIsnVIL._AC_UF1000,1000_QL80_.jpg"
+    "image": "https://m.media-amazon.com/images/I/71FYHIsnVIL._AC_UF1000,1000_QL80_.jpg",
+    "bookWiki": "https://en.wikipedia.org/wiki/The_Remains_of_the_Day",
+    "authorWiki": "https://en.wikipedia.org/wiki/Kazuo_Ishiguro"
   },
   {
     "title": "The Best of Greg Egan: 20 Stories of Hard Science Fiction",
     "author": "Greg Egan",
     "description": "A collection of mind-bending short stories exploring themes of mathematics, physics, and artificial intelligence.",
-    "image": "https://m.media-amazon.com/images/I/81lTacCOtGL.jpg"
+    "image": "https://m.media-amazon.com/images/I/81lTacCOtGL.jpg",
+    "bookWiki": "https://en.wikipedia.org/wiki/Greg_Egan#Short_fiction",
+    "authorWiki": "https://en.wikipedia.org/wiki/Greg_Egan"
   },
   {
     "title": "Exhalation: Stories",
     "author": "Ted Chiang",
     "description": "A collection of science fiction short stories that explore humanity's place in the universe and the nature of consciousness.",
-    "image": "https://m.media-amazon.com/images/I/71eT4lRAyBL.jpg"
+    "image": "https://m.media-amazon.com/images/I/71eT4lRAyBL.jpg",
+    "bookWiki": "https://en.wikipedia.org/wiki/Exhalation_(short_story_collection)",
+    "authorWiki": "https://en.wikipedia.org/wiki/Ted_Chiang"
   },
   {
     "title": "The Elephant in the Brain: Hidden Motives in Everyday Life",
     "author": "Kevin Simler and Robin Hanson",
     "description": "An exploration of the hidden, self-interested motives behind our altruistic and social behaviors.",
-    "image": "https://m.media-amazon.com/images/I/610t9atnRWL.jpg"
+    "image": "https://m.media-amazon.com/images/I/610t9atnRWL.jpg",
+    "bookWiki": "https://en.wikipedia.org/wiki/The_Elephant_in_the_Brain",
+    "authorWiki": "https://en.wikipedia.org/wiki/Robin_Hanson"
   },
   {
     "title": "Station Eleven",
     "author": "Emily St. John Mandel",
     "description": "A novel set in a post-apocalyptic world, following a troupe of actors and musicians as they travel between settlements.",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqngY_ofhvRNNaqTyxLf0JJppZUjK8yUiVVA&s"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqngY_ofhvRNNaqTyxLf0JJppZUjK8yUiVVA&s",
+    "bookWiki": "https://en.wikipedia.org/wiki/Station_Eleven",
+    "authorWiki": "https://en.wikipedia.org/wiki/Emily_St._John_Mandel"
   },
   {
     "title": "The Mind-Body Problem",
     "author": "Rebecca Goldstein",
     "description": "A philosophical novel that explores the conflict between emotion and intellect through the eyes of a young female graduate student.",
-    "image": "https://is1-ssl.mzstatic.com/image/thumb/Publication2/v4/8a/2a/c0/8a2ac0e9-94d6-9f96-8462-ee92f1e5c909/MindBodyProblem-FINAL.jpg/1200x900wz.jpg"
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Publication2/v4/8a/2a/c0/8a2ac0e9-94d6-9f96-8462-ee92f1e5c909/MindBodyProblem-FINAL.jpg/1200x900wz.jpg",
+    "bookWiki": "https://www.penguinrandomhouse.ca/books/322223/the-mind-body-problem-by-rebecca-goldstein/9780140172454",
+    "authorWiki": "https://en.wikipedia.org/wiki/Rebecca_Goldstein"
   },
   {
     "title": "Superintelligence: Paths, Dangers, Strategies",
     "author": "Nick Bostrom",
     "description": "A book that makes the case for the potential dangers and existential risks of developing artificial superintelligence.",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdLP0LF1PYGibD4VPqFTGFVaAhH0LInqeGxA&s"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdLP0LF1PYGibD4VPqFTGFVaAhH0LInqeGxA&s",
+    "bookWiki": "https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies",
+    "authorWiki": "https://en.wikipedia.org/wiki/Nick_Bostrom"
   },
   {
     "title": "The Hitchhiker's Guide to the Galaxy",
     "author": "Douglas Adams",
     "description": "A comedic science fiction series that follows the adventures of the last surviving human after the demolition of Earth.",
-    "image": "https://upload.wikimedia.org/wikipedia/en/b/bd/H2G2_UK_front_cover.jpg"
+    "image": "https://upload.wikimedia.org/wikipedia/en/b/bd/H2G2_UK_front_cover.jpg",
+    "bookWiki": "https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy",
+    "authorWiki": "https://en.wikipedia.org/wiki/Douglas_Adams"
   },
   {
     "title": "Gödel, Escher, Bach: an Eternal Golden Braid",
     "author": "Douglas Hofstadter",
     "description": "A Pulitzer Prize-winning book that explores concepts of intelligence, consciousness, and self-reference through the works of a logician, an artist, and a composer.",
-    "image": "https://m.media-amazon.com/images/I/51zU0Zk9zLL.jpg"
+    "image": "https://m.media-amazon.com/images/I/51zU0Zk9zLL.jpg",
+    "bookWiki": "https://en.wikipedia.org/wiki/G%C3%B6del,_Escher,_Bach",
+    "authorWiki": "https://en.wikipedia.org/wiki/Douglas_Hofstadter"
   }
 ]
