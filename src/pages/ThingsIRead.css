@@ -1,0 +1,13 @@
+.books-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.books-page h1 {
+  color: var(--text);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
