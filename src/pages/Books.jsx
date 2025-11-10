@@ -6,7 +6,7 @@ import './Books.css';
 const Books = () => {
   return (
     <div className="books-page">
-      <h1>Things I Read</h1>
+      <h1>My Bookshelf</h1>
       <div className="books-grid">
         {booksData.map((book, index) => (
           <Card

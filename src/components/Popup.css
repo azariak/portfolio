@@ -25,14 +25,37 @@
 }
 
 .popup-close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
   background: none;
   border: none;
   font-size: 24px;
   cursor: pointer;
   color: #333;
+  padding: 5px;
+  line-height: 1;
+}
+
+.popup-controls {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.popup-open-new-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.popup-open-new-tab img {
+  width: 18px;
+  height: 18px;
 }
 
 .popup-content iframe {

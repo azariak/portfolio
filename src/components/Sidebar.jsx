@@ -17,13 +17,13 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/software" className={({ isActive }) => (isActive ? 'active' : '')}>
-              Software
+            <NavLink to="/books" className={({ isActive }) => (isActive ? 'active' : '')}>
+              My Bookshelf
             </NavLink>
           </li>
           <li>
-            <NavLink to="/books" className={({ isActive }) => (isActive ? 'active' : '')}>
-              Things I Read
+            <NavLink to="/software" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Software I Like
             </NavLink>
           </li>
         </ul>
