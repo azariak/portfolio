@@ -19,7 +19,7 @@ const Card = ({ title, description, link, image, bookWiki, authorWiki }) => {
   );
 
   return (
-    <div className="card">
+    <div className={`card ${image && bookWiki ? 'book-card' : ''}`}>
       {image && <img src={image} alt={title} className="card-image" />}
       <div className="card-content">
         <h3 className="card-title">{cardTitle}</h3>

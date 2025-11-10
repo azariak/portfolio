@@ -16,6 +16,12 @@
   object-fit: cover;
   border-radius: 0.5rem 0.5rem 0 0;
   margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+  background-color: #f0f0f0; /* a light background for letterboxing */
+}
+
+.book-card .card-image {
+  object-fit: contain;
+  height: 320px;
 }
 
 .card:hover {
