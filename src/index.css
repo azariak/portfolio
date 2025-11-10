@@ -688,6 +688,14 @@ body {
   color: var(--background);
 }
 
+.sidebar-footer {
+  margin-top: auto;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
 /* App layout */
 .app-layout {
   display: flex;

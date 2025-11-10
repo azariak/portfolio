@@ -23,6 +23,17 @@ const Sidebar = () => {
           </li>
         </ul>
       </nav>
+      <div className="sidebar-footer">
+        Designed by{' '}
+        <a
+          href="https://github.com/azariak"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link"
+        >
+          Azaria Kelman.
+        </a>
+      </div>
     </div>
   );
 };

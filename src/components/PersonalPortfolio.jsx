@@ -16,7 +16,7 @@ function shuffleArray(array) {
   return newArray;
 }
 
-const PersonalPortfolio = ({ isDarkMode, setIsDarkMode }) => {
+const PersonalPortfolio = ({ isDarkMode }) => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [messages, setMessages] = useState([
     { role: 'assistant', content: "Hi there! Welcome to my website!" },
@@ -279,36 +279,7 @@ const PersonalPortfolio = ({ isDarkMode, setIsDarkMode }) => {
 
   return (
     <div className={`container ${isDarkMode ? 'dark' : 'light'} ${isResizing ? 'resizing' : ''}`}>
-      <div className="header-controls">
-        <button
-          className="control-button"
-          onClick={() => window.open('https://www.linkedin.com/in/azaria-kelman/', '_blank')}
-          aria-label="Open LinkedIn"
-        >
-          <img src="/linkedin.png" alt="LinkedIn" width={24} height={24} />
-        </button>
-        <button
-          className="control-button"
-          onClick={() => window.open('https://github.com/azariak/portfolio', '_blank')}
-          aria-label="Open GitHub"
-        >
-          <img src="/github-mark-white.png" alt="GitHub" width={20} height={20} />
-        </button>
-        <button
-          className="control-button"
-          onClick={() => setIsDarkMode(!isDarkMode)}
-          aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-        >
-          {isDarkMode ? '☀️' : '🌙'}
-        </button>
-        {/* <button
-          className="control-button"
-          onClick={() => setIsSettingsOpen(true)}
-          aria-label="Open Settings"
-        >
-          <img src="/Settings.svg" alt="Settings" width={20} height={20} />
-        </button> */}
-      </div>
+      
 
       <SettingsModal
         isOpen={isSettingsOpen}
@@ -393,17 +364,7 @@ const PersonalPortfolio = ({ isDarkMode, setIsDarkMode }) => {
         )}
       </div>
 
-      <div className="footer">
-        Designed by{' '}
-        <a
-          href="https://github.com/azariak"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="link"
-        >
-          Azaria Kelman.
-        </a>
-      </div>
+      
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import HamburgerMenu from './components/HamburgerMenu';
+import HeaderControls from './components/HeaderControls';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import ThingsIRead from './pages/ThingsIRead';
@@ -24,8 +25,9 @@ const App = () => {
     <div className={`app-layout ${isDarkMode ? 'dark' : 'light'}`}>
       {isMobile ? <HamburgerMenu /> : <Sidebar />}
       <main className="main-content">
+        <HeaderControls isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         <Routes>
-          <Route path="/" element={<Home isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />} />
+          <Route path="/" element={<Home isDarkMode={isDarkMode} />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/things-i-read" element={<ThingsIRead />} />
         </Routes>
