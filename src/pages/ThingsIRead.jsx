@@ -12,7 +12,8 @@ const ThingsIRead = () => {
           <Card
             key={index}
             title={book.title}
-            description={`${book.description} - ${book.author}`}
+            description={book.author}
+            image={book.image}
           />
         ))}
       </div>
