@@ -36,6 +36,7 @@
   line-height: 1.5;
   margin: 0 0 1.5rem 0;
   flex-grow: 1;
+  font-weight: 400; /* explicit normal weight*/
 }
 
 .card-link {
@@ -43,6 +44,11 @@
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s;
+}
+
+.card-link.learn-more {
+  color: var(--button);
+  font-weight: 600;
 }
 
 .card-link:hover {
