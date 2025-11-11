@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './Sidebar.css';
+import profileImage from '../assets/profile.png';
 
 const Sidebar = () => {
   return (
@@ -29,6 +31,7 @@ const Sidebar = () => {
         </ul>
       </nav>
       <div className="sidebar-footer">
+        <img src={profileImage} alt="Profile" className="profile-image" />
         Designed by{' '}
         <a
           href="https://github.com/azariak"
