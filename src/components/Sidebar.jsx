@@ -15,7 +15,7 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink to="/ask-me-anything" className={({ isActive }) => (isActive ? 'active' : '')}>
-              Ask Me Anything
+              Ask Anything
             </NavLink>
           </li>
           <li>
