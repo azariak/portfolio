@@ -25,6 +25,11 @@ const HamburgerMenu = () => {
               </NavLink>
             </li>
             <li>
+              <NavLink to="/ask-me-anything" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>
+                Ask Me Anything
+              </NavLink>
+            </li>
+            <li>
               <NavLink to="/projects" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>
                 Projects
               </NavLink>
