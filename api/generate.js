@@ -36,8 +36,10 @@ export default async function handler(req, res) {
 
     const response = await ai.models.generateContentStream({
       model: "gemini-2.0-flash-exp",
-      systemInstruction: systemInstructions,
       contents: prompt,
+      config: {
+        systemInstruction: systemInstructions,
+      }
     });
 
     for await (const chunk of response) {
