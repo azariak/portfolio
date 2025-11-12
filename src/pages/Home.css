@@ -26,6 +26,17 @@
   line-height: 1.5;
 }
 
+.intro-description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+.dark .intro-description {
+  color: #bbb;
+}
+
 .qa-section {
   text-align: left;
 }
@@ -49,4 +60,228 @@
 
 .dark .answer {
     border-left: 3px solid #1a8cff; /* Restored accent line for dark mode */
+}
+
+.features-tour {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.dark .features-tour {
+  border-top: 1px solid #444;
+}
+
+.tour-heading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.dark .tour-heading {
+  color: #eee;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-card {
+  display: block;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #007bff;
+}
+
+.dark .feature-card {
+  background: #2a2a2a;
+  border-color: #444;
+}
+
+.dark .feature-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-color: #1a8cff;
+}
+
+.feature-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #007bff;
+}
+
+.dark .feature-title {
+  color: #1a8cff;
+}
+
+.feature-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+  margin: 0;
+}
+
+.dark .feature-description {
+  color: #bbb;
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .features-tour {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
+}
+  max-width: 700px; /* Reduced max-width for a more compact look */
+  margin: 0; /* Align to the left */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
+.dark .home-container {
+    color: #eee;
+}
+
+.intro-text {
+  text-align: left;
+  margin-bottom: 2.5rem; /* Increased spacing */
+}
+
+.intro-text h1 {
+  font-size: 1.8rem; /* Smaller heading */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.intro-text p {
+  font-size: 1rem; /* Smaller paragraph text */
+  line-height: 1.5;
+}
+
+.qa-section {
+  text-align: left;
+}
+
+.qa-pair {
+  margin-bottom: 1.8rem; /* Reduced spacing between pairs */
+}
+
+.question {
+  font-size: 1.1rem; /* Smaller question text */
+  font-weight: 600; /* Bolder questions */
+  margin-bottom: 0.4rem;
+}
+
+.answer {
+  font-size: 1rem; /* Smaller answer text */
+  line-height: 1.5;
+  padding-left: 1rem; /* Restored padding for the accent line */
+  border-left: 3px solid #007bff; /* Restored accent line */
+}
+
+.dark .answer {
+    border-left: 3px solid #1a8cff; /* Restored accent line for dark mode */
+}
+
+.features-tour {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.dark .features-tour {
+  border-top: 1px solid #444;
+}
+
+.tour-heading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.dark .tour-heading {
+  color: #eee;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-card {
+  display: block;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #007bff;
+}
+
+.dark .feature-card {
+  background: #2a2a2a;
+  border-color: #444;
+}
+
+.dark .feature-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-color: #1a8cff;
+}
+
+.feature-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #007bff;
+}
+
+.dark .feature-title {
+  color: #1a8cff;
+}
+
+.feature-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+  margin: 0;
+}
+
+.dark .feature-description {
+  color: #bbb;
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .features-tour {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
 }
