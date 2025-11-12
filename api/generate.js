@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -26,11 +26,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: "gemini-2.5-flash",
-      systemInstruction: systemInstructions,
-    });
+    const ai = new GoogleGenAI({ apiKey });
 
     // Set headers for Server-Sent Events (SSE)
     res.setHeader('Content-Type', 'text/event-stream');
@@ -38,11 +34,10 @@ export default async function handler(req, res) {
     res.setHeader('Connection', 'keep-alive');
     res.flushHeaders(); // Send headers immediately
 
-    const response = await model.generateContentStream({
-      contents: [{ role: "user", parts: [{ text: prompt }] }],
-      generationConfig: {
-        maxOutputTokens: 1000,
-      },
+    const response = await ai.models.generateContentStream({
+      model: "gemini-2.0-flash-exp",
+      systemInstruction: systemInstructions,
+      contents: prompt,
     });
 
     for await (const chunk of response) {

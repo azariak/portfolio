@@ -11,7 +11,7 @@ const Home = () => {
   const features = [
     {
       title: "Ask Anything",
-      path: "/ask-me-anything",
+      path: "/ask",
       description: "Have a question? Ask me anything using AI! Get personalized responses based on my knowledge and experiences."
     },
     {

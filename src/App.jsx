@@ -31,7 +31,7 @@ const App = () => {
         <HeaderControls isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         <Routes>
           <Route path="/" element={<Home isDarkMode={isDarkMode} />} />
-          <Route path="/ask-me-anything" element={<AskMeAnything isDarkMode={isDarkMode} />} />
+          <Route path="/ask" element={<AskMeAnything isDarkMode={isDarkMode} />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/books" element={<Books />} />
           <Route path="/software" element={<Software />} />
