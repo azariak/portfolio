@@ -14,6 +14,11 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
+            <NavLink to="/ask-me-anything" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Ask Me Anything
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/projects" className={({ isActive }) => (isActive ? 'active' : '')}>
               Projects
             </NavLink>
@@ -28,6 +33,13 @@ const Sidebar = () => {
               Software I Like
             </NavLink>
           </li>
+          {/*
+          <li>
+            <NavLink to="/blog" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Blog
+            </NavLink>
+          </li>
+          */}
         </ul>
       </nav>
       <div className="sidebar-footer">

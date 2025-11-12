@@ -1,0 +1,52 @@
+.home-container {
+  padding: 2rem 2rem 2rem 0; /* Removed left padding */
+  max-width: 700px; /* Reduced max-width for a more compact look */
+  margin: 0; /* Align to the left */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
+.dark .home-container {
+    color: #eee;
+}
+
+.intro-text {
+  text-align: left;
+  margin-bottom: 2.5rem; /* Increased spacing */
+}
+
+.intro-text h1 {
+  font-size: 1.8rem; /* Smaller heading */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.intro-text p {
+  font-size: 1rem; /* Smaller paragraph text */
+  line-height: 1.5;
+}
+
+.qa-section {
+  text-align: left;
+}
+
+.qa-pair {
+  margin-bottom: 1.8rem; /* Reduced spacing between pairs */
+}
+
+.question {
+  font-size: 1.1rem; /* Smaller question text */
+  font-weight: 600; /* Bolder questions */
+  margin-bottom: 0.4rem;
+}
+
+.answer {
+  font-size: 1rem; /* Smaller answer text */
+  line-height: 1.5;
+  padding-left: 1rem; /* Restored padding for the accent line */
+  border-left: 3px solid #007bff; /* Restored accent line */
+}
+
+.dark .answer {
+    border-left: 3px solid #1a8cff; /* Restored accent line for dark mode */
+}
