@@ -35,15 +35,22 @@ const HamburgerMenu = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/software" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>
-                Software
+              <NavLink to="/books" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>
+                My Bookshelf
               </NavLink>
             </li>
             <li>
-              <NavLink to="/books" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>
-                Things I Read
+              <NavLink to="/software" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>
+                Software I Like
               </NavLink>
             </li>
+            {/*
+            <li>
+              <NavLink to="/blog" className={({ isActive }) => (isActive ? 'active' : '')} onClick={toggleMenu}>
+                Blog
+              </NavLink>
+            </li>
+            */}
           </ul>
         </nav>
       </div>
