@@ -4,7 +4,7 @@ import './Home.css';
 
 const Home = () => {
   const qaPairs = {
-    "Who are you?": "I'm a University of Toronto student studying Computer Science and Philosophy. "
+    "Who am I?": "I'm a University of Toronto student studying Computer Science and Philosophy. "
     // "More coming soon...": ""
   };
 
