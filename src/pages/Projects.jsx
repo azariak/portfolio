@@ -8,6 +8,9 @@ const Projects = () => {
   const [popupUrl, setPopupUrl] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
+  // Projects that should open in new tabs instead of popups
+  const projectsWithoutPopup = ['Lichess Open-Source Contributions', 'Remote Controlled Car', 'Tetris'];
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -37,7 +40,7 @@ const Projects = () => {
             title={project.title}
             description={project.description}
             link={project.link}
-            onLearnMoreClick={openPopup}
+            onLearnMoreClick={projectsWithoutPopup.includes(project.title) ? undefined : openPopup}
             isMobile={isMobile}
           />
         ))}
