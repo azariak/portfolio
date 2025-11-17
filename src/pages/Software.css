@@ -1,21 +1,49 @@
 .software-page {
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--page-max-width-wide);
   margin: 0 auto;
-  padding: 2rem;
+  padding: var(--page-padding);
 }
 
 .software-page h1 {
   color: var(--text);
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+  font-size: var(--font-size-h1-lg);
+  margin-bottom: var(--spacing-lg);
   text-align: center;
+}
+
+@media (max-width: 1440px) {
+  .software-page h1 {
+    font-size: var(--font-size-h1-md);
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+@media (max-width: 1024px) {
+  .software-page h1 {
+    font-size: var(--font-size-h1-sm);
+    margin-bottom: var(--card-padding-md);
+  }
 }
 
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: var(--grid-gap-lg);
+}
+
+@media (max-width: 1440px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--grid-gap-md);
+  }
+}
+
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--grid-gap-sm);
+  }
 }
 
 

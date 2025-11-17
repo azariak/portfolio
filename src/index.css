@@ -5,10 +5,83 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
+  /* Transitions and Shadows */
   --standard-transition: background-color 0.2s;
   --standard-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  
+  /* Typography */
   --standard-font: 0.875rem;
+  
+  /* Layout */
   --sidebar-width: 200px;
+  --page-padding: 2rem;
+  --page-max-width-wide: 1200px;
+  --page-max-width-medium: 700px;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 2.5rem;
+  
+  /* Grid gaps */
+  --grid-gap-lg: 2rem;
+  --grid-gap-md: 1.5rem;
+  --grid-gap-sm: 1rem;
+  
+  /* Card padding */
+  --card-padding-lg: 1.5rem;
+  --card-padding-md: 1.25rem;
+  --card-padding-sm: 1rem;
+  
+  /* Font sizes */
+  --font-size-h1-lg: 2.5rem;
+  --font-size-h1-md: 2rem;
+  --font-size-h1-sm: 1.75rem;
+  --font-size-h2-lg: 1.8rem;
+  --font-size-h2-md: 1.5rem;
+  --font-size-h2-sm: 1.3rem;
+  --font-size-h3-lg: 1.4rem;
+  --font-size-h3-md: 1.2rem;
+  --font-size-h3-sm: 1.1rem;
+  --font-size-h4-lg: 1.25rem;
+  --font-size-h4-md: 1.1rem;
+  --font-size-h4-sm: 1rem;
+  
+  /* Border colors (to centralize hard-coded values) */
+  --border-light: #e0e0e0;
+  --border-dark: #444;
+  --accent-blue: #007bff;
+  --accent-blue-hover: #1a8cff;
+}
+
+/* Smaller laptops - adjust sizing variables */
+@media (max-width: 1440px) {
+  :root {
+    --standard-font: 0.8rem;
+    --page-padding: 1.5rem;
+    --page-max-width-wide: 1000px;
+    --page-max-width-medium: 600px;
+    --grid-gap-lg: 1.5rem;
+    --grid-gap-md: 1.25rem;
+    --card-padding-lg: 1.25rem;
+    --card-padding-md: 1rem;
+    --sidebar-width: 180px;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --page-padding: 1.25rem;
+    --page-max-width-wide: 900px;
+    --page-max-width-medium: 550px;
+    --grid-gap-lg: 1.25rem;
+    --grid-gap-md: 1rem;
+    --card-padding-lg: 1rem;
+    --card-padding-md: 0.875rem;
+    --sidebar-width: 160px;
+  }
 }
 
 .light {
@@ -67,6 +140,18 @@ body {
   overflow: hidden;
 }
 
+@media (max-width: 1440px) {
+  .container {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0.5rem;
+  }
+}
+
 .content {
   width: 100%;
   max-width: 800px;
@@ -80,6 +165,21 @@ body {
   overflow: hidden;
   position: relative;
   z-index: 1;
+}
+
+/* Smaller laptops - reduce content dimensions */
+@media (max-width: 1440px) {
+  .content {
+    max-width: 700px;
+    height: 550px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .content {
+    max-width: 600px;
+    height: 500px;
+  }
 }
 
 /* Add responsive styles for mobile */
@@ -175,6 +275,18 @@ body {
   text-align: center;
 }
 
+@media (max-width: 1440px) {
+  .header-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header-title {
+    font-size: 1.2rem;
+  }
+}
+
 .reset-button {
   background: none;
   border: none;
@@ -233,6 +345,12 @@ body {
   border-radius: 0.75rem;
   font-size: var(--standard-font);
   word-break: break-word;
+}
+
+@media (max-width: 1440px) {
+  .message {
+    padding: 0.6rem;
+  }
 }
 
 .assistant-message {
@@ -391,6 +509,20 @@ body {
   z-index: 10;
 }
 
+@media (max-width: 1440px) {
+  .header-controls {
+    right: 0.75rem;
+    top: 0.75rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header-controls {
+    right: 0.5rem;
+    top: 0.5rem;
+  }
+}
+
 .control-button {
   width: 2.5rem;
   height: 2.5rem;
@@ -404,6 +536,22 @@ body {
   justify-content: center;
   transition: var(--standard-transition);
   font-size: 1.2rem;
+}
+
+@media (max-width: 1440px) {
+  .control-button {
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .control-button {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
 }
 
 .control-button:hover {
@@ -654,6 +802,18 @@ body {
   box-sizing: border-box;
 }
 
+@media (max-width: 1440px) {
+  .sidebar {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    padding: 0.5rem;
+  }
+}
+
 .sidebar nav {
   margin-top: 2rem;
 }
@@ -677,6 +837,20 @@ body {
   padding: 0.75rem 1rem;
   border-radius: 0.375rem;
   transition: background-color 0.2s, color 0.2s;
+}
+
+@media (max-width: 1440px) {
+  .sidebar nav a {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sidebar nav a {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.6rem;
+  }
 }
 
 .sidebar nav a:hover {
@@ -714,3 +888,21 @@ body {
   align-items: flex-start;
   padding: 1rem;
 }
+
+@media (max-width: 1440px) {
+  .main-content {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    padding: 0.5rem;
+  }
+}
+
+/* ============================================
+   NOTE: All CSS variables defined at :root are used across
+   page-specific CSS files (Home.css, Projects.css, etc.)
+   to ensure consistent sizing and spacing throughout the app
+   ============================================ */

@@ -29,10 +29,17 @@ const PersonalPortfolio = ({ isDarkMode }) => {
   );
 
   // Resize functionality state
-  const [containerDimensions, setContainerDimensions] = useState({
-    width: 830,
-    height: Math.min(675, window.innerHeight * 0.9)
-  });
+  const getDefaultDimensions = () => {
+    const width = window.innerWidth;
+    if (width <= 1024) {
+      return { width: 600, height: Math.min(500, window.innerHeight * 0.85) };
+    } else if (width <= 1440) {
+      return { width: 700, height: Math.min(550, window.innerHeight * 0.85) };
+    }
+    return { width: 830, height: Math.min(675, window.innerHeight * 0.9) };
+  };
+
+  const [containerDimensions, setContainerDimensions] = useState(getDefaultDimensions());
   const [isResizing, setIsResizing] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -48,10 +55,18 @@ const PersonalPortfolio = ({ isDarkMode }) => {
       setIsDesktop(hasHover && isLargeScreen);
     };
     
+    const handleResize = () => {
+      checkIsDesktop();
+      // Update dimensions on window resize if not currently resizing
+      if (!isResizing) {
+        setContainerDimensions(getDefaultDimensions());
+      }
+    };
+    
     checkIsDesktop();
-    window.addEventListener('resize', checkIsDesktop);
-    return () => window.removeEventListener('resize', checkIsDesktop);
-  }, []);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isResizing]);
 
   // Resize functionality
   const handleResizeStart = (e) => {
@@ -82,7 +97,7 @@ const PersonalPortfolio = ({ isDarkMode }) => {
   };
 
   const resetContainerSize = () => {
-    setContainerDimensions({ width: 830, height: Math.min(675, window.innerHeight * 0.9) });
+    setContainerDimensions(getDefaultDimensions());
   };
 
   const resetChat = () => {
@@ -332,16 +347,19 @@ const PersonalPortfolio = ({ isDarkMode }) => {
         {/* Resize controls - only show on desktop */}
         {isDesktop && (
           <div className="resize-controls">
-            {(containerDimensions.width !== 830 || containerDimensions.height !== 675) && (
-              <button
-                className="size-reset-button"
-                onClick={resetContainerSize}
-                aria-label="Reset container size"
-                title="Reset to default size"
-              >
-                ↻
-              </button>
-            )}
+            {(() => {
+              const defaults = getDefaultDimensions();
+              return (containerDimensions.width !== defaults.width || containerDimensions.height !== defaults.height) && (
+                <button
+                  className="size-reset-button"
+                  onClick={resetContainerSize}
+                  aria-label="Reset container size"
+                  title="Reset to default size"
+                >
+                  ↻
+                </button>
+              );
+            })()}
             <div 
               className={`resize-handle ${isResizing ? 'resizing' : ''}`}
               onMouseDown={handleResizeStart}

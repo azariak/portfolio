@@ -1,19 +1,48 @@
 .books-page {
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--page-max-width-wide);
   margin: 0 auto;
-  padding: 2rem;
+  padding: var(--page-padding);
 }
 
 .books-page h1 {
   color: var(--text);
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+  font-size: var(--font-size-h1-lg);
+  margin-bottom: var(--spacing-lg);
   text-align: center;
 }
 
+@media (max-width: 1440px) {
+  .books-page h1 {
+    font-size: var(--font-size-h1-md);
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+@media (max-width: 1024px) {
+  .books-page h1 {
+    font-size: var(--font-size-h1-sm);
+    margin-bottom: var(--card-padding-md);
+  }
+}
+
+/* Books uses smaller grid columns than projects/software */
 .books-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1.5rem;
+  gap: var(--spacing-md);
+}
+
+@media (max-width: 1440px) {
+  .books-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--card-padding-md);
+  }
+}
+
+@media (max-width: 1024px) {
+  .books-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+  }
 }
