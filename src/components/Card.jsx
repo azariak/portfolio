@@ -10,7 +10,7 @@ const Card = ({ title, description, link, image, bookWiki, authorWiki, onLearnMo
     title
   );
 
-  const projectsWithPopup = ['TutorFlowAI', 'WikiSurfer', 'ChartAhead'];
+  const projectsWithPopup = ['TutorFlowAI', 'WikiSurfer', 'ChartAhead', 'Moonwalk with Einstein'];
 
   const cardDescription = authorWiki ? (
     <a href={authorWiki} target="_blank" rel="noopener noreferrer" className="card-link">
