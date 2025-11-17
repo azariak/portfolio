@@ -17,7 +17,7 @@ const Home = () => {
     {
       title: "Projects",
       path: "/projects",
-      description: "Explore some projects I've built, from web applications to a game I made in Assembly."
+      description: "Explore some projects I've built."
     },
     {
       title: "My Bookshelf",
