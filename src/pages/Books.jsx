@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '../components/Card';
+import Popup from '../components/Popup';
 import booksData from '../data/books.json';
 import './Books.css';
 
 const Books = () => {
+  const [popupUrl, setPopupUrl] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const openPopup = (url) => {
+    setPopupUrl(url);
+  };
+
+  const closePopup = () => {
+    setPopupUrl(null);
+  };
+
   return (
     <div className="books-page">
       <h1>My Bookshelf</h1>
@@ -16,9 +39,12 @@ const Books = () => {
             image={book.image}
             bookWiki={book.bookWiki}
             authorWiki={book.authorWiki}
+            onLearnMoreClick={openPopup}
+            isMobile={isMobile}
           />
         ))}
       </div>
+      {popupUrl && <Popup url={popupUrl} onClose={closePopup} />}
     </div>
   );
 };
