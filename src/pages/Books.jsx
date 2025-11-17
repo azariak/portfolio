@@ -8,6 +8,9 @@ const Books = () => {
   const [popupUrl, setPopupUrl] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
+  // Books that should open in new tabs instead of popups
+  const booksWithoutPopup = ['The Mind-Body Problem'];
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -39,7 +42,7 @@ const Books = () => {
             image={book.image}
             bookWiki={book.bookWiki}
             authorWiki={book.authorWiki}
-            onLearnMoreClick={openPopup}
+            onLearnMoreClick={booksWithoutPopup.includes(book.title) ? undefined : openPopup}
             isMobile={isMobile}
           />
         ))}
