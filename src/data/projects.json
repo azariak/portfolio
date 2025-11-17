@@ -18,6 +18,12 @@
     "technologies": ["AI", "Web Development"]
   },
   {
+    "title": "Moonwalk with Einstein",
+    "description": "A memory game inspired by Joshua Foer's book Moonwalking with Einstein.",
+    "link": "https://azariak.github.io/MoonwalkWithEinstein/index.html",
+    "technologies": ["HTML/CSS", "JavaScript"]
+  },
+  {
     "title": "Lichess Open-Source Contributions",
     "description": "Improved the UI for toggling chatroom visibility, refined a link to chess videos, and contributed to a patch for a bug that made the chessboard unreadable with transparent backgrounds.",
     "link": "https://github.com/search?q=repo%3Alichess-org%2Flila+author%3Aazariak&type=issues",
