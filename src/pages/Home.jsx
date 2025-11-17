@@ -12,22 +12,22 @@ const Home = () => {
     {
       title: "Ask Anything",
       path: "/ask",
-      description: "Have a question? Ask me anything using AI! Get personalized responses based on my knowledge and experiences."
+      description: "Ask me anything and hear what Gemini has to say about me."
     },
     {
       title: "Projects",
       path: "/projects",
-      description: "Explore the projects I've built, from web applications to a game I made in Assembly."
+      description: "Explore some projects I've built, from web applications to a game I made in Assembly."
     },
     {
       title: "My Bookshelf",
       path: "/books",
-      description: "Discover some books I've read recently that have recently shaped my thinking and interests across various topics."
+      description: "Discover a small collection of books I've read recently that I enjoyed."
     },
     {
       title: "Software I Like",
       path: "/software",
-      description: "A curated list of software tools and applications that I find useful."
+      description: "An exclusive list of software tools and applications that I find useful."
     }
   ];
 
