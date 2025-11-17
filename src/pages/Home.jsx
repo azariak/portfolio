@@ -22,7 +22,7 @@ const Home = () => {
     {
       title: "My Bookshelf",
       path: "/books",
-      description: "Discover a small collection of books I've read recently that I enjoyed."
+      description: "Discover a small collection of books I've read recently and enjoyed."
     },
     {
       title: "Software I Like",
