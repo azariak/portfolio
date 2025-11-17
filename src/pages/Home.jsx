@@ -34,7 +34,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="intro-text">
-        <h1>Welcome! I'm Azaria Kelman👋</h1>
+        <h1>Welcome! I'm Azaria Kelman</h1>
       </div>
       <div className="qa-section">
         {Object.entries(qaPairs).map(([question, answer]) => (

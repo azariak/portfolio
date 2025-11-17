@@ -296,7 +296,7 @@ const PersonalPortfolio = ({ isDarkMode }) => {
       >
         <header className="header">
           <div className="header-content">
-            <h1 className="header-title">Ask About Me 👋</h1>
+            <h1 className="header-title">Ask About Me</h1>
             <button
               className="reset-button"
               onClick={resetChat}

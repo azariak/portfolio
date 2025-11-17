@@ -22,7 +22,9 @@ const HeaderControls = ({ isDarkMode, setIsDarkMode }) => {
         onClick={() => setIsDarkMode(!isDarkMode)}
         aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
       >
-        {isDarkMode ? '☀️' : '🌙'}
+        <span style={{ filter: 'grayscale(100%) brightness(200%)' }}>
+          {isDarkMode ? '☀️' : '🌙'}
+        </span>
       </button>
     </div>
   );
