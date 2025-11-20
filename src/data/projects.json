@@ -3,42 +3,70 @@
     "title": "TutorFlowAI",
     "description": "An interactive tutoring platform integrating real-time audio, a Large Language Model (LLM), a chatbot interface, and a digital whiteboard to create intelligent learning experiences.",
     "link": "https://www.tutorflowai.com/",
-    "technologies": ["HTML/CSS", "React", "Vite"]
+    "technologies": [
+      "HTML/CSS",
+      "React",
+      "Vite"
+    ]
   },
   {
     "title": "WikiSurfer",
     "description": "A responsive website leveraging Wikipedia data to showcase thousands of top articles. Built an adaptive interface supporting swipe gestures for navigating the article feed across devices.",
     "link": "https://azariak.github.io/WikiSurfer/",
-    "technologies": ["HTML/CSS", "JavaScript"]
+    "technologies": [
+      "HTML/CSS",
+      "JavaScript"
+    ]
   },
   {
     "title": "ChartAhead",
     "description": "An AI-powered intake platform that turns patient responses into physician-ready charts before their visit, integrating seamlessly into existing workflows.",
     "link": "https://chartahead.ca/",
-    "technologies": ["AI", "Web Development"]
+    "technologies": [
+      "AI",
+      "Web Development"
+    ]
   },
   {
     "title": "Moonwalk with Einstein",
     "description": "A memory game inspired by Joshua Foer's book Moonwalking with Einstein.",
     "link": "https://azariak.github.io/MoonwalkWithEinstein/index.html",
-    "technologies": ["HTML/CSS", "JavaScript"]
+    "technologies": [
+      "HTML/CSS",
+      "JavaScript"
+    ]
+  },
+  {
+    "title": "Tryon",
+    "description": "Try on clothing before you buy!",
+    "link": "https://tryon-1fd.pages.dev/",
+    "technologies": []
   },
   {
     "title": "Lichess Open-Source Contributions",
     "description": "Improved the UI for toggling chatroom visibility, refined a link to chess videos, and contributed to a patch for a bug that made the chessboard unreadable with transparent backgrounds.",
     "link": "https://github.com/search?q=repo%3Alichess-org%2Flila+author%3Aazariak&type=issues",
-    "technologies": ["JavaScript", "Git"]
+    "technologies": [
+      "JavaScript",
+      "Git"
+    ]
   },
   {
     "title": "Remote Controlled Car",
     "description": "A remote-controlled car with a custom 3D-printed chassis, using Arduino and a breadboard to integrate the motor, wiring, and remote control system.",
     "link": "https://github.com/azariak/ArduinoRemoteCar",
-    "technologies": ["Arduino", "C++", "3D Design"]
+    "technologies": [
+      "Arduino",
+      "C++",
+      "3D Design"
+    ]
   },
   {
     "title": "Tetris",
     "description": "A Tetris game in MIPS Assembly featuring a user interface, background music, and multiple difficulty levels.",
     "link": "https://gitfront.io/r/AKelman/A6atKrU2ZJnN/TetrisInMIPS/",
-    "technologies": ["Assembly"]
+    "technologies": [
+      "Assembly"
+    ]
   }
 ]
