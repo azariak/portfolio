@@ -1,7 +1,7 @@
 [
   {
     "title": "TutorFlowAI",
-    "description": "An interactive tutoring platform integrating real-time audio, a Large Language Model (LLM), a chatbot interface, and a digital whiteboard to create intelligent learning experiences.",
+    "description": "An interactive tutoring platform with real-time audio, a Large Language Model (LLM), a chatbot interface, and a digital whiteboard that creates intelligent learning experiences.",
     "link": "https://www.tutorflowai.com/",
     "technologies": [
       "HTML/CSS",
@@ -35,6 +35,12 @@
       "HTML/CSS",
       "JavaScript"
     ]
+  },
+  {
+    "title": "CivicFlowTO",
+    "description": "Use natural language to learn about Toronto and its open data",
+    "link": "https://civicflow.pages.dev/",
+    "technologies": []
   },
   {
     "title": "Tryon",
