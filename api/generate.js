@@ -8,6 +8,9 @@ export default async function handler(req, res) {
   const { prompt, systemInstructions } = req.body;
   const apiKey = process.env.GEMINI_API_KEY;
 
+  // Debug: Log if API key exists (not the actual key)
+  console.log("API Key exists:", !!apiKey, "Length:", apiKey?.length || 0);
+
   if (!prompt) {
     return res.status(400).json({ error: "Prompt is required" });
   }
@@ -25,11 +28,10 @@ export default async function handler(req, res) {
   try {
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({
-      model: "gemini-2.5-flash-lite",
+      model: "gemini-1.5-flash",
       systemInstruction: systemInstructions,
     });
 
-    // Use non-streaming generateContent (API keys supported)
     const result = await model.generateContent({
       contents: [{ role: "user", parts: [{ text: prompt }] }],
       generationConfig: {
@@ -50,6 +52,7 @@ export default async function handler(req, res) {
     res.status(500).json({
       error: "Failed to generate response",
       details: error.message,
+      stack: error.stack,
     });
   }
 }
