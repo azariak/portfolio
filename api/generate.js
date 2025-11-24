@@ -28,7 +28,7 @@ export default async function handler(req, res) {
   try {
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({
-      model: "gemini-2.0-flash",
+      model: "gemini-2.5-flash-lite",
       systemInstruction: systemInstructions,
     });
 
@@ -38,9 +38,14 @@ export default async function handler(req, res) {
     res.setHeader('Connection', 'keep-alive');
     res.flushHeaders();
 
-    const result = await model.generateContentStream(prompt);
+    const stream = await model.generateContentStream({
+      contents: [{ role: "user", parts: [{ text: prompt }] }],
+      generationConfig: {
+        maxOutputTokens: 1000,
+      },
+    });
 
-    for await (const chunk of result.stream) {
+    for await (const chunk of stream.stream) {
       const chunkText = chunk.text();
       if (chunkText) {
         res.write(`data: ${JSON.stringify({ chunk: chunkText })}\n\n`);
