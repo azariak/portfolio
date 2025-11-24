@@ -1,7 +1,4 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -49,15 +46,10 @@ export default async function handler(req, res) {
     res.write(`data: ${JSON.stringify({ chunk: responseText })}\n\n`);
     res.end();
   } catch (error) {
-    console.error("Detailed Gemini API stream error:", error);
-    if (!res.headersSent) {
-      res.status(500).json({
-        error: "Failed to generate streaming response",
-        details: error.message,
-      });
-    } else {
-      res.write(`event: error\ndata: ${JSON.stringify({ error: "Failed to generate response", details: error.message })}\n\n`);
-      res.end();
-    }
+    console.error("Gemini API error:", error);
+    res.status(500).json({
+      error: "Failed to generate response",
+      details: error.message,
+    });
   }
 }
