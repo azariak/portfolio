@@ -32,26 +32,21 @@ export default async function handler(req, res) {
       systemInstruction: systemInstructions,
     });
 
-    // Set headers for Server-Sent Events (SSE)
-    res.setHeader('Content-Type', 'text/event-stream');
-    res.setHeader('Cache-Control', 'no-cache');
-    res.setHeader('Connection', 'keep-alive');
-    res.flushHeaders();
-
-    const stream = await model.generateContentStream({
+    // Use non-streaming generateContent (API keys supported)
+    const result = await model.generateContent({
       contents: [{ role: "user", parts: [{ text: prompt }] }],
       generationConfig: {
         maxOutputTokens: 1000,
       },
     });
 
-    for await (const chunk of stream.stream) {
-      const chunkText = chunk.text();
-      if (chunkText) {
-        res.write(`data: ${JSON.stringify({ chunk: chunkText })}\n\n`);
-      }
-    }
+    const responseText = result.response.text();
 
+    // Send as SSE format for frontend compatibility
+    res.setHeader('Content-Type', 'text/event-stream');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Connection', 'keep-alive');
+    res.write(`data: ${JSON.stringify({ chunk: responseText })}\n\n`);
     res.end();
   } catch (error) {
     console.error("Detailed Gemini API stream error:", error);
