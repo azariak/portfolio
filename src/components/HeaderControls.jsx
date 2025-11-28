@@ -1,8 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './HeaderControls.css';
 
 const HeaderControls = ({ isDarkMode, setIsDarkMode }) => {
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('azaria.kelman@mail.utoronto.ca');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500); // Reset after 2.5 seconds
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  };
+
   return (
     <div className="header-controls">
+      <div className="email-button-wrapper">
+        <button
+          className="control-button"
+          onClick={copyEmail}
+          aria-label="Copy email address"
+        >
+          <span style={{ fontSize: '1.5rem', fontWeight: '900', textShadow: '0 0 1px currentColor' }}>
+            ✉
+          </span>
+        </button>
+        {copied && <div className="copied-message">Copied to clipboard!</div>}
+      </div>
       <button
         className="control-button"
         onClick={() => window.open('https://www.linkedin.com/in/azaria-kelman/', '_blank')}
