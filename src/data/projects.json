@@ -19,6 +19,17 @@
     ]
   },
   {
+    "title": "Z Fellows Application Review Dashboard",
+    "description": "A streamlined dashboard for Cory Levy to review thousands of Z Fellows applications using Airtable integration.",
+    "link": "https://azariak.github.io/ZFellowsApplicationReview/",
+    "technologies": [
+      "React",
+      "JavaScript",
+      "Airtable API",
+      "Node.js"
+    ]
+  },
+  {
     "title": "ChartAhead",
     "description": "An AI-powered intake platform that turns patient responses into physician-ready charts before their visit, integrating seamlessly into existing workflows.",
     "link": "https://chartahead.ca/",
