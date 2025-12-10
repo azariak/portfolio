@@ -20,7 +20,7 @@
   },
   {
     "title": "Z Fellows Application Review Dashboard",
-    "description": "A streamlined dashboard for Cory Levy to review thousands of Z Fellows applications using Airtable integration.",
+    "description": "A streamlined dashboard used by Cory Levy to efficiently review thousands of Z Fellows applications and trigger emails to applicants.",
     "link": "https://azariak.github.io/ZFellowsApplicationReview/",
     "technologies": [
       "React",
