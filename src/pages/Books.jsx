@@ -33,6 +33,7 @@ const Books = () => {
   return (
     <div className="books-page">
       <h1>My Bookshelf</h1>
+      <h3>A small collection of books I've read recently and enjoyed:</h3>
       <div className="books-grid">
         {booksData.map((book, index) => (
           <Card

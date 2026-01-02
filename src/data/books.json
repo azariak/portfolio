@@ -70,5 +70,21 @@
     "image": "https://m.media-amazon.com/images/I/51zU0Zk9zLL.jpg",
     "bookWiki": "https://en.wikipedia.org/wiki/G%C3%B6del,_Escher,_Bach",
     "authorWiki": "https://en.wikipedia.org/wiki/Douglas_Hofstadter"
+  },
+  {
+    "title": "We",
+    "author": "Yevgeny Zamyatin",
+    "description": "A dystopian novel set in a future totalitarian state where individuality is suppressed. It is considered a precursor to 1984 and Brave New World.",
+    "image": "https://m.media-amazon.com/images/I/81VK0rQFUTL._AC_UF1000,1000_QL80_.jpg",
+    "bookWiki": "https://en.wikipedia.org/wiki/We_(novel)",
+    "authorWiki": "https://en.wikipedia.org/wiki/Yevgeny_Zamyatin"
+  },
+  {
+    "title": "iGen",
+    "author": "Jean Twenge",
+    "description": "Explores how the smartphone generation is growing up less rebellious, more tolerant, less happy, and completely unprepared for adulthood.",
+    "image": "https://m.media-amazon.com/images/I/71pc8LFoeNL._AC_UF1000,1000_QL80_.jpg",
+    "bookWiki": "https://en.wikipedia.org/wiki/IGen_(book)",
+    "authorWiki": "https://en.wikipedia.org/wiki/Jean_Twenge"
   }
 ]
