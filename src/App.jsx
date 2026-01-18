@@ -9,6 +9,7 @@ import Projects from './pages/Projects';
 import Books from './pages/Books';
 import Software from './pages/Software';
 import Blog from './pages/Blog';
+import CommandLine from './pages/CommandLine';
 import './index.css';
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/books" element={<Books />} />
           <Route path="/software" element={<Software />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/terminal" element={<CommandLine />} />
         </Routes>
         </main>
     </div>

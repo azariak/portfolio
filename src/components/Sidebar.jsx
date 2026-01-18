@@ -14,6 +14,11 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
+            <NavLink to="/terminal" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Command Line
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/ask" className={({ isActive }) => (isActive ? 'active' : '')}>
               Ask Anything
             </NavLink>
