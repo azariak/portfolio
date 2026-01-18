@@ -32,13 +32,7 @@ export default async function handler(req, res) {
       systemInstruction: systemInstructions,
     });
 
-    const result = await model.generateContent({
-      contents: [{ role: "user", parts: [{ text: prompt }] }],
-      generationConfig: {
-        maxOutputTokens: 1000,
-      },
-    });
-
+    const result = await model.generateContent(prompt);
     const responseText = result.response.text();
 
     // Send as SSE format for frontend compatibility
