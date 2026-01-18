@@ -255,7 +255,9 @@ ${softwareData.slice(0, 3).map((s, i) =>
     setCommandHistory(prev => [...prev, trimmed]);
     setHistoryIndex(-1);
 
-    const [cmd, ...args] = trimmed.split(' ');
+    // Remove leading slash if present
+    const cleanedInput = trimmed.startsWith('/') ? trimmed.slice(1) : trimmed;
+    const [cmd, ...args] = cleanedInput.split(' ');
     const command = cmd.toLowerCase();
 
     if (commands[command]) {
