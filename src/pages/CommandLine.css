@@ -13,22 +13,23 @@
 
 .terminal-header {
   background: #1a1e24;
-  padding: 8px 12px;
+  padding: 6px 10px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #00ff41;
   box-shadow: 0 2px 8px rgba(0, 255, 65, 0.2);
+  flex-shrink: 0;
 }
 
 .terminal-buttons {
   display: flex;
-  gap: 8px;
-  margin-right: 16px;
+  gap: 6px;
+  margin-right: 12px;
 }
 
 .terminal-button {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   display: inline-block;
 }
@@ -47,18 +48,18 @@
 
 .terminal-title {
   color: #8b949e;
-  font-size: 12px;
+  font-size: 11px;
   flex: 1;
   text-align: center;
 }
 
 .terminal-body {
   flex: 1;
-  padding: 20px;
+  padding: 12px 16px;
   overflow-y: auto;
   overflow-x: hidden;
   cursor: text;
-  line-height: 1.6;
+  line-height: 1.5;
   min-height: 0;
 }
 
@@ -188,6 +189,24 @@
 }
 
 @media (max-width: 480px) {
+  .terminal-header {
+    padding: 4px 8px;
+  }
+
+  .terminal-title {
+    font-size: 10px;
+  }
+
+  .terminal-button {
+    width: 8px;
+    height: 8px;
+  }
+
+  .terminal-buttons {
+    gap: 4px;
+    margin-right: 8px;
+  }
+
   .terminal-body {
     padding: 8px;
     font-size: 12px;

@@ -11,3 +11,40 @@
   align-items: center;
   text-align: center;
 }
+
+.terminal-button {
+  display: block;
+  width: calc(100% - 40px);
+  margin: 20px;
+  padding: 12px 16px;
+  background: #0a0e14;
+  color: #00ff41;
+  border: 1px solid #00ff41;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+.terminal-button:hover {
+  background: #00ff41;
+  color: #0a0e14;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+}
+
+.terminal-prompt {
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.terminal-hint {
+  float: right;
+  opacity: 0.6;
+  font-size: 12px;
+  border: 1px solid currentColor;
+  padding: 2px 6px;
+  border-radius: 3px;
+}

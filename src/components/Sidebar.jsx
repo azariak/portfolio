@@ -15,7 +15,7 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink to="/terminal" className={({ isActive }) => (isActive ? 'active' : '')}>
-              Command Line
+              Command Line <span style={{ opacity: 0.6, fontSize: '0.85em' }}>(Press /)</span>
             </NavLink>
           </li>
           <li>

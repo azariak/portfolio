@@ -13,12 +13,10 @@ const CommandLine = () => {
   const inputRef = useRef(null);
   const terminalRef = useRef(null);
 
-  const BANNER = `
-    ╔═══════════════════════════════════════════╗
-    ║   Welcome to Azaria's Terminal v1.0      ║
-    ║   Type 'help' for available commands     ║
-    ╚═══════════════════════════════════════════╝
-  `;
+  const BANNER = `╔═══════════════════════════════════════════╗
+║   Welcome to Azaria's Terminal v1.0      ║
+║   Type 'help' for available commands     ║
+╚═══════════════════════════════════════════╝`;
 
   useEffect(() => {
     setHistory([{ type: 'output', content: BANNER }]);
