@@ -39,6 +39,7 @@ const CommandLine = () => {
   project <id>    - Show details for a specific project
   books           - List my bookshelf
   software        - List software I use
+  tree            - Show portfolio structure
   clear           - Clear the terminal
   banner          - Show welcome banner
   date            - Show current date and time
@@ -98,6 +99,49 @@ ${project.link ? `Demo: ${project.link}` : ''}
         `${i + 1}. ${s.title} - ${s.description}`
       ).join('\n')}`
     }),
+
+    tree: () => {
+      const projectCount = projectsData.length;
+      const bookCount = booksData.length;
+      const softwareCount = softwareData.length;
+
+      return {
+        type: 'output',
+        content: `azariak.com/
+├── home/
+│   ├── introduction
+│   └── contact info
+├── terminal/
+│   ├── ${Object.keys(commands).length} commands available
+│   └── AI integration
+├── ask-anything/
+│   ├── AI assistant
+│   └── predefined Q&A
+├── projects/
+│   ├── ${projectCount} projects
+${projectsData.slice(0, 3).map((p, i) =>
+    `│   ├── ${p.title}`
+  ).join('\n')}
+│   └── ... and ${projectCount - 3} more
+├── books/
+│   ├── ${bookCount} books
+${booksData.slice(0, 3).map((b, i) =>
+    `│   ├── ${b.title}`
+  ).join('\n')}
+│   └── ... and ${bookCount - 3} more
+├── software/
+│   ├── ${softwareCount} tools
+${softwareData.slice(0, 3).map((s, i) =>
+    `│   ├── ${s.title}`
+  ).join('\n')}
+│   └── ... and ${softwareCount - 3} more
+└── skills/
+    ├── Python, Java, JavaScript
+    ├── HTML/CSS, SQL, C, C++
+    ├── Assembly, R
+    └── Git, LaTeX, Vim`
+      };
+    },
 
     clear: () => {
       setHistory([]);
