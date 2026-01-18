@@ -32,7 +32,9 @@ export default async function handler(req, res) {
       systemInstruction: systemInstructions,
     });
 
-    const result = await model.generateContent(prompt);
+    const result = await model.generateContent({
+      contents: [{ parts: [{ text: prompt }] }],
+    });
     const responseText = result.response.text();
 
     // Send as SSE format for frontend compatibility
