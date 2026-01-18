@@ -244,9 +244,9 @@ const PersonalPortfolio = ({ isDarkMode }) => {
         // --- Local API Key Streaming --- 
         try {
           const genAI = new GoogleGenerativeAI(localApiKey);
-          const model = genAI.getGenerativeModel({ 
+          const model = genAI.getGenerativeModel({
             model: "gemini-2.5-flash",
-            systemInstruction: systemInstructions 
+            systemInstruction: systemInstructions
           });
 
           const stream = await model.generateContentStream({
