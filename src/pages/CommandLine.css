@@ -13,25 +13,26 @@
 
 .terminal-header {
   background: #1a1e24;
-  padding: 6px 10px;
+  padding: 2px 8px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #00ff41;
-  box-shadow: 0 2px 8px rgba(0, 255, 65, 0.2);
+  border-bottom: 1px solid rgba(0, 255, 65, 0.3);
+  box-shadow: 0 1px 4px rgba(0, 255, 65, 0.1);
   flex-shrink: 0;
 }
 
 .terminal-buttons {
   display: flex;
-  gap: 6px;
-  margin-right: 12px;
+  gap: 2px;
+  margin-right: 6px;
 }
 
 .terminal-button {
-  width: 10px;
-  height: 10px;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
   display: inline-block;
+  opacity: 0.5;
 }
 
 .terminal-button.close {
@@ -51,6 +52,7 @@
   font-size: 11px;
   flex: 1;
   text-align: center;
+  opacity: 0.6;
 }
 
 .terminal-body {
@@ -163,16 +165,16 @@
   }
 
   .terminal-header {
-    padding: 6px 10px;
+    padding: 2px 8px;
   }
 
   .terminal-title {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .terminal-button {
-    width: 10px;
-    height: 10px;
+    width: 3px;
+    height: 3px;
   }
 
   .prompt {
@@ -190,21 +192,21 @@
 
 @media (max-width: 480px) {
   .terminal-header {
-    padding: 4px 8px;
+    padding: 2px 6px;
   }
 
   .terminal-title {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .terminal-button {
-    width: 8px;
-    height: 8px;
+    width: 3px;
+    height: 3px;
   }
 
   .terminal-buttons {
-    gap: 4px;
-    margin-right: 8px;
+    gap: 2px;
+    margin-right: 5px;
   }
 
   .terminal-body {
