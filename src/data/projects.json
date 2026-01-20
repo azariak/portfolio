@@ -30,6 +30,15 @@
     ]
   },
   {
+    "title": "The Cost of Scrolling",
+    "description": "A tool to visualize the time humanity spends on social media",
+    "link": "https://azariak.github.io/SocialMediaToScale/",
+    "technologies": [
+      "HTML/CSS",
+      "JavaScript"
+    ]
+  },
+  {
     "title": "ChartAhead",
     "description": "An AI-powered intake platform that turns patient responses into physician-ready charts before their visit, integrating seamlessly into existing workflows.",
     "link": "https://chartahead.ca/",
