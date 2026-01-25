@@ -8,6 +8,10 @@ const Books = () => {
   const [popupUrl, setPopupUrl] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
+  useEffect(() => {
+    document.title = 'Azaria Kelman - Books';
+  }, []);
+
   // Books that should open in new tabs instead of popups
   const booksWithoutPopup = ['The Mind-Body Problem'];
 
@@ -45,6 +49,7 @@ const Books = () => {
             authorWiki={book.authorWiki}
             onLearnMoreClick={booksWithoutPopup.includes(book.title) ? undefined : openPopup}
             isMobile={isMobile}
+            trackingCategory="books"
           />
         ))}
       </div>

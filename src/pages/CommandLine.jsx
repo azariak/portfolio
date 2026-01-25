@@ -4,6 +4,7 @@ import projectsData from '../data/projects.json';
 import booksData from '../data/books.json';
 import softwareData from '../data/software.json';
 import questionsAndAnswers from '../data/questionsAndAnswers.json';
+import { analytics } from '../utils/analytics';
 
 const CommandLine = () => {
   const [history, setHistory] = useState([]);
@@ -17,6 +18,10 @@ const CommandLine = () => {
 ║   Welcome to Azaria's Terminal v1.0      ║
 ║   Type 'help' for available commands     ║
 ╚═══════════════════════════════════════════╝`;
+
+  useEffect(() => {
+    document.title = 'Azaria Kelman - Terminal';
+  }, []);
 
   useEffect(() => {
     setHistory([{ type: 'output', content: BANNER }]);
@@ -261,6 +266,13 @@ ${softwareData.slice(0, 3).map((s, i) =>
     const command = cmd.toLowerCase();
 
     if (commands[command]) {
+      // Track terminal command
+      if (command === 'ask') {
+        analytics.terminalAskAI(args.join(' '));
+      } else {
+        analytics.terminalCommand(command);
+      }
+
       // Helper function to update history at a specific index
       let loadingIndexRef = null;
       const updateHistory = (item, index = null) => {

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
+import { analytics } from '../utils/analytics';
 
 const Home = () => {
+  useEffect(() => {
+    document.title = 'Azaria Kelman';
+  }, []);
   const qaPairs = {
     "Who am I?": "I'm a University of Toronto student studying Computer Science and Philosophy. "
     // "More coming soon...": ""
@@ -49,7 +53,7 @@ const Home = () => {
         <h2 className="tour-heading">Explore the Site</h2>
         <div className="features-grid">
           {features.map((feature) => (
-            <Link to={feature.path} key={feature.title} className="feature-card">
+            <Link to={feature.path} key={feature.title} className="feature-card" onClick={() => analytics.featureCardClick(feature.title)}>
               <h3 className="feature-title">{feature.title}</h3>
               <p className="feature-description">{feature.description}</p>
             </Link>

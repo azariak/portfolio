@@ -8,6 +8,10 @@ const Projects = () => {
   const [popupUrl, setPopupUrl] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
+  useEffect(() => {
+    document.title = 'Azaria Kelman - Projects';
+  }, []);
+
   // Projects that should open in new tabs instead of popups
   const projectsWithoutPopup = ['Lichess Open-Source Contributions', 'Remote Controlled Car', 'Tetris'];
 
@@ -42,6 +46,7 @@ const Projects = () => {
             link={project.link}
             onLearnMoreClick={projectsWithoutPopup.includes(project.title) ? undefined : openPopup}
             isMobile={isMobile}
+            trackingCategory="projects"
           />
         ))}
       </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './HeaderControls.css';
+import { analytics } from '../utils/analytics';
 
 const HeaderControls = ({ isDarkMode, setIsDarkMode }) => {
   const [copied, setCopied] = useState(false);
@@ -44,7 +45,7 @@ const HeaderControls = ({ isDarkMode, setIsDarkMode }) => {
       </button>
       <button
         className="control-button"
-        onClick={() => setIsDarkMode(!isDarkMode)}
+        onClick={() => { analytics.darkModeToggle(!isDarkMode); setIsDarkMode(!isDarkMode); }}
         aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
       >
         <span style={{ filter: 'grayscale(100%) brightness(200%)' }}>

@@ -6,6 +6,7 @@ import InputArea from '../InputArea';
 import SuggestedQuestions from '../SuggestedQuestions';
 import '../index.css';
 import questionsAndAnswers from '../data/questionsAndAnswers.json';
+import { analytics } from '../utils/analytics';
 
 function shuffleArray(array) {
   const newArray = [...array];
@@ -120,6 +121,9 @@ const PersonalPortfolio = ({ isDarkMode }) => {
 
   const sendMessage = async (text = inputMessage) => {
     if (text.trim() === '' || isLoading) return;
+
+    // Track AI question
+    analytics.askAIQuestion(text);
 
     const userMessage = { role: 'user', content: text };
     const assistantPlaceholder = { role: 'assistant', content: '' };
