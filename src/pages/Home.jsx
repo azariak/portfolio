@@ -8,8 +8,8 @@ const Home = () => {
     document.title = 'Azaria Kelman';
   }, []);
   const qaPairs = {
-    "Who am I?": "I'm a University of Toronto student studying Computer Science and Philosophy. "
-    // "More coming soon...": ""
+    "Who am I?": "I'm a University of Toronto student studying Computer Science and Philosophy.",
+    "Hobbies": "Reading, Chess, GeoGuessr, Tennis, Skiing, Dabbling in prediction markets"
   };
 
   const features = [
@@ -48,7 +48,7 @@ const Home = () => {
           </div>
         ))}
       </div>
-      
+
       <div className="features-tour">
         <h2 className="tour-heading">Explore the Site</h2>
         <div className="features-grid">
