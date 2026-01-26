@@ -7,59 +7,50 @@ const Home = () => {
   useEffect(() => {
     document.title = 'Azaria Kelman';
   }, []);
-  const qaPairs = {
-    "Who am I?": "I'm a University of Toronto student studying Computer Science and Philosophy.",
-    "Hobbies": "Reading, Chess, GeoGuessr, Tennis, Skiing, Dabbling in prediction markets"
-  };
 
-  const features = [
-    {
-      title: "Ask Anything",
-      path: "/ask",
-      description: "Ask me anything and hear what Gemini has to say about me."
-    },
-    {
-      title: "Projects",
-      path: "/projects",
-      description: "Explore some projects I've built."
-    },
-    {
-      title: "My Bookshelf",
-      path: "/books",
-      description: "Discover a small collection of books I've read recently and enjoyed."
-    },
-    {
-      title: "Software I Like",
-      path: "/software",
-      description: "An exclusive list of software tools and applications that I find useful."
-    }
+  const links = [
+    { title: "Projects", path: "/projects" },
+    { title: "Books", path: "/books" },
+    { title: "Software", path: "/software" },
+    { title: "Ask Me Anything", path: "/ask" },
   ];
 
   return (
     <div className="home-container">
-      <div className="intro-text">
-        <h1>Welcome! I'm Azaria Kelman</h1>
-      </div>
-      <div className="qa-section">
-        {Object.entries(qaPairs).map(([question, answer]) => (
-          <div className="qa-pair" key={question}>
-            <h2 className="question">{question}</h2>
-            <p className="answer">{answer}</p>
-          </div>
-        ))}
+      <div className="hero">
+        <h1 className="name">Azaria Kelman</h1>
+        <p className="tagline">Computer Science & Philosophy at University of Toronto</p>
       </div>
 
-      <div className="features-tour">
-        <h2 className="tour-heading">Explore the Site</h2>
-        <div className="features-grid">
-          {features.map((feature) => (
-            <Link to={feature.path} key={feature.title} className="feature-card" onClick={() => analytics.featureCardClick(feature.title)}>
-              <h3 className="feature-title">{feature.title}</h3>
-              <p className="feature-description">{feature.description}</p>
-            </Link>
-          ))}
-        </div>
+      <div className="about">
+        <p>
+Building tools that help people learn and think better.
+        </p>
+        <p className="interests">
+          Reading · Chess · GeoGuessr · Tennis · Skiing
+        </p>
       </div>
+
+      <nav className="nav-links">
+        {links.map((link) => (
+          <Link
+            to={link.path}
+            key={link.title}
+            className="nav-link"
+            onClick={() => analytics.featureCardClick(link.title)}
+          >
+            {link.title}
+          </Link>
+        ))}
+      </nav>
+
+      <footer className="home-footer">
+        <a href="mailto:azaria.kelman@mail.utoronto.ca" className="footer-link">Email</a>
+        <span className="separator">·</span>
+        <a href="https://github.com/azariak" target="_blank" rel="noopener noreferrer" className="footer-link">GitHub</a>
+        <span className="separator">·</span>
+        <a href="https://www.linkedin.com/in/azaria-kelman/" target="_blank" rel="noopener noreferrer" className="footer-link">LinkedIn</a>
+      </footer>
     </div>
   );
 };
