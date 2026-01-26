@@ -78,21 +78,12 @@
     ]
   },
   {
-    "title": "Remote Controlled Car",
-    "description": "A remote-controlled car with a custom 3D-printed chassis, using Arduino and a breadboard to integrate the motor, wiring, and remote control system.",
-    "link": "https://github.com/azariak/ArduinoRemoteCar",
-    "technologies": [
-      "Arduino",
-      "C++",
-      "3D Design"
-    ]
-  },
-  {
     "title": "Tetris",
     "description": "A Tetris game in MIPS Assembly featuring a user interface, background music, and multiple difficulty levels.",
     "link": "https://gitfront.io/r/AKelman/A6atKrU2ZJnN/TetrisInMIPS/",
     "technologies": [
       "Assembly"
-    ]
+    ],
+    "hidden": true
   }
 ]

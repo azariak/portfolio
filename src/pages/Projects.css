@@ -45,3 +45,19 @@
     gap: var(--grid-gap-sm);
   }
 }
+
+.projects-footer {
+  margin-top: var(--spacing-lg);
+  text-align: right;
+}
+
+.projects-footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.projects-footer a:hover {
+  color: var(--text);
+}

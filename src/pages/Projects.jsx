@@ -12,8 +12,11 @@ const Projects = () => {
     document.title = 'Azaria Kelman - Projects';
   }, []);
 
+  // Filter out hidden projects
+  const visibleProjects = projectsData.filter(project => !project.hidden);
+
   // Projects that should open in new tabs instead of popups
-  const projectsWithoutPopup = ['Lichess Open-Source Contributions', 'Remote Controlled Car', 'Tetris'];
+  const projectsWithoutPopup = ['Lichess Open-Source Contributions'];
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,7 +41,7 @@ const Projects = () => {
     <div className="projects-page">
       <h1>Projects</h1>
       <div className="card-grid">
-        {projectsData.map((project, index) => (
+        {visibleProjects.map((project, index) => (
           <Card
             key={index}
             title={project.title}
@@ -49,6 +52,11 @@ const Projects = () => {
             trackingCategory="projects"
           />
         ))}
+      </div>
+      <div className="projects-footer">
+        <a href="https://github.com/azariak" target="_blank" rel="noopener noreferrer">
+          See my GitHub for more!
+        </a>
       </div>
       {popupUrl && <Popup url={popupUrl} onClose={closePopup} />}
     </div>
