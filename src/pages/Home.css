@@ -110,42 +110,52 @@
 @media (max-width: 768px) {
   .home-container {
     padding: var(--spacing-lg);
+    padding-top: 4.5rem;
     min-height: calc(100vh - 80px);
   }
 
   .name {
-    font-size: 2.25rem;
+    font-size: 2.75rem;
   }
 
   .tagline {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .about p {
-    font-size: 1rem;
+    font-size: 1.15rem;
   }
 
   .nav-links {
-    gap: 0.5rem;
+    gap: 0.6rem;
   }
 
   .nav-link {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+    font-size: 1.05rem;
   }
 }
 
 @media (max-width: 480px) {
+  .home-container {
+    padding-top: 4rem;
+  }
+
   .name {
-    font-size: 1.85rem;
+    font-size: 2.4rem;
   }
 
   .tagline {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+  }
+
+  .about p {
+    font-size: 1.1rem;
   }
 
   .nav-link {
     flex: 1 1 calc(50% - 0.5rem);
     text-align: center;
+    font-size: 1rem;
   }
 }
