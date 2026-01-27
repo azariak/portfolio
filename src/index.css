@@ -85,20 +85,20 @@
 }
 
 .light {
-  --background: #f8f4eb;
+  --background: #f2f3f5;
   --card-bg: #ffffff;
-  --text: #2c2c2c;
-  --text-secondary: #666666;
-  --border: #e8e1d4;
-  --button: #826f5d;
-  --button-hover: #6d5c4d;
+  --text: #2e3440;
+  --text-secondary: #6b7280;
+  --border: #dde0e4;
+  --button: #5a6270;
+  --button-hover: #4a515d;
   --input: #ffffff;
-  --chat-bg: #f0f0f0;
-  --pill-bg: #e8e1d4;
-  --pill-hover: #d8d1c4;
+  --chat-bg: #e8eaed;
+  --pill-bg: #dde0e4;
+  --pill-hover: #cdd1d6;
   --scroll-button: rgba(255, 255, 255, 0.9);
-  --scrollbar-thumb: #c0c0c0;
-  --scrollbar-track: #f0f0f0;
+  --scrollbar-thumb: #b0b5bc;
+  --scrollbar-track: #e8eaed;
 }
 
 .dark {
