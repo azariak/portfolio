@@ -49,6 +49,8 @@
   transition: left 0.3s ease;
   z-index: 1000;
   padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .mobile-nav.open {
@@ -122,6 +124,33 @@
   border: 1px solid currentColor;
   padding: 2px 6px;
   border-radius: 3px;
+}
+
+.mobile-nav-footer {
+  margin-top: auto;
+  margin-bottom: calc(3rem + env(safe-area-inset-bottom, 0px));
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.mobile-profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 0.5rem auto;
+}
+
+.mobile-footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mobile-footer-link:hover {
+  color: var(--text);
 }
 
 @media (max-width: 768px) {

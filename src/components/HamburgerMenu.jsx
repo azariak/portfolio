@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './HamburgerMenu.css';
 import { analytics } from '../utils/analytics';
+import profileImage from '../assets/profile.png';
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,6 +65,18 @@ const HamburgerMenu = () => {
             */}
           </ul>
         </nav>
+        <div className="mobile-nav-footer">
+          <img src={profileImage} alt="Profile" className="mobile-profile-image" />
+          Designed by{' '}
+          <a
+            href="https://github.com/azariak"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mobile-footer-link"
+          >
+            Azaria Kelman
+          </a>
+        </div>
       </div>
       {isOpen && <div className="overlay" onClick={toggleMenu}></div>}
     </div>
