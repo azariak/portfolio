@@ -19,21 +19,21 @@ const Sidebar = () => {
               Command Line <span style={{ opacity: 0.6, fontSize: '0.85em' }}>(Press /)</span>
             </NavLink>
           </li>
-          <li>
+          {/*<li>
             <NavLink to="/ask" className={({ isActive }) => (isActive ? 'active' : '')} onClick={() => analytics.navClick('Ask Anything')}>
               Ask Anything
             </NavLink>
-          </li>
+          </li>*/}
           <li>
             <NavLink to="/projects" className={({ isActive }) => (isActive ? 'active' : '')} onClick={() => analytics.navClick('Projects')}>
               Projects
             </NavLink>
           </li>
-          <li>
+          {/*<li>
             <NavLink to="/books" className={({ isActive }) => (isActive ? 'active' : '')} onClick={() => analytics.navClick('Books')}>
               My Bookshelf
             </NavLink>
-          </li>
+          </li>*/}
           <li>
             <NavLink to="/software" className={({ isActive }) => (isActive ? 'active' : '')} onClick={() => analytics.navClick('Software')}>
               Software I Like

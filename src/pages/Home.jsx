@@ -10,9 +10,9 @@ const Home = () => {
 
   const links = [
     { title: "Projects", path: "/projects" },
-    { title: "Books", path: "/books" },
+    // { title: "Books", path: "/books" },
     { title: "Software", path: "/software" },
-    { title: "Ask Me Anything", path: "/ask" },
+    // { title: "Ask Me Anything", path: "/ask" },
   ];
 
   return (
