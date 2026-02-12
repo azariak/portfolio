@@ -23,9 +23,6 @@ const Home = () => {
       </div>
 
       <div className="about">
-        <p>
-Building tools that help people learn and think better.
-        </p>
         <p className="interests">
           Reading · Chess · GeoGuessr · Tennis · Skiing
         </p>
