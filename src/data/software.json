@@ -25,9 +25,9 @@
     "link": "https://bitwarden.com/"
   },
   {
-    "title": "Cursor",
-    "description": "An AI-first code editor.",
-    "link": "https://cursor.sh/"
+    "title": "Claude Code",
+    "description": "An agentic coding tool that reads your codebase, edits files, and runs commands.",
+    "link": "https://code.claude.com/"
   },
   {
     "title": "Cloudflare",
