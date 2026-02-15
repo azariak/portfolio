@@ -36,21 +36,21 @@ const HamburgerMenu = () => {
                 Command Line
               </NavLink>
             </li>
-            <li>
+            {/*<li>
               <NavLink to="/ask" className={({ isActive }) => (isActive ? 'active' : '')} onClick={() => handleNavClick('Ask Anything')}>
                 Ask Anything
               </NavLink>
-            </li>
+            </li>*/}
             <li>
               <NavLink to="/projects" className={({ isActive }) => (isActive ? 'active' : '')} onClick={() => handleNavClick('Projects')}>
                 Projects
               </NavLink>
             </li>
-            <li>
+            {/*<li>
               <NavLink to="/books" className={({ isActive }) => (isActive ? 'active' : '')} onClick={() => handleNavClick('Books')}>
                 My Bookshelf
               </NavLink>
-            </li>
+            </li>*/}
             <li>
               <NavLink to="/software" className={({ isActive }) => (isActive ? 'active' : '')} onClick={() => handleNavClick('Software')}>
                 Software I Like
