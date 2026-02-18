@@ -30,21 +30,18 @@
     ]
   },
   {
+    "title": "Polyfolio",
+    "description": "Explore any Polymarket wallet. View positions, PnL, allocations, and trade history — all from one screen.",
+    "link": "https://azariak.github.io/Polyfolio/",
+    "technologies": []
+  },
+  {
     "title": "The Cost of Scrolling",
     "description": "A tool to visualize the time humanity spends on social media",
     "link": "https://azariak.github.io/SocialMediaToScale/",
     "technologies": [
       "HTML/CSS",
       "JavaScript"
-    ]
-  },
-  {
-    "title": "ChartAhead",
-    "description": "An AI-powered intake platform that turns patient responses into physician-ready charts before their visit, integrating seamlessly into existing workflows.",
-    "link": "https://chartahead.ca/",
-    "technologies": [
-      "AI",
-      "Web Development"
     ]
   },
   {
@@ -67,6 +64,15 @@
     "description": "Try on clothing before you buy!",
     "link": "https://tryon-1fd.pages.dev/",
     "technologies": []
+  },
+  {
+    "title": "ChartAhead",
+    "description": "An AI-powered intake platform that turns patient responses into physician-ready charts before their visit, integrating seamlessly into existing workflows.",
+    "link": "https://chartahead.ca/",
+    "technologies": [
+      "AI",
+      "Web Development"
+    ]
   },
   {
     "title": "Lichess Open-Source Contributions",
