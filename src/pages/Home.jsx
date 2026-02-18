@@ -24,7 +24,7 @@ const Home = () => {
 
       <div className="about">
         <p className="interests">
-          Reading · Chess · GeoGuessr · Tennis · Skiing
+          Reading · Bullet Chess · GeoGuessr · Tennis · Skiing
         </p>
       </div>
 
