@@ -10,23 +10,18 @@
     ]
   },
   {
+    "title": "Z Fellows Control Centre",
+    "description": "A control centre for interviews that integrates video calls, notes, action items, and a calendar. Custom built for Cory Levy to ensure the Z Fellowship can efficiently process thousands of applications.",
+    "link": "https://z-fellows-control-centre.vercel.app/",
+    "technologies": []
+  },
+  {
     "title": "WikiSurfer",
     "description": "A responsive website leveraging Wikipedia data to showcase thousands of top articles. Built an adaptive interface supporting swipe gestures for navigating the article feed across devices.",
     "link": "https://azariak.github.io/WikiSurfer/",
     "technologies": [
       "HTML/CSS",
       "JavaScript"
-    ]
-  },
-  {
-    "title": "Z Fellows Application Review Dashboard",
-    "description": "A streamlined dashboard used by Cory Levy to efficiently review thousands of Z Fellows applications and trigger emails to applicants.",
-    "link": "https://azariak.github.io/ZFellowsApplicationReview/",
-    "technologies": [
-      "React",
-      "JavaScript",
-      "Airtable API",
-      "Node.js"
     ]
   },
   {
@@ -64,6 +59,17 @@
     "description": "Try on clothing before you buy!",
     "link": "https://tryon-1fd.pages.dev/",
     "technologies": []
+  },
+  {
+    "title": "Z Fellows Application Review Dashboard",
+    "description": "A streamlined dashboard used by Cory Levy to efficiently review thousands of Z Fellows applications and trigger emails to applicants.",
+    "link": "https://azariak.github.io/ZFellowsApplicationReview/",
+    "technologies": [
+      "React",
+      "JavaScript",
+      "Airtable API",
+      "Node.js"
+    ]
   },
   {
     "title": "ChartAhead",
