@@ -33,16 +33,34 @@ const Card = ({ title, description, link, image, bookWiki, authorWiki, onLearnMo
   const cardTitle = bookWiki ? createLinkElement(bookWiki, title) : title;
   const cardDescription = authorWiki ? createLinkElement(authorWiki, description) : description;
 
-  return (
+  const isMobileProject = isMobile && trackingCategory === 'projects' && link;
+
+  const cardInner = (
     <div className={`card ${image && bookWiki ? 'book-card' : ''}`}>
       {image && <img src={image} alt={title} className="card-image" />}
       <div className="card-content">
         <h3 className="card-title">{cardTitle}</h3>
         <p className="card-description">{cardDescription}</p>
-        {link && createLinkElement(link, 'Learn More', 'card-link learn-more')}
+        {!isMobileProject && link && createLinkElement(link, 'Learn More', 'card-link learn-more')}
       </div>
     </div>
   );
+
+  if (isMobileProject) {
+    return (
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="card-mobile-link"
+        onClick={() => trackClick(false)}
+      >
+        {cardInner}
+      </a>
+    );
+  }
+
+  return cardInner;
 };
 
 export default Card;

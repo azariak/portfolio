@@ -167,3 +167,10 @@ button.card-link {
   text-align: inherit;
   font: inherit;
 }
+
+/* Mobile project card wrapper — makes whole card tappable */
+a.card-mobile-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
