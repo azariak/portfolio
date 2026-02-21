@@ -203,10 +203,27 @@
 .mobile-link:last-child { border-bottom: none; }
 .mobile-link:hover, .mobile-link.active { color: var(--accent); }
 
+/* ---- KEYBOARD SHORTCUT HINT ---- */
+.nav-kbd {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.6rem;
+  color: var(--text-faint);
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  padding: 0 0.3em;
+  margin-left: 0.4em;
+  vertical-align: middle;
+  letter-spacing: 0;
+  font-style: normal;
+  line-height: 1.6;
+  background: none;
+}
+
 /* ---- RESPONSIVE ---- */
 @media (max-width: 768px) {
   .navbar-links { display: none; }
   .hamburger { display: flex; }
   .mobile-menu { display: flex; }
   .navbar-inner { padding: 0 1.25rem; }
+  .nav-kbd { display: none; }
 }

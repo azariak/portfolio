@@ -77,6 +77,9 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
                   onClick={() => scrollTo(link.id)}
                 >
                   {link.label}
+                  {link.id === 'terminal' && (
+                    <kbd className="nav-kbd">/</kbd>
+                  )}
                 </button>
               </li>
             ))}
