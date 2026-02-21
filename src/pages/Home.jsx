@@ -123,10 +123,7 @@ const Home = ({ isDarkMode }) => {
                 I'm a third-year student at the University of Toronto studying
                 Computer Science and Philosophy.
               </p>
-              <p className="about-body">
-                Outside of code, you'll find me deep in a novel, on the
-                tennis court, or lost in GeoGuessr.
-              </p>
+
             </div>
           </div>
         </div>
