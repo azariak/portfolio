@@ -47,6 +47,7 @@ const PersonalPortfolio = ({ isDarkMode }) => {
   const predefinedAnswers = questionsAndAnswers.predefinedAnswers;
   const systemInstructions = questionsAndAnswers.systemInstructions;
   const messagesEndRef = useRef(null);
+  const hasInteracted = useRef(false);
 
   // Desktop detection
   useEffect(() => {
@@ -116,11 +117,14 @@ const PersonalPortfolio = ({ isDarkMode }) => {
   }, []);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (!hasInteracted.current) return;
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }, [messages]);
 
   const sendMessage = async (text = inputMessage) => {
     if (text.trim() === '' || isLoading) return;
+
+    hasInteracted.current = true;
 
     // Track AI question
     analytics.askAIQuestion(text);

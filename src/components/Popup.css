@@ -1,64 +1,96 @@
+/* ============================================
+   POPUP / IFRAME MODAL
+   ============================================ */
 .popup-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.75);
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 500;
+  padding: 1.5rem;
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .popup-content {
   position: relative;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 90%;
-  height: 90%;
-  max-width: 1400px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #131109;
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  border-radius: 2px;
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  max-height: 88vh;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  animation: slideUp 0.2s ease;
 }
 
-.popup-close {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #333;
-  padding: 5px;
-  line-height: 1;
+@keyframes slideUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
 }
 
 .popup-controls {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 10px;
+  right: 12px;
   display: flex;
   align-items: center;
-  gap: 5px;
-  background-color: white;
-  padding: 5px;
-  border-radius: 5px;
+  gap: 4px;
+  z-index: 10;
+  background: rgba(19, 17, 9, 0.95);
+  padding: 4px 6px;
+  border-radius: 2px;
+  border: 1px solid rgba(201, 169, 110, 0.15);
 }
 
 .popup-open-new-tab {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5px;
+  padding: 4px;
+  border-radius: 2px;
+  opacity: 0.55;
+  transition: opacity 0.15s;
 }
 
+.popup-open-new-tab:hover { opacity: 1; }
+
 .popup-open-new-tab img {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
+  filter: invert(0.9) sepia(0.3) saturate(0.8) hue-rotate(10deg);
 }
+
+.popup-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: rgba(201, 169, 110, 0.7);
+  padding: 2px 4px;
+  line-height: 1;
+  border-radius: 2px;
+  transition: color 0.15s;
+  font-family: sans-serif;
+}
+
+.popup-close:hover { color: #c9a96e; }
 
 .popup-content iframe {
   border: none;
   flex-grow: 1;
+  width: 100%;
+  background: #fff;
 }

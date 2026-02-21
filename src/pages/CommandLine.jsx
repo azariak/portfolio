@@ -359,7 +359,6 @@ ${softwareData.slice(0, 3).map((s, i) =>
             onChange={(e) => setCurrentInput(e.target.value)}
             onKeyDown={handleKeyDown}
             className="terminal-input"
-            autoFocus
             spellCheck={false}
           />
         </div>
