@@ -120,7 +120,7 @@ const Home = ({ isDarkMode }) => {
             <div className="about-left">
               <h2 className="section-heading">Building things<br /><em>that matter.</em></h2>
               <p className="about-body">
-                I'm a third-year student at the University of Toronto studying
+                I'm a fourth-year student at the University of Toronto studying
                 Computer Science and Philosophy.
               </p>
 
