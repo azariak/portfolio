@@ -41,7 +41,10 @@ const Card = ({ title, description, link, image, bookWiki, authorWiki, onLearnMo
       <div className="card-content">
         <h3 className="card-title">{cardTitle}</h3>
         <p className="card-description">{cardDescription}</p>
-        {!isMobileProject && link && createLinkElement(link, 'Learn More', 'card-link learn-more')}
+        {isMobileProject
+          ? <span className="card-link learn-more">Learn More</span>
+          : link && createLinkElement(link, 'Learn More', 'card-link learn-more')
+        }
       </div>
     </div>
   );
