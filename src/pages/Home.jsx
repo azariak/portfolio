@@ -236,21 +236,21 @@ const Home = ({ isDarkMode }) => {
       </section>
 
       {/* ═══════════════════════════════════
-          ASK ME ANYTHING
+          ASK ME ANYTHING (hidden)
           ═══════════════════════════════════ */}
-      <section id="ask" className="section section-ruled">
+      {/* <section id="ask" className="section section-ruled">
         <div className="section-container">
           <div className="section-label">06 &mdash; Ask Me</div>
           <h2 className="section-heading-sm">Ask me anything</h2>
           <p className="section-description">
-            Powered by Gemini AI — ask about my projects, background, or interests.
+            Powered by Gemini — ask about my projects, background, or interests.
           </p>
 
           <div className="ask-wrapper">
             <PersonalPortfolio isDarkMode={isDarkMode} />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ═══════════════════════════════════
           FOOTER

@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { label: 'Software', id: 'software' },
   { label: 'Books', id: 'books' },
   { label: 'Terminal', id: 'terminal' },
-  { label: 'Ask Me', id: 'ask' },
+  // { label: 'Ask Me', id: 'ask' },
 ];
 
 const Navbar = ({ isDarkMode, setIsDarkMode }) => {
