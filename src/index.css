@@ -386,12 +386,12 @@ body {
   padding: 0.55rem 1.1rem;
   border-radius: var(--radius);
   background-color: var(--accent);
-  color: #0c0a08;
+  color: #faf6f0;
   border: none;
   cursor: pointer;
   transition: all 0.18s ease;
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 400;
   font-family: var(--font-body);
   white-space: nowrap;
 }

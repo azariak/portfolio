@@ -227,6 +227,10 @@
   transform: translateY(-1px);
 }
 
+.light .hero-cta {
+  color: #faf6f0;
+}
+
 .hero-link-btn {
   color: var(--text-muted);
   text-decoration: none;

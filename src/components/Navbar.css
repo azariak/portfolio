@@ -177,11 +177,12 @@
   -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid var(--border-subtle);
   opacity: 0;
+  pointer-events: none;
   transform: translateY(-6px);
   transition: opacity 0.2s, transform 0.2s;
 }
 
-.mobile-menu.visible { opacity: 1; transform: translateY(0); }
+.mobile-menu.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
 .mobile-link {
   background: none;
