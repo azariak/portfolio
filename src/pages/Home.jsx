@@ -120,8 +120,13 @@ const Home = ({ isDarkMode }) => {
             <div className="about-left">
               <h2 className="section-heading">Building things<br /><em>that matter.</em></h2>
               <p className="about-body">
-                I'm a fourth-year student at the University of Toronto studying
-                Computer Science and Philosophy.
+                I'm a fourth-year student at the University of Toronto, studying
+                Computer Science and Philosophy. Have a look at what I've been
+                building below, or{' '}
+                <button className="about-link" onClick={copyEmail}>
+                  {emailCopied ? 'copied ✓' : 'reach out'}
+                </button>
+                {' '}— always happy to chat.
               </p>
 
             </div>
