@@ -22,14 +22,16 @@ const Popup = ({ url, onClose }) => {
 
   return (
     <div className="popup-overlay" onClick={onClose}>
-      <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+      <div className="popup-wrapper" onClick={(e) => e.stopPropagation()}>
         <div className="popup-controls">
           <a href={url} target="_blank" rel="noopener noreferrer" className="popup-open-new-tab">
             <img src="/open-in-new-tab.svg" alt="Open in new tab" />
           </a>
           <button className="popup-close" onClick={onClose}>&times;</button>
         </div>
-        <iframe src={url} title="Project Preview" width="100%" height="100%"></iframe>
+        <div className="popup-content">
+          <iframe src={url} title="Project Preview" width="100%" height="100%"></iframe>
+        </div>
       </div>
     </div>
   );
