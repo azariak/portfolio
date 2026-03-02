@@ -5,8 +5,8 @@ import './Navbar.css';
 const NAV_LINKS = [
   { label: 'About', id: 'about' },
   { label: 'Projects', id: 'projects' },
-  { label: 'Software', id: 'software' },
   { label: 'Books', id: 'books' },
+  { label: 'Software', id: 'software' },
   { label: 'Terminal', id: 'terminal' },
   // { label: 'Ask Me', id: 'ask' },
 ];

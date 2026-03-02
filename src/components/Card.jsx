@@ -2,7 +2,7 @@ import React from 'react';
 import './Card.css';
 import { analytics } from '../utils/analytics';
 
-const Card = ({ title, description, link, image, bookWiki, authorWiki, onLearnMoreClick, isMobile, trackingCategory }) => {
+const Card = ({ title, description, link, image, bookWiki, authorWiki, onLearnMoreClick, isMobile, trackingCategory, hideLink }) => {
   // Track card clicks based on category
   const trackClick = (isPopup = false) => {
     if (trackingCategory === 'books') {
@@ -41,10 +41,10 @@ const Card = ({ title, description, link, image, bookWiki, authorWiki, onLearnMo
       <div className="card-content">
         <h3 className="card-title">{cardTitle}</h3>
         <p className="card-description">{cardDescription}</p>
-        {isMobileProject
-          ? <span className="card-link learn-more">Learn More</span>
-          : link && createLinkElement(link, 'Learn More', 'card-link learn-more')
-        }
+        {!hideLink && (isMobileProject
+          ? <span className="card-link learn-more">Visit</span>
+          : link && createLinkElement(link, 'Visit', 'card-link learn-more')
+        )}
       </div>
     </div>
   );

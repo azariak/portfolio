@@ -72,7 +72,7 @@ const Home = ({ isDarkMode }) => {
           </p>
 
           <p className="hero-interests">
-            Reading&ensp;·&ensp;Bullet Chess&ensp;·&ensp;GeoGuessr&ensp;·&ensp;Tennis&ensp;·&ensp;Skiing
+            Bullet Chess&ensp;·&ensp;GeoGuessr&ensp;·&ensp;Tennis&ensp;·&ensp;Skiing
           </p>
 
           <div className="hero-actions">
@@ -140,7 +140,7 @@ const Home = ({ isDarkMode }) => {
       <section id="projects" className="section section-ruled">
         <div className="section-container">
           <div className="section-label">02 &mdash; Projects</div>
-          <h2 className="section-heading-sm">Selected work</h2>
+          <h2 className="section-heading-sm">Selected works</h2>
 
           <div className="card-grid">
             {visibleProjects.map((project, i) => (
@@ -172,36 +172,14 @@ const Home = ({ isDarkMode }) => {
       </section>
 
       {/* ═══════════════════════════════════
-          SOFTWARE
-          ═══════════════════════════════════ */}
-      <section id="software" className="section">
-        <div className="section-container">
-          <div className="section-label">03 &mdash; Software</div>
-          <h2 className="section-heading-sm">Software I Like</h2>
-
-          <div className="card-grid">
-            {softwareData.map((sw, i) => (
-              <Card
-                key={i}
-                title={sw.title}
-                description={sw.description}
-                link={sw.link}
-                trackingCategory="software"
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════
           BOOKS
           ═══════════════════════════════════ */}
       <section id="books" className="section section-ruled">
         <div className="section-container">
-          <div className="section-label">04 &mdash; Books</div>
+          <div className="section-label">03 &mdash; Books</div>
           <h2 className="section-heading-sm">My bookshelf</h2>
           <p className="section-description">
-            Some books I've recently been reading and enjoyed.
+            Some books I've recently read and enjoyed.
           </p>
 
           <div className="books-grid">
@@ -218,6 +196,30 @@ const Home = ({ isDarkMode }) => {
                 }
                 isMobile={isMobile}
                 trackingCategory="books"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════
+          SOFTWARE
+          ═══════════════════════════════════ */}
+      <section id="software" className="section">
+        <div className="section-container">
+          <div className="section-label">04 &mdash; Software</div>
+          <h2 className="section-heading-sm">Software I like</h2>
+
+          <div className="card-grid">
+            {softwareData.map((sw, i) => (
+              <Card
+                key={i}
+                title={sw.title}
+                description={sw.description}
+                link={sw.link}
+                bookWiki={sw.link}
+                trackingCategory="software"
+                hideLink
               />
             ))}
           </div>
