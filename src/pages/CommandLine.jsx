@@ -42,13 +42,13 @@ const CommandLine = () => {
   ask <question>  - Ask AI anything about me
   projects        - List all projects
   project <id>    - Show details for a specific project
-  books           - List my bookshelf
-  software        - List software I use
   tree            - Show portfolio structure
   clear           - Clear the terminal
   banner          - Show welcome banner
   date            - Show current date and time
   echo <text>     - Echo back the text
+  books           - List my bookshelf
+  software        - List software I use
   `
     }),
 
