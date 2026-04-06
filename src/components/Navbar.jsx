@@ -53,6 +53,8 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
       const top = el.getBoundingClientRect().top + window.scrollY - 60;
       window.scrollTo({ top, behavior: 'smooth' });
     }
+    const path = id === 'hero' ? '/' : `/${id}`;
+    window.history.pushState(null, '', path);
   };
 
   return (

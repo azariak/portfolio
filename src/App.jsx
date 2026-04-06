@@ -10,6 +10,20 @@ const App = () => {
     document.title = 'Azaria Kelman';
   }, []);
 
+  // Scroll to section based on URL path on initial load
+  useEffect(() => {
+    const path = window.location.pathname.replace(/^\//, '').toLowerCase();
+    if (path) {
+      setTimeout(() => {
+        const el = document.getElementById(path);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY - 60;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, []);
+
   // Press "/" to scroll to terminal section
   useEffect(() => {
     const handleKeyPress = (e) => {
