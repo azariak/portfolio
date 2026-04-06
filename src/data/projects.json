@@ -10,10 +10,13 @@
     ]
   },
   {
-    "title": "Z Fellows Control Centre",
-    "description": "A control centre for interviews that integrates video calls, notes, action items, and a calendar. Custom built for Cory Levy to ensure the Z Fellowship can efficiently process thousands of applications.",
-    "link": "https://z-fellows-control-centre.vercel.app/",
-    "technologies": []
+    "title": "The Cost of Scrolling",
+    "description": "A tool to visualize the time humanity spends on social media",
+    "link": "https://azariak.github.io/CostOfScrolling/",
+    "technologies": [
+      "HTML/CSS",
+      "JavaScript"
+    ]
   },
   {
     "title": "WikiSurfer",
@@ -31,13 +34,10 @@
     "technologies": []
   },
   {
-    "title": "The Cost of Scrolling",
-    "description": "A tool to visualize the time humanity spends on social media",
-    "link": "https://azariak.github.io/CostOfScrolling/",
-    "technologies": [
-      "HTML/CSS",
-      "JavaScript"
-    ]
+    "title": "Z Fellows Control Centre",
+    "description": "A control centre for interviews that integrates video calls, notes, action items, and a calendar. Custom built for Cory Levy to ensure the Z Fellowship can efficiently process thousands of applications.",
+    "link": "https://z-fellows-control-centre.vercel.app/",
+    "technologies": []
   },
   {
     "title": "Moonwalk with Einstein",
