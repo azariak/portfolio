@@ -118,7 +118,7 @@ const Home = ({ isDarkMode }) => {
           <div className="section-label">01 &mdash; About</div>
           <div className="about-grid">
             <div className="about-left">
-              <h2 className="section-heading">Building things<br /><em>that matter.</em></h2>
+              <h2 className="section-heading"><em>Building things</em></h2>
               <p className="about-body">
                 I'm a fourth-year student at the University of Toronto, studying
                 Computer Science and Philosophy. Have a look at what I've been
