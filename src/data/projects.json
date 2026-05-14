@@ -90,6 +90,11 @@
     ]
   },
   {
+    "title": "Freelance Work",
+    "description": "I have occasionally built static and full-stack web projects on a freelance basis. Please reach out if you're looking for help.",
+    "technologies": []
+  },
+  {
     "title": "Tetris",
     "description": "A Tetris game in MIPS Assembly featuring a user interface, background music, and multiple difficulty levels.",
     "link": "https://gitfront.io/r/AKelman/A6atKrU2ZJnN/TetrisInMIPS/",

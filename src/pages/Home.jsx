@@ -143,19 +143,24 @@ const Home = ({ isDarkMode }) => {
           <h2 className="section-heading-sm">Selected works</h2>
 
           <div className="card-grid">
-            {visibleProjects.map((project, i) => (
-              <Card
-                key={i}
-                title={project.title}
-                description={project.description}
-                link={project.link}
-                onLearnMoreClick={
-                  projectsWithoutPopup.includes(project.title) ? undefined : openPopup
-                }
-                isMobile={isMobile}
-                trackingCategory="projects"
-              />
-            ))}
+            {visibleProjects.map((project, i) => {
+              const isFreelance = project.title === 'Freelance Work';
+              return (
+                <Card
+                  key={i}
+                  title={project.title}
+                  description={project.description}
+                  link={project.link}
+                  onLearnMoreClick={
+                    projectsWithoutPopup.includes(project.title) ? undefined : openPopup
+                  }
+                  isMobile={isMobile}
+                  trackingCategory="projects"
+                  hideLink={isFreelance}
+                  eyebrow={isFreelance ? 'Available for hire' : undefined}
+                />
+              );
+            })}
           </div>
 
           <p className="section-footnote">
