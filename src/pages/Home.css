@@ -118,6 +118,76 @@
   z-index: 1;
 }
 
+/* ---- Desktop-only Braille dot-art portrait (right side) ---- */
+/* Hovering slowly morphs the dot-art into the real photo. */
+.hero-portrait {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  transform: translateY(-40%);
+  z-index: 2; /* above hero-inner so it can receive hover */
+  user-select: none;
+  pointer-events: none; /* only the inner hit-area below reacts to hover */
+}
+
+/* Centered inner 50% region — the only part that triggers the morph */
+.hero-portrait-hit {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.hero-dotart {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(9px, 1.32vw, 17px);
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--accent);
+  opacity: 0.38;
+  white-space: pre;
+}
+
+/* Dots read fainter on the cream background — push them darker/stronger */
+.app.light .hero-dotart {
+  opacity: 0.78;
+}
+
+.hero-portrait-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: translateY(-7%) scale(1.22);
+  transform-origin: center;
+  opacity: 0;
+  pointer-events: none;
+  /* no transition here = instant fade-away on un-hover */
+}
+
+.hero-portrait-hit:hover ~ .hero-dotart {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hero-portrait-hit:hover ~ .hero-portrait-img {
+  opacity: 0.6; /* dark mode */
+  transition: opacity 0.4s ease;
+}
+
+.app.light .hero-portrait-hit:hover ~ .hero-portrait-img {
+  opacity: 0.8; /* light mode */
+}
+
+@media (max-width: 900px) {
+  .hero-portrait { display: none; }
+}
+
 /* ---- Eyebrow row ---- */
 .hero-eyebrow {
   display: flex;
