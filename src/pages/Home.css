@@ -472,13 +472,6 @@
 
   .hero-scroll { left: 1.5rem; bottom: 2rem; }
 
-  /* Keep the interests on a single line on mobile */
-  .hero-interests {
-    font-size: clamp(0.45rem, 2.7vw, 0.78rem);
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-  }
-
   .card-grid {
     grid-template-columns: 1fr;
   }
