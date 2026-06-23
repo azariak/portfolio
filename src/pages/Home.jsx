@@ -72,7 +72,7 @@ const Home = ({ isDarkMode }) => {
           </p>
 
           <p className="hero-interests">
-            Bullet Chess&ensp;·&ensp;GeoGuessr&ensp;·&ensp;Tennis&ensp;·&ensp;Skiing
+            Bullet Chess&ensp;·&ensp;GeoGuessr&ensp;·&ensp;Tennis&ensp;·&ensp;Skiing&ensp;·&ensp;Substack
           </p>
 
           <div className="hero-actions">

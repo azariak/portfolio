@@ -62,7 +62,7 @@
   },
   {
     "title": "Z Fellows Application Review Dashboard",
-    "description": "A streamlined dashboard used by Cory Levy to efficiently review thousands of Z Fellows applications and trigger emails to applicants.",
+    "description": "A dashboard used by Cory Levy to efficiently review thousands of Z Fellows applications using keyboard shortcuts and trigger emails to applicants.",
     "link": "https://azariak.github.io/ZFellowsApplicationReview/",
     "technologies": [
       "React",
@@ -78,7 +78,8 @@
     "technologies": [
       "AI",
       "Web Development"
-    ]
+    ],
+    "hidden": true
   },
   {
     "title": "Lichess Open-Source Contributions",
