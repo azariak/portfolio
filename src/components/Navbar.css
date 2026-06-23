@@ -134,6 +134,81 @@
   background: var(--surface-3);
 }
 
+/* ---- PULL-CORD BULB THEME TOGGLE ---- */
+.bulb-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: -14px; /* let the cord hang from near the navbar top */
+}
+
+.bulb-toggle.pulling {
+  animation: bulbPull 0.5s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+
+@keyframes bulbPull {
+  0%   { transform: translateY(0); }
+  35%  { transform: translateY(8px); }
+  100% { transform: translateY(0); }
+}
+
+.bulb-cord-line {
+  width: 1.5px;
+  height: 14px;
+  background: var(--text-muted);
+  opacity: 0.55;
+}
+
+.bulb-cord-knot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  margin-top: -1px;
+}
+
+.bulb-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 2px;
+  margin-top: 1px;
+  border-radius: 50%;
+  line-height: 0;
+  transition: filter 0.4s ease;
+}
+
+.bulb-btn .glass {
+  fill: rgba(201, 168, 106, 0.06);
+  stroke: var(--text-muted);
+  stroke-width: 2;
+  transition: fill 0.4s ease, stroke 0.4s ease;
+}
+
+.bulb-btn .fil {
+  stroke: var(--text-muted);
+  stroke-width: 1.6;
+  transition: stroke 0.4s ease;
+}
+
+.bulb-btn .base {
+  fill: var(--text-muted);
+}
+
+.bulb-btn.on {
+  filter: drop-shadow(0 0 10px rgba(201, 168, 106, 0.6));
+}
+
+.bulb-btn.on .glass {
+  fill: #f4d77f;
+  stroke: #caa450;
+}
+
+.bulb-btn.on .fil {
+  stroke: #7a5a16;
+}
+
 /* ---- HAMBURGER ---- */
 .hamburger {
   display: none;
@@ -226,4 +301,9 @@
   .mobile-menu { display: flex; }
   .navbar-inner { padding: 0 1.25rem; }
   .nav-kbd { display: none; }
+
+  /* Keep the hanging bulb compact on small screens */
+  .bulb-toggle { margin-top: -10px; }
+  .bulb-cord-line { height: 10px; }
+  .bulb-btn svg { width: 20px; height: 30px; }
 }

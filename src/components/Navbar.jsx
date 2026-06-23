@@ -15,6 +15,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [bulbPulling, setBulbPulling] = useState(false);
   // const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   useEffect(() => {
@@ -45,6 +46,12 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    setBulbPulling(true);
+    setTimeout(() => setBulbPulling(false), 500);
+  };
 
   const scrollTo = (id) => {
     setMenuOpen(false);
@@ -103,30 +110,24 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
             </button>
             */}
 
-            <button
-              className="icon-btn theme-toggle"
-              onClick={() => setIsDarkMode(!isDarkMode)}
-              aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-              title={isDarkMode ? 'Light mode' : 'Dark mode'}
-            >
-              {isDarkMode ? (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="5" />
-                  <line x1="12" y1="1" x2="12" y2="3" />
-                  <line x1="12" y1="21" x2="12" y2="23" />
-                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                  <line x1="1" y1="12" x2="3" y2="12" />
-                  <line x1="21" y1="12" x2="23" y2="12" />
-                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            <div className={`bulb-toggle ${bulbPulling ? 'pulling' : ''}`}>
+              <span className="bulb-cord-line" />
+              <span className="bulb-cord-knot" />
+              <button
+                className={`bulb-btn ${!isDarkMode ? 'on' : ''}`}
+                onClick={toggleTheme}
+                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                title={isDarkMode ? 'Light mode' : 'Dark mode'}
+              >
+                <svg viewBox="0 0 48 72" width="24" height="36" aria-hidden="true">
+                  <path className="glass" d="M24 6 C12 6 6 15 6 24 C6 32 11 36 14 41 L14 47 L34 47 L34 41 C37 36 42 32 42 24 C42 15 36 6 24 6 Z" />
+                  <path className="fil" fill="none" d="M18 41 L20 31 Q24 26 28 31 L30 41" />
+                  <rect className="base" x="15" y="47" width="18" height="5" rx="1.5" />
+                  <rect className="base" x="16.5" y="53" width="15" height="3.5" rx="1.2" />
+                  <rect className="base" x="18.5" y="58" width="11" height="3.5" rx="1.2" />
                 </svg>
-              ) : (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                </svg>
-              )}
-            </button>
+              </button>
+            </div>
 
             {/* Hamburger */}
             <button
