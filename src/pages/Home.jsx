@@ -85,7 +85,7 @@ const Home = ({ isDarkMode }) => {
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠕⠨⠸⡜⡔⡑⢍⠢⡱⡑⢌⢢⢑⢌⢆⢣⢱⢸⠨⡐⡈⡂⡢⡱⡕⣕⢕⡕⣕⢝⡜⡎⣗⢝⢵⢝⢜⢔⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠌⡌⣎⢯⢪⢪⢪⢪⢪⢪⡪⡪⡪⡪⡪⡮⣪⣳⠕⡐⡐⠌⣔⢵⢽⣼⣞⢮⢺⢹⢪⢪⢪⢪⢣⢫⡣⡇⡇⠄
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠑⢕⢵⢹⡸⡱⣕⡕⡕⡧⡳⡝⡎⣏⢮⢫⢪⢪⡑⡐⢌⢢⡿⣿⡿⣟⣿⣎⢎⢪⢣⢣⢣⢣⡣⡣⢪⢳⡹⡰`}</pre>
-          <img className="hero-portrait-img" src="/portrait.png" alt="" loading="lazy" />
+          <img className="hero-portrait-img" src="/portrait-dots.png" alt="" loading="lazy" />
         </div>
 
         <div className="hero-inner">
