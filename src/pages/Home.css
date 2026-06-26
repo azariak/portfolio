@@ -50,6 +50,11 @@
   color: var(--accent);
 }
 
+/* "Building things" reads cream/white in dark mode instead of gold */
+.dark .section-heading em {
+  color: var(--text);
+}
+
 /* ---- Smaller section heading (Projects, Software...) ---- */
 .section-heading-sm {
   font-family: 'Cormorant Garamond', serif;
@@ -152,6 +157,10 @@
 
 /* Dots read fainter on the cream background — push them darker/stronger */
 .app.light .hero-dotart {
+  /* Light mode uses a size-inverted dot-art (big↔small) with the
+     largest dots in the outer layer removed. Dark mode keeps the original. */
+  -webkit-mask: url(/portrait-gold-mask-light.png) center / contain no-repeat;
+  mask: url(/portrait-gold-mask-light.png) center / contain no-repeat;
   background-color: #997b35; /* golder ink, multiplied into the paper */
   opacity: 0.7;
   mix-blend-mode: multiply; /* blends into the cream paper instead of stamping on it */
