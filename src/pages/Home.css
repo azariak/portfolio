@@ -183,7 +183,19 @@
 }
 
 @media (max-width: 900px) {
-  .hero-portrait { display: none; }
+  /* Show the dot-art in the top-right corner, below the navbar.
+     No hover morph on mobile — the dot-art stays as-is. */
+  .hero-portrait {
+    top: 3.25rem;
+    right: 1.75rem;
+    transform: none;
+  }
+  .hero-portrait-hit,
+  .hero-portrait-img { display: none; }
+  .hero-dotart {
+    width: clamp(240px, 64vw, 380px);
+    opacity: 0.3;
+  }
 }
 
 /* ---- Eyebrow row ---- */
