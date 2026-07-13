@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './CommandLine.css';
 import projectsData from '../data/projects.json';
 import booksData from '../data/books.json';
+import articlesData from '../data/articles.json';
 import softwareData from '../data/software.json';
 import questionsAndAnswers from '../data/questionsAndAnswers.json';
 import { analytics } from '../utils/analytics';
@@ -47,6 +48,7 @@ const CommandLine = () => {
   banner          - Show welcome banner
   date            - Show current date and time
   echo <text>     - Echo back the text
+  articles        - List things I've written
   books           - List my bookshelf
   software        - List software I use
   `
@@ -60,6 +62,7 @@ Developer | Problem Solver | Tech Enthusiast
 Visit other sections to learn more:
 - /ask - Chat with AI about me
 - /projects - View my work
+- /articles - Read things I've written
 - /books - See what I'm reading
 - /software - Check out my favorite tools
       `
@@ -91,6 +94,13 @@ ${project.link ? `Demo: ${project.link}` : ''}
       };
     },
 
+    articles: () => ({
+      type: 'output',
+      content: `Things I've Written:\n${articlesData.map((a, i) =>
+        `${i + 1}. "${a.title}" (${a.publication})\n   ${a.link}`
+      ).join('\n')}`
+    }),
+
     books: () => ({
       type: 'output',
       content: `My Bookshelf:\n${booksData.map((b, i) =>
@@ -107,6 +117,7 @@ ${project.link ? `Demo: ${project.link}` : ''}
 
     tree: () => {
       const projectCount = projectsData.length;
+      const articleCount = articlesData.length;
       const bookCount = booksData.length;
       const softwareCount = softwareData.length;
 
@@ -128,6 +139,11 @@ ${projectsData.slice(0, 3).map((p, i) =>
     `│   ├── ${p.title}`
   ).join('\n')}
 │   └── ... and ${projectCount - 3} more
+├── articles/
+│   ├── ${articleCount} article${articleCount === 1 ? '' : 's'}
+${articlesData.map((a) =>
+    `│   ├── ${a.title}`
+  ).join('\n')}
 ├── books/
 │   ├── ${bookCount} books
 ${booksData.slice(0, 3).map((b, i) =>

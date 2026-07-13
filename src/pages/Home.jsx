@@ -6,6 +6,7 @@ import PersonalPortfolio from '../components/PersonalPortfolio';
 import projectsData from '../data/projects.json';
 import softwareData from '../data/software.json';
 import booksData from '../data/books.json';
+import articlesData from '../data/articles.json';
 import { analytics } from '../utils/analytics';
 import './Home.css';
 
@@ -79,7 +80,7 @@ const Home = ({ isDarkMode }) => {
           </p>
 
           <p className="hero-interests">
-            Bullet Chess&ensp;·&ensp;Substack&ensp;·&ensp;Tennis&ensp;·&ensp;Skiing
+            Bullet Chess&ensp;·&ensp;Writing&ensp;·&ensp;Tennis&ensp;·&ensp;Skiing
           </p>
 
           <div className="hero-actions">
@@ -184,11 +185,38 @@ const Home = ({ isDarkMode }) => {
       </section>
 
       {/* ═══════════════════════════════════
+          ARTICLES
+          ═══════════════════════════════════ */}
+      <section id="articles" className="section section-ruled">
+        <div className="section-container articles-container">
+          <div className="section-label">03 &mdash; Articles</div>
+          <h2 className="section-heading-sm">Things I've written</h2>
+
+          <ul className="articles-list" role="list">
+            {articlesData.map((article, i) => (
+              <li key={i} className="article-item">
+                <a
+                  href={article.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="article-link"
+                  onClick={() => analytics.featureCardClick(`Article: ${article.title}`)}
+                >
+                  <span className="article-title">{article.title}</span>
+                  <span className="article-pub">{article.date}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════
           BOOKS
           ═══════════════════════════════════ */}
       <section id="books" className="section section-ruled">
         <div className="section-container">
-          <div className="section-label">03 &mdash; Books</div>
+          <div className="section-label">04 &mdash; Books</div>
           <h2 className="section-heading-sm">My bookshelf</h2>
           <p className="section-description">
             Some books I've recently read and enjoyed.
@@ -219,7 +247,7 @@ const Home = ({ isDarkMode }) => {
           ═══════════════════════════════════ */}
       <section id="software" className="section">
         <div className="section-container">
-          <div className="section-label">04 &mdash; Software</div>
+          <div className="section-label">05 &mdash; Software</div>
           <h2 className="section-heading-sm">Software I like</h2>
 
           <div className="card-grid">
@@ -243,7 +271,7 @@ const Home = ({ isDarkMode }) => {
           ═══════════════════════════════════ */}
       <section id="terminal" className="section">
         <div className="section-container">
-          <div className="section-label">05 &mdash; Terminal</div>
+          <div className="section-label">06 &mdash; Terminal</div>
           <h2 className="section-heading-sm">Try the interface</h2>
           <p className="section-description">
             Type <code className="inline-code">help</code> for available commands.
