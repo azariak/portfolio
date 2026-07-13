@@ -16,8 +16,8 @@ const CommandLine = () => {
   const terminalRef = useRef(null);
 
   const BANNER = `╔═══════════════════════════════════════════╗
-║   Welcome to Azaria's Terminal v1.0      ║
-║   Type 'help' for available commands     ║
+║   Welcome to Azaria's Terminal v1.0       ║
+║   Type 'help' for available commands      ║
 ╚═══════════════════════════════════════════╝`;
 
   useEffect(() => {

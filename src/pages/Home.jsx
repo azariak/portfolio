@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Card from '../components/Card';
 import Popup from '../components/Popup';
 import CommandLine from './CommandLine';
-import PersonalPortfolio from '../components/PersonalPortfolio';
 import projectsData from '../data/projects.json';
 import softwareData from '../data/software.json';
 import booksData from '../data/books.json';
@@ -12,7 +11,7 @@ import './Home.css';
 
 const EMAIL = 'azaria.kelman@mail.utoronto.ca';
 
-const Home = ({ isDarkMode }) => {
+const Home = () => {
   const [popupUrl, setPopupUrl] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [emailCopied, setEmailCopied] = useState(false);
