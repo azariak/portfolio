@@ -113,7 +113,6 @@ const Home = ({ isDarkMode }) => {
           onClick={() => scrollTo('about')}
           aria-label="Scroll to about"
         >
-          <span className="hero-scroll-label">scroll</span>
           <span className="hero-scroll-arrow">↓</span>
         </button>
       </section>
