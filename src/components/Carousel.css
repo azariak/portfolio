@@ -1,0 +1,80 @@
+/* ============================================
+   CAROUSEL — editorial horizontal scroll-snap
+   Shows 4 items at a time (3 / 2 / 1 as it narrows)
+   ============================================ */
+.carousel {
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  background: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* legacy Edge */
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;                /* Chrome/Safari */
+}
+
+/* 4 per view — each slide takes a quarter minus the 3 inner gaps */
+.carousel-slide {
+  flex: 0 0 calc((100% - 3px) / 4);
+  min-width: 0;
+  scroll-snap-align: start;
+  display: flex;
+}
+
+.carousel-slide > * {
+  flex: 1;                      /* card fills slide height */
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1px;
+  margin-top: 1.25rem;
+}
+
+.carousel-arrow {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.carousel-arrow:hover:not(:disabled) {
+  background: var(--surface-2);
+  color: var(--accent);
+}
+
+.carousel-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* ---- Responsive per-view counts ---- */
+@media (max-width: 1100px) {
+  .carousel-slide { flex-basis: calc((100% - 2px) / 3); }  /* 3 per view */
+}
+
+@media (max-width: 768px) {
+  .carousel-slide { flex-basis: calc((100% - 1px) / 2); }  /* 2 per view */
+}
+
+@media (max-width: 480px) {
+  .carousel-slide { flex-basis: 100%; }                    /* 1 per view */
+}
