@@ -3,36 +3,31 @@
    ============================================ */
 .card {
   background-color: var(--bg);
-  border: none;          /* grid gap creates the border via parent bg */
-  padding: 1.5rem 1.6rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 1.7rem 1.6rem 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
   position: relative;
   overflow: hidden;
 }
 
 .card::before {
-  /* Left border accent that slides in on hover */
+  /* Colored accent bar across the top of the card */
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 2px;
-  height: 100%;
-  background: var(--accent);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform 0.25s ease;
+  right: 0;
+  height: 3px;
+  background: var(--card-accent, var(--accent));
 }
 
 .card:hover {
   background-color: var(--surface-2);
-}
-
-.card:hover::before {
-  transform: scaleY(1);
+  border-color: var(--border-strong, var(--accent));
 }
 
 /* ---- Book card variant (side-by-side) ---- */

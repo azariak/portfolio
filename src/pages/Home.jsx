@@ -199,8 +199,13 @@ const Home = () => {
                   className="article-link"
                   onClick={() => analytics.featureCardClick(`Article: ${article.title}`)}
                 >
-                  <span className="article-title">{article.title}</span>
-                  <span className="article-pub">{article.date}</span>
+                  <div className="article-head">
+                    <span className="article-title">{article.title}</span>
+                    <span className="article-pub">{article.date}</span>
+                  </div>
+                  {article.description && (
+                    <p className="article-desc">{article.description}</p>
+                  )}
                 </a>
               </li>
             ))}

@@ -1,6 +1,6 @@
 /* ============================================
-   CAROUSEL — editorial horizontal scroll-snap
-   Shows 4 items at a time (3 / 2 / 1 as it narrows)
+   CAROUSEL — separated cards, horizontal scroll-snap
+   Shows 4 cards at a time (3 / 2 / 1 as it narrows)
    ============================================ */
 .carousel {
   position: relative;
@@ -8,11 +8,10 @@
 
 .carousel-track {
   display: flex;
-  gap: 1px;
+  gap: 24px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  background: var(--border-subtle);
-  border: 1px solid var(--border-subtle);
+  padding: 6px 0;               /* room for focus rings above/below cards */
   scrollbar-width: none;        /* Firefox */
   -ms-overflow-style: none;     /* legacy Edge */
 }
@@ -21,9 +20,9 @@
   display: none;                /* Chrome/Safari */
 }
 
-/* 4 per view — each slide takes a quarter minus the 3 inner gaps */
+/* 4 per view — each slide takes a quarter minus the 3 inner 24px gaps */
 .carousel-slide {
-  flex: 0 0 calc((100% - 3px) / 4);
+  flex: 0 0 calc((100% - 3 * 24px) / 4);
   min-width: 0;
   scroll-snap-align: start;
   display: flex;
@@ -33,11 +32,42 @@
   flex: 1;                      /* card fills slide height */
 }
 
+/* ---- Controls row: progress (left) + arrows (right) ---- */
 .carousel-controls {
   display: flex;
-  justify-content: flex-end;
-  gap: 1px;
-  margin-top: 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.carousel-progress {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+}
+
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: var(--border-strong, rgba(255, 255, 255, 0.22));
+  cursor: pointer;
+  transition: width 0.28s ease, background-color 0.28s ease;
+}
+
+.carousel-dot.active {
+  width: 24px;
+  background: var(--accent);
+}
+
+.carousel-arrows {
+  display: flex;
+  gap: 10px;
 }
 
 .carousel-arrow {
@@ -48,17 +78,19 @@
   justify-content: center;
   background: var(--bg);
   border: 1px solid var(--border-subtle);
+  border-radius: 5px;
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
   font-size: 1.05rem;
   line-height: 1;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
 }
 
 .carousel-arrow:hover:not(:disabled) {
   background: var(--surface-2);
   color: var(--accent);
+  border-color: var(--accent);
 }
 
 .carousel-arrow:disabled {
@@ -68,13 +100,20 @@
 
 /* ---- Responsive per-view counts ---- */
 @media (max-width: 1100px) {
-  .carousel-slide { flex-basis: calc((100% - 2px) / 3); }  /* 3 per view */
+  .carousel-slide { flex-basis: calc((100% - 2 * 24px) / 3); }  /* 3 per view */
 }
 
 @media (max-width: 768px) {
-  .carousel-slide { flex-basis: calc((100% - 1px) / 2); }  /* 2 per view */
+  .carousel-slide { flex-basis: calc((100% - 24px) / 2); }      /* 2 per view */
 }
 
 @media (max-width: 480px) {
-  .carousel-slide { flex-basis: 100%; }                    /* 1 per view */
+  .carousel-track { gap: 16px; }
+  .carousel-slide { flex-basis: 100%; }                         /* 1 per view */
+
+  .carousel-controls { gap: 0.75rem; }
+  .carousel-progress { gap: 5px; }
+  .carousel-dot { width: 5px; height: 5px; }
+  .carousel-dot.active { width: 18px; }
+  .carousel-arrow { width: 40px; height: 40px; }
 }

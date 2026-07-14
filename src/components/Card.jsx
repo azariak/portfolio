@@ -2,7 +2,7 @@ import React from 'react';
 import './Card.css';
 import { analytics } from '../utils/analytics';
 
-const Card = ({ title, description, link, image, bookWiki, authorWiki, onLearnMoreClick, isMobile, trackingCategory, hideLink, eyebrow }) => {
+const Card = ({ title, description, link, image, bookWiki, authorWiki, onLearnMoreClick, isMobile, trackingCategory, hideLink, eyebrow, accent }) => {
   // Track card clicks based on category
   const trackClick = (isPopup = false) => {
     if (trackingCategory === 'books') {
@@ -36,15 +36,18 @@ const Card = ({ title, description, link, image, bookWiki, authorWiki, onLearnMo
   const isMobileProject = isMobile && trackingCategory === 'projects' && link;
 
   const cardInner = (
-    <div className={`card ${image && bookWiki ? 'book-card' : ''}`}>
+    <div
+      className={`card ${image && bookWiki ? 'book-card' : ''}`}
+      style={accent ? { '--card-accent': accent } : undefined}
+    >
       {image && <img src={image} alt={title} className="card-image" />}
       <div className="card-content">
         <h3 className="card-title">{cardTitle}</h3>
         <p className="card-description">{cardDescription}</p>
         {eyebrow && <span className="card-eyebrow">{eyebrow}</span>}
         {!hideLink && (isMobileProject
-          ? <span className="card-link learn-more">Visit</span>
-          : link && createLinkElement(link, 'Visit', 'card-link learn-more')
+          ? <span className="card-link learn-more">Visit&nbsp;→</span>
+          : link && createLinkElement(link, 'Visit →', 'card-link learn-more')
         )}
       </div>
     </div>
