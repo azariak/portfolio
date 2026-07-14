@@ -217,10 +217,14 @@
     overflow-x: clip;      /* belt-and-suspenders: never let a spine scroll the page */
   }
 
+  /* Stack title over author instead of side-by-side */
   .book-spine {
-    height: 42px;
-    gap: 8px;
-    padding: 0 13px;
+    height: 44px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1px;
+    padding: 6px 13px 0;   /* nudge the text block up toward the top */
     border-radius: 3px;
     box-shadow:
       inset 0 2px 4px rgba(255, 255, 255, 0.07),
@@ -232,14 +236,23 @@
     transform: translateX(4px);   /* smaller nudge stays well inside the section padding */
   }
   .book-spine-sheen { top: 4px; left: 13px; right: 13px; }
-  .book-spine-title { font-size: 13px; }
-  .book-spine-author { font-size: 9.5px; max-width: 42%; }
-  .book-spine-divider { height: 14px; }
+  .book-spine-divider { display: none; }
+  .book-spine-title {
+    flex: 0 0 auto;
+    max-width: 100%;
+    font-size: 12.5px;
+    line-height: 1.15;
+  }
+  .book-spine-author {
+    max-width: 100%;
+    font-size: 9px;
+    line-height: 1.1;
+  }
 }
 
 /* Very narrow phones — shrink type further so long titles still fit */
 @media (max-width: 360px) {
-  .book-spine { gap: 7px; padding: 0 11px; }
-  .book-spine-title { font-size: 12px; }
-  .book-spine-author { font-size: 9px; max-width: 44%; }
+  .book-spine { padding: 5px 11px 0; }
+  .book-spine-title { font-size: 11.5px; }
+  .book-spine-author { font-size: 8.5px; }
 }
