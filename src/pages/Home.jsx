@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Card from '../components/Card';
+import SoftwareCard from '../components/SoftwareCard';
 import Carousel from '../components/Carousel';
 import Bookshelf from '../components/Bookshelf';
 import Popup from '../components/Popup';
@@ -238,14 +239,11 @@ const Home = () => {
 
           <Carousel ariaLabel="Software">
             {softwareData.map((sw, i) => (
-              <Card
+              <SoftwareCard
                 key={i}
                 title={sw.title}
                 description={sw.description}
                 link={sw.link}
-                bookWiki={sw.link}
-                trackingCategory="software"
-                hideLink
               />
             ))}
           </Carousel>

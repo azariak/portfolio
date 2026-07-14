@@ -1,0 +1,97 @@
+/* ============================================
+   SOFTWARE CARD — terminal / browser-window style
+   ============================================ */
+.software-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 150px;
+  background-color: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+              transform 0.2s ease;
+}
+
+.software-card:hover {
+  background-color: var(--surface-2);
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+/* ---- Window chrome bar ---- */
+.software-card-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.software-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--text-faint);
+  transition: background-color 0.2s ease;
+}
+
+.software-card:hover .software-dot:nth-child(1) { background: #e0685c; }
+.software-card:hover .software-dot:nth-child(2) { background: #e0b34c; }
+.software-card:hover .software-dot:nth-child(3) { background: #6fb06f; }
+
+/* ---- Body ---- */
+.software-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.4rem 1.2rem;
+}
+
+.software-card-name {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+
+.software-card:hover .software-card-name {
+  color: var(--accent);
+}
+
+.software-card-desc {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  color: var(--text-muted);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.25s ease, max-height 0.25s ease;
+}
+
+.software-card:hover .software-card-desc,
+.software-card:focus-visible .software-card-desc {
+  opacity: 0.85;
+  max-height: 6rem;
+}
+
+/* Prefix the description like a terminal comment */
+.software-card-desc::before {
+  content: '// ';
+  color: var(--text-faint);
+}
+
+@media (max-width: 480px) {
+  .software-card { min-height: 130px; }
+  .software-card-desc { opacity: 0.85; max-height: 6rem; }  /* always show on mobile */
+}
