@@ -78,10 +78,6 @@ const Home = () => {
             University of Toronto
           </p>
 
-          <p className="hero-interests">
-            Bullet Chess&ensp;·&ensp;Writing&ensp;·&ensp;Tennis&ensp;·&ensp;Skiing
-          </p>
-
           <div className="hero-actions">
             <button className="hero-cta" onClick={copyEmail}>
               {emailCopied ? 'Copied ✓' : 'Get in touch'}
@@ -127,7 +123,9 @@ const Home = () => {
               <h2 className="section-heading"><em>Building things</em></h2>
               <p className="about-body">
                 I'm a fourth-year student at the University of Toronto, studying
-                Computer Science and Philosophy. Have a look at what I've been
+                Computer Science and Philosophy. Outside of building things, I play
+                a lot of bullet chess, read, explore the world in GeoGuessr, and
+                occasionally try to launch a Substack. Have a look at what I've been
                 building below, or{' '}
                 <button className="about-link" onClick={copyEmail}>
                   {emailCopied ? 'copied ✓' : 'reach out'}
