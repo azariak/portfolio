@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import Card from '../components/Card';
+import Carousel from '../components/Carousel';
+import Bookshelf from '../components/Bookshelf';
 import Popup from '../components/Popup';
 import CommandLine from './CommandLine';
 import projectsData from '../data/projects.json';
 import softwareData from '../data/software.json';
-import booksData from '../data/books.json';
 import articlesData from '../data/articles.json';
 import { analytics } from '../utils/analytics';
 import './Home.css';
@@ -146,7 +147,7 @@ const Home = () => {
           <div className="section-label">02 &mdash; Projects</div>
           <h2 className="section-heading-sm">Selected works</h2>
 
-          <div className="card-grid">
+          <Carousel ariaLabel="Projects">
             {visibleProjects.map((project, i) => {
               const isFreelance = project.title === 'Freelance Work';
               return (
@@ -165,7 +166,7 @@ const Home = () => {
                 />
               );
             })}
-          </div>
+          </Carousel>
 
           <p className="section-footnote">
             <a
@@ -215,26 +216,10 @@ const Home = () => {
           <div className="section-label">04 &mdash; Books</div>
           <h2 className="section-heading-sm">My bookshelf</h2>
           <p className="section-description">
-            Some books I've recently read and enjoyed.
+            A small collection of books I've read recently and enjoyed.
           </p>
 
-          <div className="books-grid">
-            {booksData.map((book, i) => (
-              <Card
-                key={i}
-                title={book.title}
-                description={book.author}
-                image={book.image}
-                bookWiki={book.bookWiki}
-                authorWiki={book.authorWiki}
-                onLearnMoreClick={
-                  ['The Mind-Body Problem'].includes(book.title) ? undefined : openPopup
-                }
-                isMobile={isMobile}
-                trackingCategory="books"
-              />
-            ))}
-          </div>
+          <Bookshelf />
         </div>
       </section>
 
@@ -246,7 +231,7 @@ const Home = () => {
           <div className="section-label">05 &mdash; Software</div>
           <h2 className="section-heading-sm">Software I like</h2>
 
-          <div className="card-grid">
+          <Carousel ariaLabel="Software">
             {softwareData.map((sw, i) => (
               <Card
                 key={i}
@@ -258,7 +243,7 @@ const Home = () => {
                 hideLink
               />
             ))}
-          </div>
+          </Carousel>
         </div>
       </section>
 

@@ -9,7 +9,7 @@
    SHARED SECTION STYLES
    ============================================ */
 .section {
-  padding: 100px 0;
+  padding: 64px 0;
 }
 
 /* Sections with a top rule */
@@ -603,7 +603,7 @@
 }
 
 @media (max-width: 768px) {
-  .section { padding: 72px 0; }
+  .section { padding: 48px 0; }
 
   .section-container { padding: 0 1.5rem; }
 
@@ -633,7 +633,7 @@
 }
 
 @media (max-width: 480px) {
-  .section { padding: 56px 0; }
+  .section { padding: 40px 0; }
   .section-container { padding: 0 1.25rem; }
   .hero-section { padding: 3rem 1.25rem 5rem; }
   .hero-actions { gap: 1rem; }
