@@ -567,7 +567,7 @@
 
 .footer-sig {
   font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
+  font-weight: 700;
   font-size: 1rem;
   line-height: 1;
   color: var(--text-muted);
