@@ -76,6 +76,7 @@ const Bookshelf = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="book-modal-link primary"
+                  onClick={() => analytics.bookClick(active.title)}
                 >
                   Book →
                 </a>
@@ -86,6 +87,7 @@ const Bookshelf = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="book-modal-link"
+                  onClick={() => analytics.authorClick(active.author)}
                 >
                   Author →
                 </a>

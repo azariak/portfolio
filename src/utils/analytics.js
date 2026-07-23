@@ -46,6 +46,13 @@ export const analytics = {
     });
   },
 
+  authorClick: (authorName) => {
+    trackEvent('author_click', {
+      event_category: 'Books',
+      event_label: authorName,
+    });
+  },
+
   // Projects events
   projectClick: (projectTitle) => {
     trackEvent('project_click', {
