@@ -163,6 +163,7 @@ const Home = () => {
                   isMobile={isMobile}
                   trackingCategory="projects"
                   hideLink={isFreelance}
+                  tags={project.tags}
                   eyebrow={isFreelance ? 'Available for hire' : undefined}
                 />
               );

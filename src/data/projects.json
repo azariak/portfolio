@@ -1,8 +1,35 @@
 [
   {
+    "title": "The Cost of Scrolling",
+    "description": "A tool to visualize the time humanity spends on social media",
+    "link": "https://azariak.github.io/CostOfScrolling/",
+    "tags": [
+      "5k+ users"
+    ],
+    "technologies": [
+      "HTML/CSS",
+      "JavaScript"
+    ]
+  },
+  {
+    "title": "Z Fellows Application Review Dashboard",
+    "description": "A dashboard used by Cory Levy to efficiently review thousands of Z Fellows applications using keyboard shortcuts and trigger emails to applicants.",
+    "link": "https://azariak.github.io/ZFellowsApplicationReview/",
+    "tags": [
+      "Freelance"
+    ],
+    "technologies": [
+      "React",
+      "JavaScript",
+      "Airtable API",
+      "Node.js"
+    ]
+  },
+  {
     "title": "TutorFlowAI",
     "description": "An interactive tutoring platform with real-time audio, a Large Language Model (LLM), a chatbot interface, and a digital whiteboard that creates intelligent learning experiences.",
     "link": "https://www.tutorflowai.com/",
+    "tags": [],
     "technologies": [
       "HTML/CSS",
       "React",
@@ -10,39 +37,29 @@
     ]
   },
   {
-    "title": "The Cost of Scrolling",
-    "description": "A tool to visualize the time humanity spends on social media",
-    "link": "https://azariak.github.io/CostOfScrolling/",
-    "technologies": [
-      "HTML/CSS",
-      "JavaScript"
-    ]
-  },
-  {
     "title": "WikiSurfer",
     "description": "A responsive website leveraging Wikipedia data to showcase thousands of top articles. Built an adaptive interface supporting swipe gestures for navigating the article feed across devices.",
     "link": "https://azariak.github.io/WikiSurfer/",
+    "tags": [],
     "technologies": [
       "HTML/CSS",
       "JavaScript"
     ]
-  },
-  {
-    "title": "Polyfolio",
-    "description": "Explore any Polymarket wallet. View positions, PnL, allocations, and trade history — all from one screen.",
-    "link": "https://azariak.github.io/Polyfolio/",
-    "technologies": []
   },
   {
     "title": "Z Fellows Control Centre",
     "description": "A control centre for interviews that integrates video calls, notes, action items, and a calendar. Custom built for Cory Levy to ensure the Z Fellowship can efficiently process thousands of applications.",
     "link": "https://z-fellows-control-centre.vercel.app/",
+    "tags": [
+      "Freelance"
+    ],
     "technologies": []
   },
   {
     "title": "Moonwalk with Einstein",
     "description": "A memory game inspired by Joshua Foer's book Moonwalking with Einstein.",
     "link": "https://azariak.github.io/MoonwalkWithEinstein/index.html",
+    "tags": [],
     "technologies": [
       "HTML/CSS",
       "JavaScript"
@@ -52,29 +69,30 @@
     "title": "CivicFlowTO",
     "description": "Use natural language to learn about Toronto and its open data",
     "link": "https://civicflow.pages.dev/",
+    "tags": [
+      "Hackathon"
+    ],
     "technologies": []
   },
   {
     "title": "Tryon",
     "description": "Try on clothing before you buy!",
     "link": "https://tryon-1fd.pages.dev/",
+    "tags": [],
     "technologies": []
   },
   {
-    "title": "Z Fellows Application Review Dashboard",
-    "description": "A dashboard used by Cory Levy to efficiently review thousands of Z Fellows applications using keyboard shortcuts and trigger emails to applicants.",
-    "link": "https://azariak.github.io/ZFellowsApplicationReview/",
-    "technologies": [
-      "React",
-      "JavaScript",
-      "Airtable API",
-      "Node.js"
-    ]
+    "title": "Polyfolio",
+    "description": "Explore any Polymarket wallet. View positions, PnL, allocations, and trade history — all from one screen.",
+    "link": "https://azariak.github.io/Polyfolio/",
+    "tags": [],
+    "technologies": []
   },
   {
     "title": "ChartAhead",
     "description": "An AI-powered intake platform that turns patient responses into physician-ready charts before their visit, integrating seamlessly into existing workflows.",
     "link": "https://chartahead.ca/",
+    "tags": [],
     "technologies": [
       "AI",
       "Web Development"
@@ -85,6 +103,9 @@
     "title": "Lichess Open-Source Contributions",
     "description": "Improved the UI for toggling chatroom visibility, refined a link to chess videos, and contributed to a patch for a bug that made the chessboard unreadable with transparent backgrounds.",
     "link": "https://github.com/search?q=repo%3Alichess-org%2Flila+author%3Aazariak&type=issues",
+    "tags": [
+      "Open source"
+    ],
     "technologies": [
       "JavaScript",
       "Git"
@@ -93,12 +114,14 @@
   {
     "title": "Freelance Work",
     "description": "I have occasionally built static and full-stack web projects on a freelance basis. Please reach out if you're looking for help.",
+    "tags": [],
     "technologies": []
   },
   {
     "title": "Tetris",
     "description": "A Tetris game in MIPS Assembly featuring a user interface, background music, and multiple difficulty levels.",
     "link": "https://gitfront.io/r/AKelman/A6atKrU2ZJnN/TetrisInMIPS/",
+    "tags": [],
     "technologies": [
       "Assembly"
     ],
