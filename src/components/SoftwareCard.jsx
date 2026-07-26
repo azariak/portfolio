@@ -7,7 +7,7 @@ import { analytics } from '../utils/analytics';
  * Chrome bar with three traffic-light dots, then the software name
  * in monospace uppercase. The whole card links out.
  */
-const SoftwareCard = ({ title, description, link }) => (
+const SoftwareCard = ({ title, link }) => (
   <a
     href={link}
     target="_blank"
@@ -22,9 +22,6 @@ const SoftwareCard = ({ title, description, link }) => (
     </div>
     <div className="software-card-body">
       <span className="software-card-name">{title}</span>
-      {description && (
-        <span className="software-card-desc">{description.trim()}</span>
-      )}
     </div>
   </a>
 );

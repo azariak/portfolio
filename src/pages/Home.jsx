@@ -243,7 +243,6 @@ const Home = () => {
               <SoftwareCard
                 key={i}
                 title={sw.title}
-                description={sw.description}
                 link={sw.link}
               />
             ))}

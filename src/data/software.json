@@ -1,51 +1,38 @@
 [
   {
     "title": "Obsidian",
-    "description": "An excellent knowledge base that works on top of a local folder of MD files.",
     "link": "https://obsidian.md/"
   },
   {
     "title": "Lichess",
-    "description": "The open-source chess server.",
     "link": "https://lichess.org/"
   },
   {
     "title": "Anki",
-    "description": "A spaced repetition flashcard program that makes remembering things a bit easier.",
     "link": "https://apps.ankiweb.net/"
   },
   {
     "title": "Sublime Text",
-    "description": "A text editor for code, markup, and prose.",
     "link": "https://www.sublimetext.com/"
   },
   {
     "title": "Bitwarden",
-    "description": "An open-source password manager that keeps your information safe.",
     "link": "https://bitwarden.com/"
   },
   {
-    "title": "Claude Code",
-    "description": "An agentic coding tool that reads your codebase, edits files, and runs commands.",
-    "link": "https://code.claude.com/"
+    "title": "OpenCode",
+    "link": "https://opencode.ai/"
   },
   {
     "title": "Cloudflare",
-    "description": "Cloudflare is great.    ",
     "link": "https://cloudflare.com/"
   },
   {
     "title": "Polymarket",
-    "description": "The prediction markets platform.",
     "link": "https://polymarket.com/"
   },
   {
     "title": "YouTube",
-    "description": "I have a feeling you know what this is.",
     "link": "https://www.youtube.com/"
   }
-
 ]
-
-
-
