@@ -200,9 +200,17 @@ button.card-link {
   font: inherit;
 }
 
-/* Mobile project card wrapper — makes whole card tappable */
+/* Mobile project card wrapper — makes whole card tappable.
+   Flex (not block) so the card inherits the carousel slide's stretched
+   height and every project box matches the tallest one. */
 a.card-mobile-link {
-  display: block;
+  display: flex;
+  min-width: 0;
   text-decoration: none;
   color: inherit;
+}
+
+a.card-mobile-link > .card {
+  flex: 1;
+  min-width: 0;
 }
