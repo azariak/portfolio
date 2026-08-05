@@ -34,27 +34,6 @@
   margin-bottom: 1.5rem;
 }
 
-/* ---- Large section heading (About) ---- */
-.section-heading {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
-  font-weight: 300;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  margin: 0 0 2rem 0;
-}
-
-.section-heading em {
-  font-style: italic;
-  color: var(--accent);
-}
-
-/* "Building things" reads cream/white in dark mode instead of gold */
-.dark .section-heading em {
-  color: var(--text);
-}
-
 /* ---- Smaller section heading (Projects, Software...) ---- */
 .section-heading-sm {
   font-family: 'Cormorant Garamond', serif;

@@ -122,7 +122,6 @@ const Home = () => {
           <div className="section-label">01 &mdash; About</div>
           <div className="about-grid">
             <div className="about-left">
-              <h2 className="section-heading"><em>Building things</em></h2>
               <p className="about-body">
                 I'm a fourth-year student at the University of Toronto, studying
                 Computer Science and Philosophy. Outside of building things, I play
