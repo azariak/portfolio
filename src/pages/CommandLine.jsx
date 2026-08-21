@@ -358,7 +358,7 @@ ${softwareData.slice(0, 3).map((s, i) =>
       </div>
       <div className="terminal-body" ref={terminalRef}>
         {history.map((item, index) => (
-          <div key={index} className={`terminal-line ${item.type}`}>
+          <div key={index} className={`terminal-line line-${item.type}`}>
             {item.type === 'input' ? (
               <><span className="prompt">visitor@azariak:~$</span> {item.content}</>
             ) : (

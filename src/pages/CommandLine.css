@@ -124,15 +124,18 @@
   min-width: 0;
 }
 
-.terminal-line.input {
-  color: rgba(255, 255, 255, 0.5);
+/* Line-type classes are prefixed: a bare `.input` collides with the global
+   chat-input rule in index.css, which painted this row with `var(--input)`
+   — invisible in dark mode, a white bar in light mode. */
+.terminal-line.line-input {
+  color: rgba(233, 255, 240, 0.82);
 }
 
-.terminal-line.output pre {
+.terminal-line.line-output pre {
   color: rgba(0, 230, 57, 0.75);
 }
 
-.terminal-line.error pre,
+.terminal-line.line-error pre,
 .error-text {
   color: #ff7070 !important;
   text-shadow: 0 0 5px rgba(255, 112, 112, 0.4) !important;
