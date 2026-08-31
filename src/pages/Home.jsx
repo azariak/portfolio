@@ -124,9 +124,9 @@ const Home = () => {
             <div className="about-left">
               <p className="about-body">
                 I'm a fourth-year student at the University of Toronto, studying
-                Computer Science and Philosophy. Outside of building things, I play
+                Computer Science and Philosophy. Aside from programming, I play
                 a lot of bullet chess, read, explore the world in GeoGuessr, and
-                occasionally try to launch a Substack. Have a look at what I've been
+                start more essays than I finish. Have a look at what I've been
                 building below, or{' '}
                 <button className="about-link" onClick={copyEmail}>
                   {emailCopied ? 'copied ✓' : 'reach out'}
