@@ -1,9 +1,11 @@
 [
   {
     "title": "When Content Costs Nothing",
-    "publication": "Steelmill",
+    "subtitle": "Truth in a world of cheaply generated deepfakes",
+    "publication": "Azaria Kelman",
     "date": "June 2nd 2026",
-    "description": "On what happens to writing, attention, and value once the cost of producing content collapses to zero.",
-    "link": "https://steelmill.substack.com/p/when-content-costs-nothing"
+    "datetime": "2026-06-02",
+    "slug": "when-content-costs-nothing",
+    "description": "On what happens to writing, attention, and value once the cost of producing content collapses to zero."
   }
 ]

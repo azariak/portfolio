@@ -97,7 +97,7 @@ ${project.link ? `Demo: ${project.link}` : ''}
     articles: () => ({
       type: 'output',
       content: `Things I've Written:\n${articlesData.map((a, i) =>
-        `${i + 1}. "${a.title}" (${a.publication})\n   ${a.link}`
+        `${i + 1}. "${a.title}" (${a.date})\n   /articles/${a.slug}`
       ).join('\n')}`
     }),
 

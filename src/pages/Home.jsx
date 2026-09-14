@@ -13,7 +13,7 @@ import './Home.css';
 
 const EMAIL = 'azaria.kelman@mail.utoronto.ca';
 
-const Home = () => {
+const Home = ({ onOpenArticle }) => {
   const [popupUrl, setPopupUrl] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [emailCopied, setEmailCopied] = useState(false);
@@ -191,25 +191,36 @@ const Home = () => {
           <h2 className="section-heading-sm">Things I've written</h2>
 
           <ul className="articles-list" role="list">
-            {articlesData.map((article, i) => (
-              <li key={i} className="article-item">
-                <a
-                  href={article.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="article-link"
-                  onClick={() => analytics.featureCardClick(`Article: ${article.title}`)}
-                >
-                  <div className="article-head">
-                    <span className="article-title">{article.title}</span>
-                    <span className="article-pub">{article.date}</span>
-                  </div>
-                  {article.description && (
-                    <p className="article-desc">{article.description}</p>
-                  )}
-                </a>
-              </li>
-            ))}
+            {articlesData.map((article, i) => {
+              // Articles with a slug are hosted here; the rest link out.
+              const internal = Boolean(article.slug);
+              const handleClick = (e) => {
+                analytics.featureCardClick(`Article: ${article.title}`);
+                if (internal) {
+                  e.preventDefault();
+                  onOpenArticle(`/articles/${article.slug}`);
+                }
+              };
+
+              return (
+                <li key={i} className="article-item">
+                  <a
+                    href={internal ? `/articles/${article.slug}` : article.link}
+                    {...(internal ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
+                    className="article-link"
+                    onClick={handleClick}
+                  >
+                    <div className="article-head">
+                      <span className="article-title">{article.title}</span>
+                      <span className="article-pub">{article.date}</span>
+                    </div>
+                    {article.description && (
+                      <p className="article-desc">{article.description}</p>
+                    )}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>

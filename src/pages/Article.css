@@ -1,0 +1,195 @@
+/* ============================================
+   ARTICLE READING PAGE
+   Editorial long-form view — reuses the site's
+   type scale and tokens, no navbar.
+   ============================================ */
+.article-page {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 3rem 1.5rem 6rem;
+}
+
+.article-page-inner {
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+/* ---- Reading progress rule ---- */
+.article-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 20;
+  pointer-events: none;
+  background-color: var(--border-subtle);
+}
+
+.article-progress-bar {
+  height: 100%;
+  background-color: var(--accent);
+  transform-origin: left center;
+  /* scaleX is driven inline from scroll position */
+  will-change: transform;
+}
+
+/* ---- Back arrow ---- */
+.article-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.18s ease;
+}
+
+.article-back:hover {
+  color: var(--accent);
+}
+
+.article-back-arrow {
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.18s ease;
+}
+
+.article-back:hover .article-back-arrow {
+  transform: translateX(-3px);
+}
+
+/* Once the gutter is wide enough, hang the back control in the left margin and
+   keep it pinned while reading. Below this it stays inline at the top, since a
+   sticky control over a full-width column would sit on top of the body copy. */
+@media (min-width: 1000px) {
+  .article-back-top {
+    position: sticky;
+    top: 2.5rem;
+    margin-left: -7rem;
+    z-index: 5;
+  }
+}
+
+/* ---- Masthead ---- */
+.article-page-head {
+  margin: 3.5rem 0 0;
+  padding-bottom: 2.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.article-page-pub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.4rem;
+}
+
+.article-page-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.3rem, 5.5vw, 3.4rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0;
+}
+
+.article-page-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 1.1rem 0 0;
+}
+
+.article-page-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.article-page-sep {
+  color: var(--accent);
+}
+
+/* ---- Body copy ---- */
+.article-page-body {
+  margin-top: 2.75rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.06rem;
+  font-weight: 300;
+  line-height: 1.78;
+  color: var(--text);
+}
+
+.article-page-body p {
+  margin: 0 0 1.6rem;
+}
+
+/* Opening line gets a little editorial emphasis */
+.article-page-body > p:first-child::first-line {
+  letter-spacing: 0.01em;
+}
+
+.article-page-body ul {
+  margin: 0 0 1.6rem;
+  padding-left: 1.1rem;
+  list-style: none;
+}
+
+.article-page-body li {
+  position: relative;
+  margin-bottom: 1.1rem;
+  padding-left: 0.9rem;
+}
+
+.article-page-body li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.78em;
+  width: 5px;
+  height: 1px;
+  background-color: var(--accent);
+}
+
+.article-page-body a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+
+.article-page-body a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ---- Foot ---- */
+.article-page-foot {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+@media (max-width: 600px) {
+  .article-page { padding: 2rem 1.25rem 4rem; }
+  .article-page-head { margin-top: 2.5rem; }
+  .article-page-body { font-size: 1.01rem; }
+}
