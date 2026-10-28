@@ -131,7 +131,7 @@
   background-color: var(--accent);
   -webkit-mask: url(/portrait-gold-mask.png) center / contain no-repeat;
   mask: url(/portrait-gold-mask.png) center / contain no-repeat;
-  opacity: 0.38;
+  opacity: 0.36;
 }
 
 /* Dots read fainter on the cream background — push them darker/stronger */
@@ -141,7 +141,7 @@
   -webkit-mask: url(/portrait-gold-mask-light.png) center / contain no-repeat;
   mask: url(/portrait-gold-mask-light.png) center / contain no-repeat;
   background-color: #997b35; /* golder ink, multiplied into the paper */
-  opacity: 0.7;
+  opacity: 0.67;
   mix-blend-mode: multiply; /* blends into the cream paper instead of stamping on it */
 }
 
@@ -153,7 +153,15 @@
   object-fit: contain;
   opacity: 0;
   pointer-events: none;
+  /* same halftone dot sizes as the gold dot-art */
+  -webkit-mask: url(/portrait-gold-mask-lg.png) center / contain no-repeat;
+  mask: url(/portrait-gold-mask-lg.png) center / contain no-repeat;
   /* no transition here = instant fade-away on un-hover */
+}
+
+.app.light .hero-portrait-img {
+  -webkit-mask: url(/portrait-gold-mask-light-lg.png) center / contain no-repeat;
+  mask: url(/portrait-gold-mask-light-lg.png) center / contain no-repeat;
 }
 
 .hero-portrait-hit:hover ~ .hero-dotart {
@@ -162,12 +170,12 @@
 }
 
 .hero-portrait-hit:hover ~ .hero-portrait-img {
-  opacity: 0.6; /* dark mode */
+  opacity: 0.5; /* dark mode */
   transition: opacity 0.4s ease;
 }
 
 .app.light .hero-portrait-hit:hover ~ .hero-portrait-img {
-  opacity: 0.8; /* light mode */
+  opacity: 0.7; /* light mode */
 }
 
 @media (max-width: 900px) {

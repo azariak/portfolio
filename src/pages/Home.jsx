@@ -60,7 +60,7 @@ const Home = ({ onOpenArticle }) => {
         <div className="hero-portrait" aria-hidden="true">
         <span className="hero-portrait-hit" />
         <div className="hero-dotart" />
-          <img className="hero-portrait-img" src="/portrait-dots.png" alt="" loading="lazy" />
+          <img className="hero-portrait-img" src="/portrait.png" alt="" loading="lazy" />
         </div>
 
         <div className="hero-inner">
