@@ -26,6 +26,15 @@
     ]
   },
   {
+    "title": "Election Dashboard",
+    "description": "A rich data dashboard to follow election results smartly.",
+    "link": "https://theelectiondashboard.com/",
+    "tags": [
+      "5k+ visits"
+    ],
+    "technologies": []
+  },
+  {
     "title": "TutorFlowAI",
     "description": "An interactive tutoring platform with real-time audio, a Large Language Model (LLM), a chatbot interface, and a digital whiteboard that creates intelligent learning experiences.",
     "link": "https://www.tutorflowai.com/",
@@ -47,13 +56,23 @@
     ]
   },
   {
+    "title": "CivicFlowTO",
+    "description": "Use natural language to learn about Toronto and its open data",
+    "link": "https://civicflow.pages.dev/",
+    "tags": [
+      "Hackathon"
+    ],
+    "technologies": []
+  },
+  {
     "title": "Z Fellows Control Centre",
     "description": "A control centre for interviews that integrates video calls, notes, action items, and a calendar. Custom built for Cory Levy to ensure the Z Fellowship can efficiently process thousands of applications.",
     "link": "https://z-fellows-control-centre.vercel.app/",
     "tags": [
       "Freelance"
     ],
-    "technologies": []
+    "technologies": [],
+    "hidden": true
   },
   {
     "title": "Moonwalk with Einstein",
@@ -64,15 +83,6 @@
       "HTML/CSS",
       "JavaScript"
     ]
-  },
-  {
-    "title": "CivicFlowTO",
-    "description": "Use natural language to learn about Toronto and its open data",
-    "link": "https://civicflow.pages.dev/",
-    "tags": [
-      "Hackathon"
-    ],
-    "technologies": []
   },
   {
     "title": "Tryon",

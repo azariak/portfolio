@@ -125,8 +125,8 @@ const Home = ({ onOpenArticle }) => {
               <p className="about-body">
                 I'm a fourth-year student at the University of Toronto, studying
                 Computer Science and Philosophy. Aside from programming, I play
-                a lot of bullet chess, read, explore the world in GeoGuessr, and
-                start more essays than I finish. Have a look at what I've been
+                a lot of bullet chess, read, and occasionally explore the world
+                in GeoGuessr. Have a look at what I've been
                 building below, or{' '}
                 <button className="about-link" onClick={copyEmail}>
                   {emailCopied ? 'copied ✓' : 'reach out'}
