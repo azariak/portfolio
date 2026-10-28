@@ -166,12 +166,12 @@
 
 .hero-portrait-hit:hover ~ .hero-dotart {
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.2s ease;
 }
 
 .hero-portrait-hit:hover ~ .hero-portrait-img {
   opacity: 0.5; /* dark mode */
-  transition: opacity 0.4s ease;
+  transition: opacity 0.2s ease;
 }
 
 .app.light .hero-portrait-hit:hover ~ .hero-portrait-img {
