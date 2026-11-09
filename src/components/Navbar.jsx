@@ -5,7 +5,7 @@ import './Navbar.css';
 const NAV_LINKS = [
   { label: 'About', id: 'about' },
   { label: 'Projects', id: 'projects' },
-  { label: 'Articles', id: 'articles' },
+  // { label: 'Articles', id: 'articles' }, // temporarily hidden
   { label: 'Books', id: 'books' },
   { label: 'Software', id: 'software' },
   { label: 'Terminal', id: 'terminal' },

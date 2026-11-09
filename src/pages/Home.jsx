@@ -183,8 +183,9 @@ const Home = ({ onOpenArticle }) => {
       </section>
 
       {/* ═══════════════════════════════════
-          ARTICLES
+          ARTICLES (temporarily hidden)
           ═══════════════════════════════════ */}
+      {/*
       <section id="articles" className="section section-ruled">
         <div className="section-container articles-container">
           <div className="section-label">03 &mdash; Articles</div>
@@ -224,6 +225,7 @@ const Home = ({ onOpenArticle }) => {
           </ul>
         </div>
       </section>
+      */}
 
       {/* ═══════════════════════════════════
           BOOKS
